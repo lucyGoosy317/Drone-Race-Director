@@ -1,4 +1,9 @@
 package application;
+
+/**
+ * @author Luziano Reyna/vtk064
+ * @author add your names here
+ */
 	
 import javafx.application.Application;
 
@@ -33,21 +38,25 @@ import javafx.scene.Scene;
 
 
 public class Main extends Application {
-public static Stage stage= new Stage();
-	
+	public static Stage stage;
+
 	@Override
 	public void start(Stage primaryStage) {
+		stage = primaryStage;
+
 		try {
-			//
-			Parent root= FXMLLoader.load(getClass().getResource("RaceStart.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("view/RaceStart.fxml"));
 			primaryStage.setScene(new Scene(root, 600, 600));
 			primaryStage.show();
-			
-		} catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
+
+	/**
+	 * 
+	 * @param args will take in array of strings
+	 */
 	public static void main(String[] args) {
 		launch(args);
 	}

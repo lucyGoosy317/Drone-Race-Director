@@ -9,16 +9,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="600.0" maxWidth="600.0" minHeight="600.0" minWidth="600.0" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.RaceStartController">
+<AnchorPane maxHeight="600.0" maxWidth="600.0" minHeight="600.0" minWidth="600.0" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.RaceStartController">
 	<children>
 		<Rectangle arcHeight="5.0" arcWidth="5.0" fill="RED" height="43.0" stroke="BLACK" strokeType="INSIDE" width="601.0" />
-      <ImageView fitHeight="407.0" fitWidth="334.0" layoutX="125.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../Desktop/20170222_005020.jpg" />
-         </image>
-      </ImageView>
 		<Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="159.0" layoutY="440.0" stroke="BLACK" strokeType="INSIDE" width="601.0" />
-		<Label layoutX="33.0" text="Race Director">
+		<Label layoutX="24.0" layoutY="43.0" text="Race Director">
 			<font>
 				<Font name="RacingNumbers" size="96.0" />
 			</font>
