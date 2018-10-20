@@ -1,6 +1,5 @@
 package application.controller;
 
-
 import java.io.IOException;
 
 import application.Main;
@@ -11,14 +10,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 
-public class RaceConfigureController {
+public class LoadPilotsController {
 
     @FXML
     private Button homeButton;
 
     @FXML
     void loadHome(ActionEvent event) {
-    	
+
     	Parent root;
 		try {
 
@@ -31,7 +30,6 @@ public class RaceConfigureController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 
 
     }

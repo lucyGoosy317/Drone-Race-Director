@@ -19,12 +19,17 @@
 			</font>
 		</Label>
 		<Rectangle arcHeight="5.0" arcWidth="5.0" height="43.0" layoutY="411.0" stroke="#515050" strokeType="INSIDE" width="601.0" />
-		<Button layoutX="329.0" layoutY="472.0" mnemonicParsing="false" text="Load Pilots" textFill="#ff11f3">
+		<Button fx:id="loadPilotsButton" layoutX="332.0" layoutY="409.0" mnemonicParsing="false" onAction="#loadPilotsScene" text="Load Pilots" textFill="#ff11f3">
 			<font>
 				<Font name="RacingNumbers" size="36.0" />
 			</font>
 		</Button>
-      <Button fx:id="enterPilots" layoutX="69.0" layoutY="471.0" mnemonicParsing="false" text="Enter Pilots" textFill="#ff11f3">
+      <Button fx:id="enterPilotsButton" layoutX="50.0" layoutY="409.0" mnemonicParsing="false" onAction="#enterPilotsScene" text="Enter Pilots" textFill="#ff11f3">
+         <font>
+            <Font name="RacingNumbers" size="36.0" />
+         </font>
+      </Button>
+      <Button fx:id="configureRaceButton" layoutX="161.0" layoutY="505.0" mnemonicParsing="false" onAction="#configureRaceScene" text="Configure Race" textFill="#ff11f3">
          <font>
             <Font name="RacingNumbers" size="36.0" />
          </font>

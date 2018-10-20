@@ -1,6 +1,7 @@
 package application.controller;
 
 
+
 import java.io.IOException;
 
 import application.Main;
@@ -11,7 +12,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 
-public class RaceConfigureController {
+public class EnterPilotsController {
 
     @FXML
     private Button homeButton;
@@ -32,9 +33,9 @@ public class RaceConfigureController {
 			e.printStackTrace();
 		}
 
-
-
     }
 
-}
+   }
+
+
 
