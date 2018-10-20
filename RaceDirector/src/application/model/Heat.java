@@ -1,10 +1,19 @@
 package application.model;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Heat {
 	//this will contain the pilots inside the heat
 	ArrayList<Pilots>pilotHeatList;
+	ArrayList<Channel>channelListBandA;
+	ArrayList<Channel>channelListBandB;
+	ArrayList<Channel>channelListBandE;
+	ArrayList<Channel>channelListBandF;
+	ArrayList<Channel>channelListBandR;
+	
 	String heatName;
 	
 	/**
@@ -14,6 +23,11 @@ public class Heat {
 	public Heat(String heatName) {
 		this.heatName=heatName;
 		pilotHeatList=new ArrayList<Pilots>();
+		channelListBandA=new ArrayList<Channel>();
+		channelListBandB=new ArrayList<Channel>();
+		channelListBandE=new ArrayList<Channel>();
+		channelListBandF=new ArrayList<Channel>();
+		channelListBandR=new ArrayList<Channel>();
 	}
 
 	//**********getters & Setter**************
@@ -47,6 +61,45 @@ public class Heat {
 	 */
 	public void setHeatName(String heatName) {
 		this.heatName = heatName;
+	}
+	/**
+	 * load channel?
+	 */
+	public void loadChannels(String channelFileName) {
+		String fileName=channelFileName;
+		File file=new File(fileName);
+		try {
+			Scanner scan=new Scanner(file);
+			while(scan.hasNext()) {
+				String line=scan.nextLine();
+				String[]tokens=line.split(",");
+				//place band/channels into their own arraylist
+				Channel channel=null;
+				if(tokens[0].contains("A")) {
+					channel=new Channel(tokens[0],tokens[1]);
+					channelListBandA.add(channel);
+				}else if(tokens[0].contains("B")) {
+					channel=new Channel(tokens[0],tokens[1]);
+					channelListBandB.add(channel);
+				}else if(tokens[0].contains("E")) {
+					channel=new Channel(tokens[0],tokens[1]);
+					channelListBandE.add(channel);
+				}else if(tokens[0].contains("F")) {
+					channel=new Channel(tokens[0],tokens[1]);
+					channelListBandF.add(channel);
+				}else if(tokens[0].contains("R")) {
+					channel=new Channel(tokens[0],tokens[1]);
+					channelListBandR.add(channel);
+				}
+				
+				
+			}
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
 	}
 	
 	

@@ -4,16 +4,34 @@ package application.model;
 
 public class Channel {
 	
-	public String channelName;
+	public String channelBand;
+	public String channelFreq;
 	
 	
 	/**
 	 * 
 	 * @param channelName will accept a String object and set to channelName
 	 */
-	public Channel(String channelName) {
-		this.channelName=channelName;
+	public Channel(String channelBand, String channelFreq) {
+		this.channelBand=channelBand;
 		
+		
+	}
+
+	/**
+	 * 
+	 * @return will return a String object of channelFreq
+	 */
+	public String getChannelFreq() {
+		return channelFreq;
+	}
+
+	/**
+	 * 
+	 * @param channelFreq will accept String and set to channelFreq
+	 */
+	public void setChannelFreq(String channelFreq) {
+		this.channelFreq = channelFreq;
 	}
 
 
@@ -21,8 +39,8 @@ public class Channel {
 	 * 
 	 * @return will return String channelName
 	 */
-	public String getChannelName() {
-		return channelName;
+	public String getChannelBand() {
+		return channelBand;
 	}
 
 	
@@ -30,8 +48,8 @@ public class Channel {
 	 * 
 	 * @param channelName will accept a String object and set to channelName
 	 */
-	public void setChannelName(String channelName) {
-		this.channelName = channelName;
+	public void setChannelBand(String channelName) {
+		this.channelBand = channelName;
 	}
 	
 	//only to view if channels are loading correctly
@@ -41,7 +59,7 @@ public class Channel {
 	public String toString() {
 		String ret="";
 		
-		ret=channelName+"\n";
+		ret=channelBand+" "+channelFreq+"\n";
 		return ret;
 	}
 
