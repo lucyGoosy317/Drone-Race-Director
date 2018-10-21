@@ -13,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 public class RaceConfigureController {
@@ -28,44 +29,22 @@ public class RaceConfigureController {
 
 	@FXML
 	private TextField heatsEntryTextField;
+	
+	@FXML
+    private Label roundDisplayLabel;
+	
+	@FXML
+	private Label pilotsDisplayLabel;
+
+	@FXML
+	private Label heatDisplayLabel;
+
 
 	public String roundEntry;
 	public String heatsEntry;
 	public String pilotEntry;
 	public RaceModelOrganizer raceModel= new RaceModelOrganizer();
-	/**
-	public RaceConfigureController(String roundEntry,String heatsEntry,String pilotEntry) {
-		this.roundEntry=roundEntry;
-		this.heatsEntry=heatsEntry;
-		this.pilotEntry=pilotEntry;
-	}
 	
-	//***************Getters & Setters*******************
-	public String getRoundEntry() {
-		return roundEntry;
-	}
-
-	public void setRoundEntry(String roundEntry) {
-		this.roundEntry = roundEntry;
-	}
-
-	public String getHeatsEntry() {
-		return heatsEntry;
-	}
-
-	public void setHeatsEntry(String heatsEntry) {
-		this.heatsEntry = heatsEntry;
-	}
-
-	public String getPilotEntry() {
-		return pilotEntry;
-	}
-
-	public void setPilotEntry(String pilotEntry) {
-		this.pilotEntry = pilotEntry;
-	}
-
-	**/
 	
 	
 	//**************************Methods********************************
@@ -75,6 +54,7 @@ public class RaceConfigureController {
 		String roundEntry=roundEntryTextField.getText();
 		this.roundEntry=roundEntry;
 		raceModel.createRounds(this.roundEntry);
+		roundDisplayLabel.setText(roundEntry);
 	}
 
 	@FXML
@@ -82,13 +62,16 @@ public class RaceConfigureController {
 		String heatsEntry=heatsEntryTextField.getText();
 		this.heatsEntry=heatsEntry;
 		raceModel.createHeats(this.heatsEntry);
+		heatDisplayLabel.setText(heatsEntry);
+		
 	}
 
 	@FXML
 	public void pilotEntryTextField(ActionEvent event) {
-		String pilotEntry=heatsEntryTextField.getText();
+		String pilotEntry=pilotEntryTextField.getText();
 		this.pilotEntry=pilotEntry;
-		raceModel.createRounds(this.pilotEntry);
+		raceModel.restrictPilotsPerHeat(this.pilotEntry);
+		pilotsDisplayLabel.setText(pilotEntry);
 	}
 
 	@FXML

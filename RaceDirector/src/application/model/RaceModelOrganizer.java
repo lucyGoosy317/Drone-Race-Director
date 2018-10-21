@@ -10,7 +10,7 @@ import java.util.Scanner;
  * @author Luziano Reyna vtk064
  *
  */
-public class RaceModelOrganizer {
+public class RaceModelOrganizer  {
 	ArrayList<Round> rounds;
 	// this will contain the pilots inside the heat
 	ArrayList<Pilots> pilotHeatList;
@@ -20,6 +20,7 @@ public class RaceModelOrganizer {
 	ArrayList<Channel> channelListBandF;
 	ArrayList<Channel> channelListBandR;
 	Round newHeat = null;
+	int numberOfPilotsPerHeat;
 
 	public RaceModelOrganizer() {
 		rounds = new ArrayList<Round>();
@@ -29,6 +30,7 @@ public class RaceModelOrganizer {
 		channelListBandE = new ArrayList<Channel>();
 		channelListBandF = new ArrayList<Channel>();
 		channelListBandR = new ArrayList<Channel>();
+		numberOfPilotsPerHeat=1;
 
 	}
 
@@ -134,17 +136,34 @@ public class RaceModelOrganizer {
 	}
 	//****left off here
 	public void createHeats(String numberOfHeats) {
-		int numOfRounds=Integer.parseInt(numberOfHeats);
-		int roundCount=1;
-		Round tempRound;
+		int numOfHeats=Integer.parseInt(numberOfHeats);
+		int heatCount=1;
+		
 		//insert Heats into all rounds
 		for(int i=0;i<rounds.size();i++) {
+			//go into rounds and insert heats
+			for(int l=0;l<numOfHeats;l++) {
+				Heat newHeat=null;
+				//remove and old heats
+				newHeat=new Heat("Heat:"+numOfHeats);
+				rounds.get(i).heat.add(newHeat);
+				heatCount++;
+			}
+			
 			
 		}
 			
 	
 	}
-	
+
+	//Restrict number of pilots to heat
+	public int restrictPilotsPerHeat(String restrictNumber) {
+		this.numberOfPilotsPerHeat=Integer.parseInt(restrictNumber);
+		
+		
+		return numberOfPilotsPerHeat;
+		
+	}
 	//******************toString*******************
 	public String toString() {
 		String ret="";

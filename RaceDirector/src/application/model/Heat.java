@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * @author Luziano Reyna vtk064
  *
  */
-public class Heat {
+public class Heat  {
 	
 	public ArrayList<Pilots>PilotsInHeat;
 	public String heatName;
