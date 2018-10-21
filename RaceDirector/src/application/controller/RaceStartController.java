@@ -8,7 +8,7 @@ import java.util.ResourceBundle;
 import javax.swing.JOptionPane;
 
 import application.Main;
-import application.model.Heat;
+
 import application.model.RaceModelOrganizer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -40,7 +40,7 @@ public class RaceStartController implements Initializable {
     @FXML
     void loadPilotsScene(ActionEvent event) {
 
-    	//Trying to figure out how to make this not only exist in this scope
+    	
 		FileChooser fileChooser=new FileChooser();
 		    fileChooser.setTitle("Open Resource File");
 		    //fileChooser.showOpenDialog(Main.stage);
@@ -66,7 +66,7 @@ public class RaceStartController implements Initializable {
 			Main.stage.show();
 
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 
@@ -87,7 +87,7 @@ public class RaceStartController implements Initializable {
 			Main.stage.show();
 
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 

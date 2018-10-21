@@ -14,6 +14,7 @@ public class RaceModelOrganizer {
 	ArrayList<Channel> channelListBandE;
 	ArrayList<Channel> channelListBandF;
 	ArrayList<Channel> channelListBandR;
+	Round newHeat = null;
 
 	public RaceModelOrganizer() {
 		rounds = new ArrayList<Round>();
@@ -81,7 +82,7 @@ public class RaceModelOrganizer {
 			}
 			scan.close();
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 
@@ -105,7 +106,7 @@ public class RaceModelOrganizer {
 			}
 			scan.close();
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 	}
@@ -115,7 +116,29 @@ public class RaceModelOrganizer {
 		
 	}
 	
+	public void createRounds(String numberOfRounds) {
+		int numOfRounds=Integer.parseInt(numberOfRounds);
+		int roundCount=1;
+		for(int i=0;i<numOfRounds;i++) {
+			Round newRound=new Round("Round:"+roundCount);
+			roundCount++;
+			rounds.add(newRound);
+		}
 	
+	
+	}
+	//****left off here
+	public void createHeats(String numberOfHeats) {
+		int numOfRounds=Integer.parseInt(numberOfHeats);
+		int roundCount=1;
+		Round tempRound;
+		//insert Heats into all rounds
+		for(int i=0;i<rounds.size();i++) {
+			
+		}
+			
+	
+	}
 	
 	//******************toString*******************
 	public String toString() {

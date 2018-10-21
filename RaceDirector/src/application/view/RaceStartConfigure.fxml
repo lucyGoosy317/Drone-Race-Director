@@ -5,9 +5,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="application.controller.RaceConfigureController">
+<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.RaceConfigureController">
    <children>
       <Button fx:id="homeButton" layoutX="235.0" layoutY="396.0" mnemonicParsing="false" onAction="#loadHome" text="Home" />
+      <TextField fx:id="roundEntryTextField" layoutX="44.0" layoutY="65.0" onAction="#roundEntryTextField" prefHeight="65.0" prefWidth="493.0" promptText="How Many Rounds" />
+      <TextField fx:id="heatsEntryTextField" layoutX="44.0" layoutY="147.0" onAction="#heatsEntryTextField" prefHeight="65.0" prefWidth="493.0" promptText="How Many Heats per Round" />
+      <TextField fx:id="pilotEntryTextField" layoutX="44.0" layoutY="227.0" onAction="#pilotEntryTextField" prefHeight="65.0" prefWidth="493.0" promptText="How Many Pilots In Each Heat" />
    </children>
 </AnchorPane>

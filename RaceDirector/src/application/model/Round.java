@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Round {
 	
-	//TODO Will have an ArrayList of Heats
+	
 	public ArrayList<Heat>heat;
 	public String roundName;
 	
@@ -38,6 +38,17 @@ public class Round {
 	//**************methods**********************
 	public void addHeats(Heat newHeat) {
 		heat.add(newHeat);
+	}
+	public void createNewHeat(String numberOfHeats) {
+		int numOfHeats=Integer.parseInt(numberOfHeats);
+		int heatCount=1;
+		for(int i=0;i<numOfHeats;i++) {
+			Heat newHeat=new Heat("Heat:"+heatCount);
+			heatCount++;
+			heat.add(newHeat);
+			
+			
+		}
 	}
 	
 	
