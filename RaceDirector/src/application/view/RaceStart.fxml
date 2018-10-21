@@ -29,7 +29,12 @@
             <Font name="RacingNumbers" size="36.0" />
          </font>
       </Button>
-      <Button fx:id="configureRaceButton" layoutX="161.0" layoutY="505.0" mnemonicParsing="false" onAction="#configureRaceScene" text="Configure Race" textFill="#ff11f3">
+      <Button fx:id="configureRaceButton" layoutX="20.0" layoutY="507.0" mnemonicParsing="false" onAction="#configureRaceScene" prefHeight="62.0" prefWidth="282.0" text="Configure Race" textFill="#ff11f3">
+         <font>
+            <Font name="RacingNumbers" size="36.0" />
+         </font>
+      </Button>
+      <Button fx:id="startRaceButton" layoutX="332.0" layoutY="506.0" mnemonicParsing="false" onAction="#startRaceScene" text="Start Race" textFill="#ff11f3">
          <font>
             <Font name="RacingNumbers" size="36.0" />
          </font>

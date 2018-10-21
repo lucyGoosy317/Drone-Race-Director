@@ -33,6 +33,9 @@ public class RaceStartController implements Initializable {
     @FXML
     private Button loadPilotsButton;
     
+    @FXML
+    private Button startRaceButton;
+    
    
 
     
@@ -97,6 +100,24 @@ public class RaceStartController implements Initializable {
     }
 
 
+    @FXML
+    void startRaceScene(ActionEvent event) {
+    	
+    	Parent root;
+		try {
+
+			root = FXMLLoader.load(getClass().getResource("../view/RoundView.fxml"));
+			Main.stage.setScene(new Scene(root, 600, 600));
+			Main.stage.setTitle("Round View");
+			Main.stage.show();
+
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+		}
+    	
+    	
+    }
 
 	
 	@Override

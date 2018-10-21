@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="application.controller.RoundController">
-	<!-- TODO Add Nodes -->
+<AnchorPane prefHeight="758.0" prefWidth="786.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.RoundController">
+   <children>
+      <Button layoutX="33.0" layoutY="628.0" mnemonicParsing="false" text="Previous Round" />
+      <Button layoutX="330.0" layoutY="628.0" mnemonicParsing="false" text="Start Round" />
+      <Button layoutX="574.0" layoutY="628.0" mnemonicParsing="false" text="Next Round" />
+      <Button layoutX="340.0" layoutY="13.0" mnemonicParsing="false" text="Home" />
+   </children>
 </AnchorPane>
