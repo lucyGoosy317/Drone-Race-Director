@@ -5,6 +5,11 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * 
+ * @author Luziano Reyna vtk064
+ *
+ */
 public class RaceModelOrganizer {
 	ArrayList<Round> rounds;
 	// this will contain the pilots inside the heat

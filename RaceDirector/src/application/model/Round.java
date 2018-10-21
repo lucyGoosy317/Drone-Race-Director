@@ -1,7 +1,11 @@
 package application.model;
 
 import java.util.ArrayList;
-
+/**
+ * 
+ * @author Luziano Reyna vtk064
+ *
+ */
 public class Round {
 	
 	

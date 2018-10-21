@@ -1,5 +1,10 @@
 package application.model;
 
+/**
+ * 
+ * @author Luziano Reyna vtk064
+ *
+ */
 public class Pilots {
 	
 	public String pilotName;
