@@ -1,16 +1,24 @@
 package application.controller;
 
+import java.io.File;
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import javax.swing.JOptionPane;
 
 import application.Main;
+import application.model.Heat;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.stage.FileChooser;
 
-public class RaceStartController {
+public class RaceStartController implements Initializable {
 
     @FXML
     private Button configureRaceButton;
@@ -20,29 +28,24 @@ public class RaceStartController {
 
     @FXML
     private Button loadPilotsButton;
-
+    
    
 
+    
+   
+    public static Heat channelHeatLoader=new Heat(null);
     
 
     @FXML
     void loadPilotsScene(ActionEvent event) {
 
-    	//load scene of load pilots
-
-		Parent root;
-		try {
-
-			root = FXMLLoader.load(getClass().getResource("../view/loadPilots.fxml"));
-			Main.stage.setScene(new Scene(root, 600, 600));
-			Main.stage.setTitle("Load Pilots");
-			Main.stage.show();
-
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-    	
+    	//Trying to figure out how to make this not only exist in this scope
+		FileChooser fileChooser=new FileChooser();
+		    fileChooser.setTitle("Open Resource File");
+		    //fileChooser.showOpenDialog(Main.stage);
+		    File file= fileChooser.showOpenDialog(Main.stage);
+		    channelHeatLoader.loadFileFromDesktop(file);
+		    JOptionPane.showMessageDialog(null, "Your Pilots have been Loaded");
     	
     	
     }
@@ -88,6 +91,16 @@ public class RaceStartController {
 		}
 
     }
+
+
+
+	
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		
+		channelHeatLoader.loadChannels("data/channelList.csv");
+		
+	}
 
     
 

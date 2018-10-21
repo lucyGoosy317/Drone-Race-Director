@@ -4,7 +4,7 @@ public class Pilots {
 	
 	public String pilotName;
 	public Channel pilotChannel;
-	public int pilotScore;
+	public String pilotScore;
 	
 	
 	
@@ -15,7 +15,7 @@ public class Pilots {
 	 * @param pilotChannel will accept an Channel object
 	 * @param pilotScore will accept an int value
 	 */
-	public Pilots(String pilotName, Channel pilotChannel, int pilotScore) {
+	public Pilots(String pilotName, Channel pilotChannel, String pilotScore) {
 		this.pilotName=pilotName;
 		this.pilotChannel=pilotChannel;
 		this.pilotScore=pilotScore;
@@ -67,7 +67,7 @@ public class Pilots {
 	 * 
 	 * @return will return int object of pilotScore
 	 */
-	public int getPilotScore() {
+	public String getPilotScore() {
 		return pilotScore;
 	}
 
@@ -77,7 +77,7 @@ public class Pilots {
 	 * 
 	 * @param pilotScore accept int as param and will set pilotScore
 	 */
-	public void setPilotScore(int pilotScore) {
+	public void setPilotScore(String pilotScore) {
 		this.pilotScore = pilotScore;
 	}
 	

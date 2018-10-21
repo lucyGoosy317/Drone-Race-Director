@@ -14,6 +14,7 @@ public class Channel {
 	 */
 	public Channel(String channelBand, String channelFreq) {
 		this.channelBand=channelBand;
+		this.channelFreq=channelFreq;
 		
 		
 	}

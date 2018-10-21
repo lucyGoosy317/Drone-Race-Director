@@ -1,7 +1,9 @@
 package application.model;
 
+import java.awt.Desktop;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -94,6 +96,7 @@ public class Heat {
 				
 				
 			}
+			scan.close();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -102,6 +105,34 @@ public class Heat {
 		
 	}
 	
+	
+	
+	/**
+	 * load from desktop?
+	 */
+	public void loadFileFromDesktop(File file) {
+		
+		try {
+			Scanner scan=new Scanner(file);
+			while(scan.hasNext()) {
+				String line=scan.next();
+				String[]tokens=line.split(",");
+				Pilots pilot=null;
+				Channel channel=null;
+				channel=new Channel(tokens[1],tokens[2]);
+				pilot=new Pilots(tokens[0],channel,tokens[3]);
+				pilotHeatList.add(pilot);
+			}
+			scan.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
+		
+		
+		
+	}
 	
 	//************to String**********************
 	/**
