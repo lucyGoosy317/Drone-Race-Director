@@ -90,7 +90,7 @@ public class Pilots {
 		String ret="";
 		
 		
-		ret="Pilot Name: "+pilotName+"\n"+ "Pilot Channel: "+pilotChannel.toString()+"\n"+"Pilot Score: "+pilotScore
+		ret="Pilot Name: "+pilotName+"\n"+ "Pilot Channel: "+pilotChannel.toString()+"Pilot Score: "+pilotScore
 				+"\n";
 		return ret;
 	}

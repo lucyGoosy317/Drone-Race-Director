@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 
 import application.Main;
 import application.model.Heat;
+import application.model.RaceModelOrganizer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -33,7 +34,7 @@ public class RaceStartController implements Initializable {
 
     
    
-    public static Heat channelHeatLoader=new Heat(null);
+    public  RaceModelOrganizer raceOrganizer=new RaceModelOrganizer();
     
 
     @FXML
@@ -44,7 +45,7 @@ public class RaceStartController implements Initializable {
 		    fileChooser.setTitle("Open Resource File");
 		    //fileChooser.showOpenDialog(Main.stage);
 		    File file= fileChooser.showOpenDialog(Main.stage);
-		    channelHeatLoader.loadFileFromDesktop(file);
+		    raceOrganizer.loadFileFromDesktop(file);
 		    JOptionPane.showMessageDialog(null, "Your Pilots have been Loaded");
     	
     	
@@ -98,7 +99,7 @@ public class RaceStartController implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
-		channelHeatLoader.loadChannels("data/channelList.csv");
+		raceOrganizer.loadChannels("data/channelList.csv");
 		
 	}
 
