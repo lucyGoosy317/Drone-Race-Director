@@ -21,22 +21,22 @@
 		<Rectangle arcHeight="5.0" arcWidth="5.0" height="43.0" layoutY="411.0" stroke="#515050" strokeType="INSIDE" width="601.0" />
 		<Button fx:id="loadPilotsButton" layoutX="332.0" layoutY="409.0" mnemonicParsing="false" onAction="#loadPilotsScene" text="Load Pilots" textFill="#ff11f3">
 			<font>
-				<Font name="RacingNumbers" size="36.0" />
+				<Font size="30.0" />
 			</font>
 		</Button>
       <Button fx:id="enterPilotsButton" layoutX="50.0" layoutY="409.0" mnemonicParsing="false" onAction="#enterPilotsScene" text="Enter Pilots" textFill="#ff11f3">
          <font>
-            <Font name="RacingNumbers" size="36.0" />
+            <Font size="30.0" />
          </font>
       </Button>
-      <Button fx:id="configureRaceButton" layoutX="20.0" layoutY="507.0" mnemonicParsing="false" onAction="#configureRaceScene" prefHeight="62.0" prefWidth="282.0" text="Configure Race" textFill="#ff11f3">
+      <Button fx:id="configureRaceButton" layoutX="50.0" layoutY="507.0" mnemonicParsing="false" onAction="#configureRaceScene" prefHeight="65.0" prefWidth="195.0" text="Configure" textFill="#ff11f3">
          <font>
-            <Font name="RacingNumbers" size="36.0" />
+            <Font size="30.0" />
          </font>
       </Button>
-      <Button fx:id="startRaceButton" layoutX="332.0" layoutY="506.0" mnemonicParsing="false" onAction="#startRaceScene" text="Start Race" textFill="#ff11f3">
+      <Button fx:id="startRaceButton" layoutX="332.0" layoutY="506.0" mnemonicParsing="false" onAction="#startRaceScene" prefHeight="65.0" prefWidth="189.0" text="Start Race" textFill="#ff11f3">
          <font>
-            <Font name="RacingNumbers" size="36.0" />
+            <Font size="30.0" />
          </font>
       </Button>
 	</children>
