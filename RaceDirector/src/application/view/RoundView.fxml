@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="758.0" prefWidth="786.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.RoundController">
+<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.RoundController">
    <children>
-      <Button layoutX="33.0" layoutY="628.0" mnemonicParsing="false" text="Previous Round" />
-      <Button layoutX="330.0" layoutY="628.0" mnemonicParsing="false" text="Start Round" />
-      <Button layoutX="574.0" layoutY="628.0" mnemonicParsing="false" text="Next Round" />
-      <Button layoutX="340.0" layoutY="13.0" mnemonicParsing="false" text="Home" />
+      <Button fx:id="previousRoundButton" layoutX="78.0" layoutY="473.0" mnemonicParsing="false" onAction="#previousRoundScene" text="Previous Round" />
+      <Button fx:id="startRoundButton" layoutX="267.0" layoutY="473.0" mnemonicParsing="false" onAction="#startRoundScene" text="Start Round" />
+      <Button fx:id="nextRoundButton" layoutX="451.0" layoutY="473.0" mnemonicParsing="false" onAction="#nextRoundUpdateScene" text="Next Round" />
+      <Button fx:id="homeButton" layoutX="491.0" layoutY="26.0" mnemonicParsing="false" onAction="#loadHome" text="Home" />
+      <TextArea fx:id="heatDisplayAreaTextArea" layoutX="28.0" layoutY="86.0" onDragDetected="#heatDisplayTextArea" prefHeight="299.0" prefWidth="530.0" text="Heat #&#10;Pilots Channel- Pilot Name" />
+      <Label fx:id="roundUpdaterLabel" alignment="CENTER" layoutX="40.0" layoutY="30.0" prefHeight="45.0" prefWidth="150.0" text="Round #">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

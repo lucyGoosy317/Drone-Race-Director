@@ -108,7 +108,7 @@ public class RaceStartController implements Initializable {
 
 			root = FXMLLoader.load(getClass().getResource("../view/RoundView.fxml"));
 			Main.stage.setScene(new Scene(root, 600, 600));
-			Main.stage.setTitle("Round View");
+			Main.stage.setTitle("Round Menu");
 			Main.stage.show();
 
 		} catch (IOException e) {

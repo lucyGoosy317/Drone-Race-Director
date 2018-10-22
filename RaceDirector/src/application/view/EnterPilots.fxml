@@ -8,9 +8,9 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.EnterPilotsController">
    <children>
-      <Button fx:id="homeButton" layoutX="212.0" layoutY="457.0" mnemonicParsing="false" onAction="#loadHome" prefHeight="65.0" prefWidth="176.0" text="Home">
+      <Button fx:id="homeButton" layoutX="238.0" layoutY="469.0" mnemonicParsing="false" onAction="#loadHome" prefHeight="65.0" prefWidth="122.0" text="Home">
          <font>
-            <Font size="36.0" />
+            <Font size="30.0" />
          </font></Button>
       <GridPane layoutX="61.0" layoutY="130.0" prefHeight="235.0" prefWidth="445.0">
         <columnConstraints>
