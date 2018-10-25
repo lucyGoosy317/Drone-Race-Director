@@ -16,8 +16,8 @@ package application;
  * 
  * -Create endScoreController, updated score as needed, create a save method
  * inside raceOrganizer save score for pilot, do not overwrite, file will be reread to collect
- *scores, will be displayed from round to round // Create Score fxml, no skin needed, just link
- *  (Name:                     )
+ * scores, will be displayed from round to round // Create Score fxml, no skin needed, just link
+ * (Name:   Edgard Borrego  )
  *  
  *  -Update RaceOrganizer with an addUpScore Method, method will itirate through a pilots
  *  score arrayList and add the values together, result   will be assigned to a label
