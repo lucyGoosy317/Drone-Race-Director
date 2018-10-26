@@ -10,6 +10,8 @@ import application.model.RaceModelOrganizer;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -21,7 +23,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 
-public class EnterPilotsController  implements Initializable{
+public class EnterPilotsController  implements Initializable, EventHandler<Event>{
 
     @FXML
     private Button enterPilotButton;
@@ -127,23 +129,20 @@ public class EnterPilotsController  implements Initializable{
     	ChannelsComboBox.setItems(BandR);
     }
 
-    @FXML
-    void getSelectedItem(ActionEvent event) {
 
-    }
-
-    
-    
-    @FXML
-    void getEnterPilotData(ActionEvent event) {
-    	
- 
-
-    }
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		ChannelsComboBox.setPromptText("Select Frequency");
+		
+	}
+
+
+	@Override
+	public void handle(Event event) {
+		String pilotName=pilotNameTextField.getText();
+		Channel selectedChannel=ChannelsComboBox.getValue();
+		RaceModelOrganizer.createNewPilot(pilotName, selectedChannel);
 		
 	}
 

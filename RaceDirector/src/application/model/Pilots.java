@@ -1,5 +1,7 @@
 package application.model;
 
+import java.util.ArrayList;
+
 /**
  * 
  * @author Luziano Reyna vtk064
@@ -9,7 +11,8 @@ public class Pilots {
 	
 	public String pilotName;
 	public Channel pilotChannel;
-	public String pilotScore;
+	//will change once score class is created 
+	private ArrayList<String> pilotsScore;
 	
 	
 	
@@ -20,10 +23,11 @@ public class Pilots {
 	 * @param pilotChannel will accept an Channel object
 	 * @param pilotScore will accept an int value
 	 */
-	public Pilots(String pilotName, Channel pilotChannel, String pilotScore) {
+	public Pilots(String pilotName, Channel pilotChannel) {
 		this.pilotName=pilotName;
 		this.pilotChannel=pilotChannel;
-		this.pilotScore=pilotScore;
+		pilotsScore=new ArrayList<String>();
+		
 		
 	}
 
@@ -66,27 +70,17 @@ public class Pilots {
 		this.pilotChannel = pilotChannel;
 	}
 
+ //TODO change String to Score once Score is create
+	public ArrayList<String> getPilotsScore() {
+		return pilotsScore;
+	}
 
-
-	/**
-	 * 
-	 * @return will return int object of pilotScore
-	 */
-	public String getPilotScore() {
-		return pilotScore;
+//TODO change String to Score once Score is create
+	public void setPilotsScore(ArrayList<String> pilotsScore) {
+		this.pilotsScore = pilotsScore;
 	}
 
 
-
-	/**
-	 * 
-	 * @param pilotScore accept int as param and will set pilotScore
-	 */
-	public void setPilotScore(String pilotScore) {
-		this.pilotScore = pilotScore;
-	}
-	
-	
 	/**
 	 * @return will show pilotName,channel,score of pilot
 	 * toString only to view if pilots are loading correctly
@@ -94,8 +88,8 @@ public class Pilots {
 	public String toString() {
 		String ret="";
 		
-		
-		ret="Pilot Name: "+pilotName+"\n"+ "Pilot Channel: "+pilotChannel.toString()+"Pilot Score: "+pilotScore
+	//pilot Score is toString here, loop through them to get each value
+		ret="Pilot Name: "+pilotName+"\n"+ "Pilot Channel: "+pilotChannel.toString()+"Pilot Score: "+pilotsScore.toString()
 				+"\n";
 		return ret;
 	}

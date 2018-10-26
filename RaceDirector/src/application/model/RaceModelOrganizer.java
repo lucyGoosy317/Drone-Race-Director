@@ -5,6 +5,8 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import javax.swing.JOptionPane;
+
 /**
  * 
  * @author Luziano Reyna vtk064
@@ -187,8 +189,9 @@ public class RaceModelOrganizer  {
 				Pilots pilot = null;
 				Channel channel = null;
 				channel = new Channel(tokens[1], tokens[2]);
-				pilot = new Pilots(tokens[0], channel, tokens[3]);
+				pilot = new Pilots(tokens[0], channel);
 				pilotGeneralPilotList.add(pilot);
+				JOptionPane.showMessageDialog(null,"Pilots have been loaded");
 			}
 			scan.close();
 		} catch (FileNotFoundException e) {
@@ -260,8 +263,9 @@ public class RaceModelOrganizer  {
 	 * the enter pilot controller which then will add the pilot to the general pilot array list
 	 */
 	public static void createNewPilot(String pilotName, Channel pilotChannel) {
-		Pilots newPilot=new Pilots(pilotName,pilotChannel,"0");
+		Pilots newPilot=new Pilots(pilotName,pilotChannel);
 		pilotGeneralPilotList.add(newPilot);
+		JOptionPane.showMessageDialog(null,"New Pilot has been added");
 	}
 	
 	//******************toString*******************

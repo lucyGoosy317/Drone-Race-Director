@@ -27,7 +27,7 @@
             <Font name="RacingNumbers" size="37.0" />
          </font>
       </Label>
-      <Button fx:id="enterPilotButton" layoutX="344.0" layoutY="499.0" mnemonicParsing="false" onAction="#getEnterPilotData" text="Enter Pilot" />
+      <Button fx:id="enterPilotButton" layoutX="344.0" layoutY="499.0" mnemonicParsing="false" onAction="#handle" text="Enter Pilot" />
       <GridPane layoutX="43.0" layoutY="230.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -47,6 +47,6 @@
             <RadioButton fx:id="bandRRadioButton" mnemonicParsing="false" onAction="#bandRFillComboBox" text="Band R" GridPane.columnIndex="4" />
          </children>
       </GridPane>
-      <ComboBox fx:id="ChannelsComboBox" layoutX="214.0" layoutY="300.0" onAction="#getSelectedItem" prefWidth="150.0" />
+      <ComboBox fx:id="ChannelsComboBox" layoutX="214.0" layoutY="300.0" prefWidth="150.0" />
    </children>
 </AnchorPane>
