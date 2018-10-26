@@ -4,6 +4,27 @@ package application;
  * @author Luziano Reyna/vtk064
  * @author add your names here
  * 
+ * 
+ * Task:
+ * -Create Score class inside Model(Name:            )
+ * -Update pilot with an arrayList of Scores that will be part of their Construtor, allowing pliot
+ * to have scores for each round which will be updated.
+ * 
+ * -Write Heat controller , which will update the labels with the pilots, and channels. Uitilize
+ * already made model classes.
+ * embedded (Name:            )
+ * 
+ * -Create endScoreController, updated score as needed, create a save method
+ * inside raceOrganizer save score for pilot, do not overwrite, file will be reread to collect
+ * scores, will be displayed from round to round // Create Score fxml, no skin needed, just link
+ * (Name:   Edgard Borrego  )
+ *  
+ *  -Update RaceOrganizer with an addUpScore Method, method will itirate through a pilots
+ *  score arrayList and add the values together, result   will be assigned to a label
+ *  
+ * -Create raceOffController, conect raceoff  controller componets to
+ * a functional level to display data as needed, raceOff fxml (Name:     )
+ * 
  */
 	
 import javafx.application.Application;
