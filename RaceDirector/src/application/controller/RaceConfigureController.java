@@ -16,6 +16,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
+@SuppressWarnings({ "static-access", "static-access" })
 public class RaceConfigureController {
 
 	@FXML
@@ -43,7 +44,7 @@ public class RaceConfigureController {
 	public String roundEntry;
 	public String heatsEntry;
 	public String pilotEntry;
-	public RaceModelOrganizer raceModel= new RaceModelOrganizer();
+
 	
 	
 	
@@ -53,7 +54,7 @@ public class RaceConfigureController {
 		
 		String roundEntry=roundEntryTextField.getText();
 		this.roundEntry=roundEntry;
-		raceModel.createRounds(this.roundEntry);
+		RaceModelOrganizer.createRounds(this.roundEntry);
 		roundDisplayLabel.setText(roundEntry);
 	}
 
@@ -61,7 +62,7 @@ public class RaceConfigureController {
 	public void heatsEntryTextField(ActionEvent event) {
 		String heatsEntry=heatsEntryTextField.getText();
 		this.heatsEntry=heatsEntry;
-		raceModel.createHeats(this.heatsEntry);
+		RaceModelOrganizer.createHeats(this.heatsEntry);
 		heatDisplayLabel.setText(heatsEntry);
 		
 	}
@@ -70,7 +71,7 @@ public class RaceConfigureController {
 	public void pilotEntryTextField(ActionEvent event) {
 		String pilotEntry=pilotEntryTextField.getText();
 		this.pilotEntry=pilotEntry;
-		raceModel.restrictPilotsPerHeat(this.pilotEntry);
+		RaceModelOrganizer.restrictPilotsPerHeat(this.pilotEntry);
 		pilotsDisplayLabel.setText(pilotEntry);
 	}
 
@@ -86,7 +87,7 @@ public class RaceConfigureController {
 			Main.stage.show();
 
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+		
 			e.printStackTrace();
 		}
 
