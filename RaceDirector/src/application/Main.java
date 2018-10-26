@@ -6,8 +6,8 @@ package application;
  * 
  * 
  * Task:
- * -Create Score class inside Model(Name:            )
- * -Update pilot with an arrayList of Scores that will be part of their Construtor, allowing pliot
+ * -Create Score class inside Model(Name:Edgard)
+ * -Update pilot with an arrayList of Scores , allowing pliot
  * to have scores for each round which will be updated.
  * 
  * -Write Heat controller , which will update the labels with the pilots, and channels. Uitilize
