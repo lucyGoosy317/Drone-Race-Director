@@ -8,33 +8,18 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.EnterPilotsController">
    <children>
-      <Button fx:id="homeButton" layoutX="258.0" layoutY="499.0" mnemonicParsing="false" onAction="#loadHome" prefHeight="25.0" prefWidth="71.0" text="Home" />
-      <GridPane layoutX="61.0" layoutY="130.0" prefHeight="221.0" prefWidth="513.0">
+      <Button fx:id="homeButton" layoutX="143.0" layoutY="499.0" mnemonicParsing="false" onAction="#loadHome" prefHeight="25.0" prefWidth="71.0" text="Home" />
+      <GridPane layoutX="61.0" layoutY="130.0" prefHeight="54.0" prefWidth="497.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <Label prefHeight="17.0" prefWidth="251.0" text="Pilot Name" />
-            <Label prefHeight="17.0" prefWidth="249.0" text="Band A" GridPane.rowIndex="1" />
             <TextField fx:id="pilotNameTextField" onAction="#getPilotNameTextField" prefHeight="65.0" prefWidth="259.0" promptText="Pilot Name" GridPane.columnIndex="1" />
-            <ComboBox fx:id="ChannelAComboBox" onAction="#channelAComboFillMe" prefHeight="55.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Label prefHeight="17.0" prefWidth="249.0" text="Band B" GridPane.rowIndex="2" />
-            <Label prefHeight="17.0" prefWidth="249.0" text="Band E" GridPane.rowIndex="3" />
-            <Label prefHeight="17.0" prefWidth="249.0" text="Band F" GridPane.rowIndex="4" />
-            <Label prefHeight="17.0" prefWidth="249.0" text="Band R" GridPane.rowIndex="5" />
-            <ComboBox fx:id="ChannelBComboBox" onAction="#channelBComboFillMe" prefHeight="55.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <ComboBox fx:id="ChannelEComboBox" onAction="#channelEComboFillMe" prefHeight="55.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <ComboBox fx:id="ChannelFComboBox" onAction="#channelFComboFillMe" prefHeight="55.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <ComboBox fx:id="ChannelRComboBox" onAction="#channelRComboFillMe" prefHeight="55.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
          </children>
       </GridPane>
       <Label layoutX="149.0" layoutY="46.0" text="Enter Pilots Menu">
@@ -42,6 +27,26 @@
             <Font name="RacingNumbers" size="37.0" />
          </font>
       </Label>
-      <Button fx:id="enterPilotButton" layoutX="364.0" layoutY="380.0" mnemonicParsing="false" onAction="#getEnterPilotData" text="Enter Pilot" />
+      <Button fx:id="enterPilotButton" layoutX="344.0" layoutY="499.0" mnemonicParsing="false" onAction="#getEnterPilotData" text="Enter Pilot" />
+      <GridPane layoutX="43.0" layoutY="230.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <RadioButton fx:id="bandARadioButton" mnemonicParsing="false" onAction="#bandAFillComboBox" text="Band A" />
+            <RadioButton fx:id="bandBRadioButton" mnemonicParsing="false" onAction="#bandBFillComboBox" text="Band B" GridPane.columnIndex="1" />
+            <RadioButton fx:id="bandERadioButton" mnemonicParsing="false" onAction="#bandEFillComboBox" text="Band E" GridPane.columnIndex="2" />
+            <RadioButton fx:id="bandFRadioButton" mnemonicParsing="false" onAction="#bandFFillComboBox" text="Band F" GridPane.columnIndex="3" />
+            <RadioButton fx:id="bandRRadioButton" mnemonicParsing="false" onAction="#bandRFillComboBox" text="Band R" GridPane.columnIndex="4" />
+         </children>
+      </GridPane>
+      <ComboBox fx:id="ChannelsComboBox" layoutX="214.0" layoutY="300.0" onAction="#getSelectedItem" prefWidth="150.0" />
    </children>
 </AnchorPane>

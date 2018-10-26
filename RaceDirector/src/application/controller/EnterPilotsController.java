@@ -17,28 +17,37 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 
-public class EnterPilotsController implements Initializable{
+public class EnterPilotsController  implements Initializable{
 
     @FXML
     private Button enterPilotButton;
 
+    @FXML
+    private RadioButton bandERadioButton;
+ 
 
     @FXML
-    private ComboBox<Channel> ChannelEComboBox;
+    private RadioButton bandRRadioButton;
+
+    @FXML
+    private RadioButton bandFRadioButton;
+
+    @FXML
+    private RadioButton bandARadioButton;
+
+    @FXML
+    private ComboBox<Channel> ChannelsComboBox;
+
+    @FXML
+    private RadioButton bandBRadioButton;
+    //toggling thru the radio buttons
+    @FXML
+    final ToggleGroup group= new ToggleGroup();
     
-    @FXML
-    private ComboBox<Channel> ChannelFComboBox;
-
-    @FXML
-    private ComboBox<Channel> ChannelRComboBox;
-
-    @FXML
-    private ComboBox<Channel> ChannelAComboBox;
-
-    @FXML
-    private ComboBox<Channel> ChannelBComboBox;
     
     @FXML
     private Button homeButton;
@@ -71,37 +80,60 @@ public class EnterPilotsController implements Initializable{
 		}
     }
 
+   
     @FXML
     void getPilotNameTextField(ActionEvent event) {
     	PilotName=pilotNameTextField.getText();
 
     }
-
+    
     @FXML
-    void channelAComboFillMe(ActionEvent event) {
-
+    void bandAFillComboBox(ActionEvent event) {
+    	bandARadioButton.setToggleGroup(group);
+    	bandARadioButton.setSelected(true);
+    	bandARadioButton.requestFocus();
+    	ChannelsComboBox.setItems(BandA);
     }
 
     @FXML
-    void channelBComboFillMe(ActionEvent event) {
-
+    void bandBFillComboBox(ActionEvent event) {
+    	bandBRadioButton.setToggleGroup(group);
+    	bandBRadioButton.setSelected(true);
+    	bandBRadioButton.requestFocus();
+    	ChannelsComboBox.setItems(BandB);
     }
 
     @FXML
-    void channelEComboFillMe(ActionEvent event) {
-
+    void bandEFillComboBox(ActionEvent event) {
+    	bandERadioButton.setToggleGroup(group);
+    	bandERadioButton.setSelected(true);
+    	bandERadioButton.requestFocus();
+    	ChannelsComboBox.setItems(BandE);
     }
 
     @FXML
-    void channelFComboFillMe(ActionEvent event) {
-
+    void bandFFillComboBox(ActionEvent event) {
+    	bandFRadioButton.setToggleGroup(group);
+    	bandFRadioButton.setSelected(true);
+    	bandFRadioButton.requestFocus();
+    	ChannelsComboBox.setItems(BandF);
     }
 
     @FXML
-    void channelRComboFillMe(ActionEvent event) {
+    void bandRFillComboBox(ActionEvent event) {
+    	bandRRadioButton.setToggleGroup(group);
+    	bandRRadioButton.setSelected(true);
+    	bandRRadioButton.requestFocus();
+    	ChannelsComboBox.setItems(BandR);
+    }
+
+    @FXML
+    void getSelectedItem(ActionEvent event) {
 
     }
 
+    
+    
     @FXML
     void getEnterPilotData(ActionEvent event) {
     	
@@ -111,20 +143,9 @@ public class EnterPilotsController implements Initializable{
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		ChannelAComboBox.setPromptText("Select Freq");
-		ChannelAComboBox.setItems(BandA);
+		ChannelsComboBox.setPromptText("Select Frequency");
 		
-		ChannelBComboBox.setItems(BandB);
-		ChannelBComboBox.setPromptText("Select Freq");
-		
-		ChannelEComboBox.setItems(BandE);
-		ChannelEComboBox.setPromptText("Select Freq");
-		
-		ChannelFComboBox.setItems(BandF);
-		ChannelFComboBox.setPromptText("Select Freq");
-		
-		ChannelRComboBox.setItems(BandR);
-		ChannelRComboBox.setPromptText("Select Freq");
 	}
 
+	
 }
