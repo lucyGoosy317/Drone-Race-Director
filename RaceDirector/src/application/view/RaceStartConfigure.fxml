@@ -7,10 +7,10 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.RaceConfigureController">
    <children>
-      <Button fx:id="homeButton" layoutX="436.0" layoutY="379.0" mnemonicParsing="false" onAction="#loadHome" text="Home" />
-      <TextField fx:id="roundEntryTextField" layoutX="44.0" layoutY="65.0" onAction="#roundEntryTextField" prefHeight="65.0" prefWidth="493.0" promptText="How Many Rounds" />
-      <TextField fx:id="heatsEntryTextField" layoutX="44.0" layoutY="147.0" onAction="#heatsEntryTextField" prefHeight="65.0" prefWidth="493.0" promptText="How Many Heats per Round" />
-      <TextField fx:id="pilotEntryTextField" layoutX="44.0" layoutY="227.0" onAction="#pilotEntryTextField" prefHeight="65.0" prefWidth="493.0" promptText="How Many Pilots In Each Heat" />
+      <Button fx:id="homeButton" layoutX="440.0" layoutY="457.0" mnemonicParsing="false" onAction="#loadHome" text="Home" />
+      <TextField fx:id="roundEntryTextField" layoutX="44.0" layoutY="65.0" prefHeight="65.0" prefWidth="493.0" promptText="How Many Rounds" />
+      <TextField fx:id="heatsEntryTextField" layoutX="44.0" layoutY="147.0" prefHeight="65.0" prefWidth="493.0" promptText="How Many Heats per Round" />
+      <TextField fx:id="pilotEntryTextField" layoutX="44.0" layoutY="227.0" prefHeight="65.0" prefWidth="493.0" promptText="How Many Pilots In Each Heat" />
       <GridPane gridLinesVisible="true" layoutX="44.0" layoutY="324.0" prefHeight="172.0" prefWidth="344.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="251.0" minWidth="10.0" prefWidth="237.0" />
@@ -30,5 +30,7 @@
             <Label fx:id="pilotsDisplayLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="45.0" prefWidth="102.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
          </children>
       </GridPane>
+      <Button fx:id="enterButton" layoutX="442.0" layoutY="385.0" mnemonicParsing="false" onAction="#handle" text="Enter" />
+      <Label layoutX="396.0" layoutY="313.0" prefHeight="51.0" prefWidth="181.0" text="Click enter after you have submitted your vaues" wrapText="true" />
    </children>
 </AnchorPane>

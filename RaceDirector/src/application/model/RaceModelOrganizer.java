@@ -208,22 +208,31 @@ public class RaceModelOrganizer  {
 		
 	}
 	
-	public static void createRounds(String numberOfRounds) {
+	public static boolean createRounds(String numberOfRounds) {
+		boolean check=false;
+		try {
 		int numOfRounds=Integer.parseInt(numberOfRounds);
 		int roundCount=1;
 		for(int i=0;i<numOfRounds;i++) {
 			Round newRound=new Round("Round:"+roundCount);
 			roundCount++;
 			rounds.add(newRound);
+			check=true;
+		}
+		}catch(NumberFormatException e) {
+			
+			JOptionPane.showMessageDialog(null, numberOfRounds+":"+"Is not a numerical value \n Please enter a numerical value");
+			check=false;
 		}
 	
-	
+	return check;
 	}
 	//****left off here
-	public static void createHeats(String numberOfHeats) {
-		int numOfHeats=Integer.parseInt(numberOfHeats);
+	public static boolean createHeats(String numberOfHeats) {
+		boolean check=false;
 		int heatCount=1;
-		
+		try {
+			int numOfHeats=Integer.parseInt(numberOfHeats);
 		//insert Heats into all rounds
 		for(int i=0;i<rounds.size();i++) {
 			//go into rounds and insert heats
@@ -234,19 +243,32 @@ public class RaceModelOrganizer  {
 				rounds.get(i).heat.add(newHeat);
 				heatCount++;
 			}
-			
-			
+			check=true;
 		}
+	}catch(NumberFormatException e) {
+		
+		JOptionPane.showMessageDialog(null, numberOfHeats+":"+"Is not a numerical value \n Please enter a numerical value");
+		check=false;
+	}
 			
+		
+			return check;
 	
 	}
 
 	//Restrict number of pilots to heat
-	public static int restrictPilotsPerHeat(String restrictNumber) {
+	public static boolean  restrictPilotsPerHeat(String restrictNumber) {
+		boolean check= false;
+		try {
 		numberOfPilotsPerHeat=Integer.parseInt(restrictNumber);
+		check=true;
+		}catch(NumberFormatException e) {
+			
+			JOptionPane.showMessageDialog(null, restrictNumber+":"+"Is not a numerical value \n Please enter a numerical value");
+			check=false;
+		}
 		
-		
-		return numberOfPilotsPerHeat;
+		return check;
 		
 	}
 	

@@ -8,6 +8,8 @@ import java.io.IOException;
 import application.Main;
 import application.model.RaceModelOrganizer;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -16,8 +18,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-@SuppressWarnings({ "static-access", "static-access" })
-public class RaceConfigureController {
+
+public class RaceConfigureController implements EventHandler<Event> {
 
 	@FXML
 	private Button homeButton;
@@ -30,10 +32,10 @@ public class RaceConfigureController {
 
 	@FXML
 	private TextField heatsEntryTextField;
-	
+
 	@FXML
-    private Label roundDisplayLabel;
-	
+	private Label roundDisplayLabel;
+
 	@FXML
 	private Label pilotsDisplayLabel;
 
@@ -41,39 +43,8 @@ public class RaceConfigureController {
 	private Label heatDisplayLabel;
 
 
-	public String roundEntry;
-	public String heatsEntry;
-	public String pilotEntry;
 
-	
-	
-	
-	//**************************Methods********************************
-	@FXML
-	public void roundEntryTextField(ActionEvent event) {
-		
-		String roundEntry=roundEntryTextField.getText();
-		this.roundEntry=roundEntry;
-		RaceModelOrganizer.createRounds(this.roundEntry);
-		roundDisplayLabel.setText(roundEntry);
-	}
-
-	@FXML
-	public void heatsEntryTextField(ActionEvent event) {
-		String heatsEntry=heatsEntryTextField.getText();
-		this.heatsEntry=heatsEntry;
-		RaceModelOrganizer.createHeats(this.heatsEntry);
-		heatDisplayLabel.setText(heatsEntry);
-		
-	}
-
-	@FXML
-	public void pilotEntryTextField(ActionEvent event) {
-		String pilotEntry=pilotEntryTextField.getText();
-		this.pilotEntry=pilotEntry;
-		RaceModelOrganizer.restrictPilotsPerHeat(this.pilotEntry);
-		pilotsDisplayLabel.setText(pilotEntry);
-	}
+	// **************************Methods********************************
 
 	@FXML
 	void loadHome(ActionEvent event) {
@@ -87,9 +58,29 @@ public class RaceConfigureController {
 			Main.stage.show();
 
 		} catch (IOException e) {
-		
+
 			e.printStackTrace();
 		}
+
+	}
+
+	//this handles the enter button
+	@Override
+	public void handle(Event event) {
+		
+		// This will create the rounds, heats, and restrict pilots while 
+		//doing checks to ensure pilot entered a number
+		if(RaceModelOrganizer.createRounds(roundEntryTextField.getText())==true) {
+			if(RaceModelOrganizer.createHeats(heatsEntryTextField.getText())==true) {
+				if(RaceModelOrganizer.restrictPilotsPerHeat(pilotEntryTextField.getText())==true) {
+					roundDisplayLabel.setText(roundEntryTextField.getText());
+					heatDisplayLabel.setText(heatsEntryTextField.getText());
+					pilotsDisplayLabel.setText(pilotEntryTextField.getText());
+					
+				}
+			}
+		}
+	
 
 	}
 
