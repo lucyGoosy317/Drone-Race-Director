@@ -21,8 +21,10 @@ public class RaceModelOrganizer  {
 	static ArrayList<Channel> channelListBandE;
 	static ArrayList<Channel> channelListBandF;
 	static ArrayList<Channel> channelListBandR;
-	Round newHeat = null;
+	private Round newHeat = null;
 	static int numberOfPilotsPerHeat;
+	private static int roundNumber;
+	private static int heatNumber;
 
 	public RaceModelOrganizer() {
 		rounds = new ArrayList<Round>();
@@ -33,6 +35,8 @@ public class RaceModelOrganizer  {
 		channelListBandF = new ArrayList<Channel>();
 		channelListBandR = new ArrayList<Channel>();
 		numberOfPilotsPerHeat=1;
+		roundNumber=0;
+		heatNumber=0;
 
 	}
 
@@ -137,8 +141,25 @@ public class RaceModelOrganizer  {
 		RaceModelOrganizer.pilotGeneralPilotList = pilotHeatList;
 	}
 
-	
-	
+	public int getRoundNumber() {
+		return roundNumber;
+	}
+
+	public void setRoundNumber(int roundNumber) {
+		this.roundNumber = roundNumber;
+	}
+
+	public int getHeatNumber() {
+		return heatNumber;
+	}
+
+	public void setHeatNumber(int heatNumber) {
+		this.heatNumber = heatNumber;
+	}
+
+
+
+
 	//******************Methods*******************
 	/**
 	 * load channel?
@@ -230,18 +251,18 @@ public class RaceModelOrganizer  {
 	//****left off here
 	public static boolean createHeats(String numberOfHeats) {
 		boolean check=false;
-		int heatCount=1;
+		
 		try {
-			int numOfHeats=Integer.parseInt(numberOfHeats);
+			heatNumber=Integer.parseInt(numberOfHeats);
 		//insert Heats into all rounds
 		for(int i=0;i<rounds.size();i++) {
 			//go into rounds and insert heats
-			for(int l=0;l<numOfHeats;l++) {
+			for(int l=0;l<heatNumber;l++) {
 				Heat newHeat=null;
 				//remove and old heats
-				newHeat=new Heat("Heat:"+numOfHeats);
+				newHeat=new Heat("Heat:"+heatNumber);
 				rounds.get(i).heat.add(newHeat);
-				heatCount++;
+				heatNumber++;
 			}
 			check=true;
 		}
@@ -272,10 +293,31 @@ public class RaceModelOrganizer  {
 		
 	}
 	
+	//change back to the previous round
+	public static String previousRound() {
+		roundNumber--;
+		
+		return rounds.get( roundNumber).toString(); 
+	}
 	
+	//change back to the next round
+	public static void nextRound() {
+		
+	}
 	
-	
-	
+	public static void loadPilotsIntoHeats() {
+		//go through the rounds
+		for(int i=0;i<rounds.size();i++) {
+			//get go through the number of heats in the first round
+			for(int l=0;l<heatNumber;l++) {
+				//load based off the restricted number
+				for(int o=0;o<numberOfPilotsPerHeat;o++) {
+					rounds.get(i).heat.get(l);
+				}
+			}
+			
+		}
+	}
 	
 	
 	

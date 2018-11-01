@@ -102,6 +102,9 @@ public class RaceStartController implements Initializable {
 
     @FXML
     void startRaceScene(ActionEvent event) {
+    	//TODO load pilots into heats
+    	
+    	
     	
     	Parent root;
 		try {
