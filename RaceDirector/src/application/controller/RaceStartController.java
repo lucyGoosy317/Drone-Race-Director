@@ -102,6 +102,11 @@ public class RaceStartController implements Initializable {
 
     @FXML
     void startRaceScene(ActionEvent event) {
+    	//TODO maybe
+    	//TODO once the director hits the race start button pilots shoud be loaded 
+    	//into each round into each heat and only the amount according to the restricted 
+    	//
+    	//TODO each time the user clicks start round, round count in 
     	
     	Parent root;
 		try {

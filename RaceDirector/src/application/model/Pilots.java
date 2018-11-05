@@ -9,10 +9,11 @@ import java.util.ArrayList;
  */
 public class Pilots {
 	
-	public String pilotName;
-	public Channel pilotChannel;
-	//will change once score class is created 
+	private String pilotName;
+	private Channel pilotChannel;
+	//will change once score class is created
 	private ArrayList<String> pilotsScore;
+	private int Total; 
 	
 	
 	
@@ -26,19 +27,33 @@ public class Pilots {
 	public Pilots(String pilotName, Channel pilotChannel) {
 		this.pilotName=pilotName;
 		this.pilotChannel=pilotChannel;
+		//place holder for each round of scores
 		pilotsScore=new ArrayList<String>();
+		//can be used to add all scores of pilot and stored
+		Total=0;
 		
 		
 	}
 
 
 	//***********getters & setters**************
+	
 	/**
 	 * 
 	 * @return will return string object of pilotName
 	 */
 	public String getPilotName() {
 		return pilotName;
+	}
+
+
+	public int getTotal() {
+		return Total;
+	}
+
+
+	public void setTotal(int total) {
+		Total = total;
 	}
 
 

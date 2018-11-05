@@ -199,7 +199,8 @@ public class RaceModelOrganizer  {
 			scan.close();
 		} catch (FileNotFoundException e) {
 			
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(null,"No pilots have been loaded");
+			//e.printStackTrace();
 		}
 	}
 	

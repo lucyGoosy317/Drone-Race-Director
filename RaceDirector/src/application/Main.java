@@ -14,7 +14,7 @@ package application;
  * already made model classes.
  * embedded (Name:            )
  * 
- * -Create endScoreController, updated score as needed, create a save method
+ * -//TODO Create endScoreController, updated score as needed, create a save method
  * inside raceOrganizer save score for pilot, do not overwrite, file will be reread to collect
  * scores, will be displayed from round to round // Create Score fxml, no skin needed, just link
  * (Name:   Edgard Borrego  )
