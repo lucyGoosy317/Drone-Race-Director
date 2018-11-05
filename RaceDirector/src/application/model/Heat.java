@@ -9,7 +9,7 @@ import java.util.ArrayList;
  */
 public class Heat  {
 	
-	public ArrayList<Pilots>PilotsInHeat;
+	public static ArrayList<Pilots>PilotsInHeat;
 	public String heatName;
 	
 	/**

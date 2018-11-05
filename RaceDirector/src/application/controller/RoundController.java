@@ -43,9 +43,7 @@ public class RoundController implements Initializable  {
     @FXML
     void previousRoundScene(ActionEvent event) {
 
-    	
-    	
-    	
+    	//TODO set heat display area to the last scene
     }
 //This is a scene change and will go into the Heats 1 by 1
     @FXML
