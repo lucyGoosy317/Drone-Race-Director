@@ -2,6 +2,8 @@ package application.model;
 
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 /**
  * 
  * @author Luziano Reyna vtk064
@@ -9,7 +11,7 @@ import java.util.ArrayList;
  */
 public class Heat  {
 	
-	public static ArrayList<Pilots>PilotsInHeat;
+	public ArrayList<Pilots>PilotsInHeat;
 	public String heatName;
 	
 	/**
@@ -20,6 +22,7 @@ public class Heat  {
 	
 	public Heat(String heatName) {
 		this.heatName=heatName;
+		PilotsInHeat=new ArrayList<Pilots>();
 		
 	}
 
@@ -47,9 +50,33 @@ public class Heat  {
 	
 		
 	//**************Methods*********************
-	
+	//will add a pilot into a heat
 	public void addPilotsToHeat(Pilots heatPilot) {
-		PilotsInHeat.add(heatPilot);
+		//check to see if the pilot is already inside a heat
+		if(PilotsInHeat.contains(heatPilot)) {
+			//alert the user if the pilot is in the heat
+			JOptionPane.showMessageDialog(null,heatPilot.getPilotName()+"Is already in"+heatName);
+		}else {
+			//if the pilot is not in the heat then add pilot to heat
+			PilotsInHeat.add(heatPilot);
+			//alert the user that the pilot was loaded into the heat
+			JOptionPane.showMessageDialog(null,heatPilot.getPilotName()+" Has been added to"+heatName);
+		}
+	}
+
+	
+	//will remove a pilot from a heat
+	public void removePilotsFromHeat(Pilots heatPilot) {
+		//check to see if pilot is in heat
+		if(PilotsInHeat.contains(heatPilot)) {
+			//if the pilot is in the heat remove them
+			PilotsInHeat.remove(heatPilot);
+			//alert the user that the pilot has been removed from that heat
+			JOptionPane.showMessageDialog(null,heatPilot.getPilotName()+" has been removed from "+heatName);
+		}else {
+			//if the pilot is not in the heat, alert the user that the pilot is not in the heat
+			JOptionPane.showMessageDialog(null,heatPilot.getPilotName()+" is not in "+heatName);
+		}
 		
 	}
 	

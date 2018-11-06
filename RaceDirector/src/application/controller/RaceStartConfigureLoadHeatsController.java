@@ -17,6 +17,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 
 public class RaceStartConfigureLoadHeatsController implements Initializable {
 
@@ -26,15 +29,38 @@ public class RaceStartConfigureLoadHeatsController implements Initializable {
 
 	@FXML
 	private ComboBox<Heat> heatComboBox;
+	
+	 @FXML
+	private Label currentHeatDisplay;
 
 	ObservableList<Pilots> PilotList=FXCollections.observableArrayList(RaceModelOrganizer.getPilotGeneralPilotList());
     ObservableList<Heat> HeatList=FXCollections.observableArrayList(RaceModelOrganizer.getHeats());
 
+    //add a pilot from heat>>RaceModelOrganizer>>Heat
+    //updateds the label of the current heat after pilot is entered>>RaceModelOrganizer
     @FXML
     void addPilot(ActionEvent event) {
-
+    	RaceModelOrganizer.loadPilotsIntoHeats(pilotComboBox.getValue(), heatComboBox.getValue());
+    	currentHeatDisplay.setText(RaceModelOrganizer.displayCurrentHeat(heatComboBox.getValue()));
     }
-
+    
+    
+    //remove a pilot from heat>>RaceModelOrganizer>>Heat
+    //updates the label of the current heat after a pilot is removed>>RaceModelOrganizer
+    @FXML
+    void removePilot(ActionEvent event) {
+    	RaceModelOrganizer.removePilotsFromHeats(pilotComboBox.getValue(), heatComboBox.getValue());
+    	currentHeatDisplay.setText(RaceModelOrganizer.displayCurrentHeat(heatComboBox.getValue()));
+    }
+    
+    //will show the change the current heat list as the user selects the heat comboBox
+    @FXML
+    void changeDisplay(ActionEvent event) {
+    	
+    	currentHeatDisplay.setText(RaceModelOrganizer.displayCurrentHeat(heatComboBox.getValue()));
+    }
+    
+    //load to the race start menu
     @FXML
     void loadHome(ActionEvent event) {
 
@@ -57,10 +83,9 @@ public class RaceStartConfigureLoadHeatsController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-
+		//setting the promot text and list of items that will be viewed inside the comboBoxes
 		pilotComboBox.setPromptText("Select Pilot");
 		pilotComboBox.setItems(PilotList);
-		System.out.println(RaceModelOrganizer.getPilotGeneralPilotList());
 		heatComboBox.setPromptText("Select Heat");
 		heatComboBox.setItems(HeatList);
 		

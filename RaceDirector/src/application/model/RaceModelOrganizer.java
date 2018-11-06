@@ -12,9 +12,9 @@ import javax.swing.JOptionPane;
  * @author Luziano Reyna vtk064
  *
  */
-public class RaceModelOrganizer  {
+public class RaceModelOrganizer {
 	static ArrayList<Round> rounds;
-	static ArrayList <Heat> heats;
+	static ArrayList<Heat> heats;
 	// this will contain the pilots inside the heat
 	static ArrayList<Pilots> pilotGeneralPilotList;
 	static ArrayList<Channel> channelListBandA;
@@ -35,31 +35,15 @@ public class RaceModelOrganizer  {
 		channelListBandE = new ArrayList<Channel>();
 		channelListBandF = new ArrayList<Channel>();
 		channelListBandR = new ArrayList<Channel>();
-		heats= new ArrayList<Heat>();
-		numberOfPilotsPerHeat=1;
-		roundNumber=0;
-		heatNumber=0;
+		heats = new ArrayList<Heat>();
+		numberOfPilotsPerHeat = 1;
+		roundNumber = 1;
+		heatNumber = 1;
 
 	}
 
-	
-	
-	
-	/************Getters & Setter**************
-	
-	
-	
-	
-	
-	
-	
-	
-	 /**
-	 * 
-	 * @return will return pilotList
-	 */
-	
-	
+	// ************Getters & Setter**************
+
 	public static ArrayList<Pilots> getPilotHeatList() {
 		return pilotGeneralPilotList;
 	}
@@ -68,15 +52,9 @@ public class RaceModelOrganizer  {
 		return heats;
 	}
 
-
-
-
 	public static void setHeats(ArrayList<Heat> heats) {
 		RaceModelOrganizer.heats = heats;
 	}
-
-
-
 
 	public static ArrayList<Round> getRounds() {
 		return rounds;
@@ -150,11 +128,6 @@ public class RaceModelOrganizer  {
 		RaceModelOrganizer.numberOfPilotsPerHeat = numberOfPilotsPerHeat;
 	}
 
-	/**
-	 * 
-	 * @param pilotHeatList
-	 *            will set pilotList
-	 */
 	public void setPilotHeatList(ArrayList<Pilots> pilotHeatList) {
 		RaceModelOrganizer.pilotGeneralPilotList = pilotHeatList;
 	}
@@ -175,13 +148,11 @@ public class RaceModelOrganizer  {
 		RaceModelOrganizer.heatNumber = heatNumber;
 	}
 
+	// ******************Methods*******************
 
-
-
-	//******************Methods*******************
 	
-	
-	//Loading channels from the given .csv file, Which is being initialized in menuStartController>>MenuStartController
+	// Loading channels from the given .csv file, Which is being initialized in
+	// menuStartController>>MenuStartController
 	public void loadChannels(String channelFileName) {
 		String fileName = channelFileName;
 		File file = new File(fileName);
@@ -212,13 +183,14 @@ public class RaceModelOrganizer  {
 			}
 			scan.close();
 		} catch (FileNotFoundException e) {
-			
+
 			e.printStackTrace();
 		}
 
 	}
 
-	//Load pilots from .csv File in custom format, user must see read me to utilize this feature>>RaceStartController
+	// Load pilots from .csv File in custom format, user must see read me to utilize
+	// this feature>>RaceStartController
 	public static void loadFileFromDesktop(File file) {
 
 		try {
@@ -231,134 +203,112 @@ public class RaceModelOrganizer  {
 				channel = new Channel(tokens[1], tokens[2]);
 				pilot = new Pilots(tokens[0], channel);
 				pilotGeneralPilotList.add(pilot);
-				
+
 			}
-			JOptionPane.showMessageDialog(null,"Pilots have been loaded");
+			JOptionPane.showMessageDialog(null, "Pilots have been loaded");
 			scan.close();
 		} catch (FileNotFoundException e) {
-			
-			JOptionPane.showMessageDialog(null,"No pilots have been loaded");
-			//e.printStackTrace();
+
+			JOptionPane.showMessageDialog(null, "No pilots have been loaded");
+			// e.printStackTrace();
 		}
 	}
-	
-	//add more rounds
+
+	// add more rounds
 	public void addRounds(Round newRound) {
 		rounds.add(newRound);
-		
+
 	}
-	
-	
-	//Creating Rounds inside the Race Configure wizard>>RaceConfigureController
+
+	// Creating Rounds inside the Race Configure wizard>>RaceConfigureController
 	public static boolean createRounds(String numberOfRounds) {
-		boolean check=false;
-		//remove all rounds if configured is accessed again
+		boolean check = false;
+		// remove all rounds if configured is accessed again
 		rounds.removeAll(rounds);
-		//create the Round
+		// create the Round
 		try {
-		int numOfRounds=Integer.parseInt(numberOfRounds);
-		int roundCount=1;
-		for(int i=0;i<numOfRounds;i++) {
-			Round newRound=new Round("Round:"+roundCount);
-			roundCount++;
-			rounds.add(newRound);
-			check=true;
+			int numOfRounds = Integer.parseInt(numberOfRounds);
+			int roundCount = 1;
+			for (int i = 0; i < numOfRounds; i++) {
+				Round newRound = new Round("Round:" + roundCount);
+				roundCount++;
+				rounds.add(newRound);
+				check = true;
+			}
+		} catch (NumberFormatException e) {
+
+			JOptionPane.showMessageDialog(null,
+					numberOfRounds + ":" + "Is not a numerical value \n Please enter a numerical value");
+			check = false;
 		}
-		}catch(NumberFormatException e) {
-			
-			JOptionPane.showMessageDialog(null, numberOfRounds+":"+"Is not a numerical value \n Please enter a numerical value");
-			check=false;
-		}
-	
-	return check;
+
+		return check;
 	}
-	
-	//Creating Heats inside the Race Configure wizard>>RaceConfigureController
+
+	// Creating Heats inside the Race Configure wizard>>RaceConfigureController
 	public static boolean createHeats(String numberOfHeats) {
-		boolean check=false;
-		//Remove all heats if accessed again by the user
+		boolean check = false;
+		// Remove all heats if accessed again by the user
 		heats.removeAll(heats);
 		try {
-			int heatNumber=Integer.parseInt(numberOfHeats);
-			int heatCount=1;
-		//insert Heats into all rounds
-		for(int i=0;i<heatNumber;i++) {
-				Heat newHeat=new Heat("Heat:"+heatCount);
+			int heatNumber = Integer.parseInt(numberOfHeats);
+			int heatCount = 1;
+			// insert Heats into all rounds
+			for (int i = 0; i < heatNumber; i++) {
+				Heat newHeat = new Heat("Heat:" + heatCount);
 				heats.add(newHeat);
 				heatCount++;
-			
-			check=true;
+
+				check = true;
+			}
+		} catch (NumberFormatException e) {
+
+			JOptionPane.showMessageDialog(null,
+					numberOfHeats + ":" + "Is not a numerical value \n Please enter a numerical value");
+			check = false;
 		}
-	}catch(NumberFormatException e) {
-		
-		JOptionPane.showMessageDialog(null, numberOfHeats+":"+"Is not a numerical value \n Please enter a numerical value");
-		check=false;
+
+		return check;
+
 	}
-			
+
+	// Pilots will be select and the heat, then user will enter button. Will accept
+	// a pilot object and heat object and load
+	// into all rounds>>RaceStartConfigureLoadHeats
+	public static void loadPilotsIntoHeats(Pilots selectedPilot, Heat selectedHeat) {
+		// add the pilot with the selected heat given from the ComboBox
+		selectedHeat.addPilotsToHeat(selectedPilot);
 		
-			return check;
+	}
 	
+	// Pilots will be select and the heat, then user will enter button. Will accept
+	// a pilot object and heat object and remove
+	// from all rounds>>RaceStartConfigureLoadHeats
+	public static void removePilotsFromHeats(Pilots selectedPilot, Heat selectedHeat) {
+		//remove the pilot with the select heat given from the ComboBox
+		selectedHeat.removePilotsFromHeat(selectedPilot);
+		
+	}
+	
+	
+	
+	//This method is a general method that will allow a new
+	//pilot to be created from the enter pilot controller which
+	//then will add the pilot to the general pilot array list
+	public static void createNewPilot(String pilotName, Channel pilotChannel) {
+		Pilots newPilot = null;
+		newPilot = new Pilots(pilotName, pilotChannel);
+
+		pilotGeneralPilotList.add(newPilot);
+
+		JOptionPane.showMessageDialog(null,"New Pilot has been added");
 	}
 
 	
-	
-	
-	
-	
-	
-	//change back to the previous round
-	public static String previousRound() {
-		roundNumber--;
-		
-		return rounds.get( roundNumber).toString(); 
-	}
-	
-	//change back to the next round
-	public static void nextRound() {
-		
-	}
-	
-	//Pilots will be select and the heat, then user will enter button. Will accept a pilot object and heat object and load
-	//into all rounds
-	public static void loadPilotsIntoHeats() {
-		//go through the rounds
-		for(int i=0;i<rounds.size();i++) {
-			//get go through the number of heats in the first round
-			for(int l=0;l<heatNumber;l++) {
-				//load based off the restricted number
-				for(int o=0;o<numberOfPilotsPerHeat;o++) {
-					rounds.get(i).heat.get(l);
-				}
-			}
-			
-		}
-	}
-	
-	
-	
-	
-	/**
-	 * 
-	 * @param pilotName will take in a String value and enter a new pilot
-	 * @param pilotChannel will take in a channel value to create a new Pilot object
-	 * 
-	 * This method is a general method that will allow a new pilot to be created from 
-	 * the enter pilot controller which then will add the pilot to the general pilot array list
-	 */
-	public static void createNewPilot(String pilotName, Channel pilotChannel) {
-		Pilots newPilot=null;
-		newPilot=new Pilots(pilotName,pilotChannel);
-		
-		pilotGeneralPilotList.add(newPilot);
-		
-		//JOptionPane.showMessageDialog(null,"New Pilot has been added");
-	}
-	
-	//******************toString*******************
-	public String toString() {
-		String ret="";
-		for(int i=0;i<rounds.size();i++) {
-			ret+=rounds.get(i).toString();
+	public static String displayCurrentHeat(Heat selectedHeat) {
+		String ret=selectedHeat.getHeatName()+":"+"\n";
+		for(int i=0;i<selectedHeat.PilotsInHeat.size();i++) {
+			ret+="\n"+selectedHeat.PilotsInHeat.get(i).toString()+"\n";
 		}
 		
 		return ret;
@@ -368,5 +318,26 @@ public class RaceModelOrganizer  {
 	
 	
 	
-	
+	// change back to the previous round
+	public static String previousRound() {
+		roundNumber--;
+
+		return rounds.get(roundNumber).toString();
 	}
+
+	// change back to the next round
+	public static void nextRound() {
+
+	}
+
+	// ******************toString*******************
+	public String toString() {
+		String ret = "";
+		for (int i = 0; i < rounds.size(); i++) {
+			ret += rounds.get(i).toString();
+		}
+
+		return ret;
+	}
+
+}
