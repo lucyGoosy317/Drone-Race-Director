@@ -63,15 +63,12 @@ public class Heat  {
 	
 	//************to String**********************
 	/**
-	 * @return will return all pilots inside heat
+	 * @return will return heat name
 	 */
 	public String toString() {
 		String ret="";
-		ret+=heatName+" :\n";
-		//to view all the pilots inside the heat
-		for(int i=0;i<PilotsInHeat.size();i++) {
-			ret+=PilotsInHeat.get(i).toString()+"\n";
-		}
+		ret=heatName;
+		
 		return ret;
 	}
 	

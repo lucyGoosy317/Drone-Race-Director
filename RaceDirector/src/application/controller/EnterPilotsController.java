@@ -63,7 +63,7 @@ public class EnterPilotsController  implements Initializable, EventHandler<Event
     ObservableList<Channel> BandF=FXCollections.observableArrayList(RaceModelOrganizer.getChannelListBandF());
     ObservableList<Channel> BandR=FXCollections.observableArrayList(RaceModelOrganizer.getChannelListBandR());
     
-    private String PilotName;
+    
 
     @FXML
     void loadHome(ActionEvent event) {
@@ -83,12 +83,7 @@ public class EnterPilotsController  implements Initializable, EventHandler<Event
     }
 
    
-    @FXML
-    void getPilotNameTextField(ActionEvent event) {
-    	PilotName=pilotNameTextField.getText();
-
-    }
-    
+  
     @FXML
     void bandAFillComboBox(ActionEvent event) {
     	bandARadioButton.setToggleGroup(group);

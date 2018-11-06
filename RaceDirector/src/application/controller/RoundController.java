@@ -9,6 +9,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import application.Main;
+import application.model.RaceModelOrganizer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -94,6 +95,7 @@ public class RoundController implements Initializable  {
     //Display heat info
     @FXML
     void heatDisplayTextArea(ActionEvent event) {
+    	
 
     }
 	@Override

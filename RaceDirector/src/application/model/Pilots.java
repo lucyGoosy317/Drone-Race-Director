@@ -9,11 +9,11 @@ import java.util.ArrayList;
  */
 public class Pilots {
 	
-	private String pilotName;
-	private Channel pilotChannel;
+	public String pilotName;
+	public Channel pilotChannel;
 	//will change once score class is created
-	private ArrayList<String> pilotsScore;
-	private int Total; 
+	public static ArrayList<String> pilotsScore;
+	public int Total; 
 	
 	
 	
@@ -92,7 +92,7 @@ public class Pilots {
 
 //TODO change String to Score once Score is create
 	public void setPilotsScore(ArrayList<String> pilotsScore) {
-		this.pilotsScore = pilotsScore;
+		Pilots.pilotsScore = pilotsScore;
 	}
 
 
@@ -104,8 +104,7 @@ public class Pilots {
 		String ret="";
 		
 	//pilot Score is toString here, loop through them to get each value
-		ret="Pilot Name: "+pilotName+"\n"+ "Pilot Channel: "+pilotChannel.toString()+"Pilot Score: "+pilotsScore.toString()
-				+"\n";
+		ret=pilotName+" "+pilotChannel.toString();
 		return ret;
 	}
 	

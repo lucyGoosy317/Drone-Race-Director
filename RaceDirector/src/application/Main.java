@@ -67,7 +67,7 @@ public class Main extends Application {
 		stage = primaryStage;
 
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("view/RaceStart.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("view/MenuStart.fxml"));
 			primaryStage.setScene(new Scene(root, 600, 600));
 			stage.setTitle("Race Start Menu");
 			primaryStage.show();

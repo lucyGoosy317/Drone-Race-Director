@@ -22,7 +22,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.FileChooser;
 
-public class RaceStartController implements Initializable {
+public class RaceStartController  {
 
     @FXML
     private Button configureRaceButton;
@@ -40,19 +40,19 @@ public class RaceStartController implements Initializable {
 
     
    
-    public  RaceModelOrganizer raceOrganizer=new RaceModelOrganizer();
+  
     
 
     @FXML
     void loadPilotsScene(ActionEvent event) {
-
+    
     	
 		FileChooser fileChooser=new FileChooser();
 		    fileChooser.setTitle("Open Resource File");
 		    //fileChooser.showOpenDialog(Main.stage);
 		    File file= fileChooser.showOpenDialog(Main.stage);
-		    raceOrganizer.loadFileFromDesktop(file);
-		    JOptionPane.showMessageDialog(null, "Your Pilots have been Loaded");
+		    RaceModelOrganizer.loadFileFromDesktop(file);
+		   // JOptionPane.showMessageDialog(null, "Your Pilots have been Loaded");
     	
     	
     }
@@ -87,7 +87,7 @@ public class RaceStartController implements Initializable {
 		Parent root;
 		try {
 
-			root = FXMLLoader.load(getClass().getResource("../view/RaceStartConfigure.fxml"));
+			root = FXMLLoader.load(getClass().getResource("../view/RaceStartConfigureRounds.fxml"));
 			Main.stage.setScene(new Scene(root, 600, 600));
 			Main.stage.setTitle("Configure Race");
 			Main.stage.show();
@@ -130,12 +130,7 @@ public class RaceStartController implements Initializable {
     }
 
 	
-	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {
-		
-		raceOrganizer.loadChannels("data/channelList.csv");
-		
-	}
+	
 
     
 

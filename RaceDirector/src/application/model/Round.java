@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class Round {
 	
 	
-	public ArrayList<Heat>heat;
+	public static ArrayList<Heat>heat;
 	public String roundName;
 	
 	//************Constructor*******************
@@ -26,8 +26,8 @@ public class Round {
 		return heat;
 	}
 
-	public void setHeat(ArrayList<Heat> heat) {
-		this.heat = heat;
+	public static void setHeat(ArrayList<Heat> heat) {
+		Round.heat = heat;
 	}
 
 	public String getRoundName() {

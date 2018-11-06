@@ -19,7 +19,7 @@
         </rowConstraints>
          <children>
             <Label prefHeight="17.0" prefWidth="251.0" text="Pilot Name" />
-            <TextField fx:id="pilotNameTextField" onAction="#getPilotNameTextField" prefHeight="65.0" prefWidth="259.0" promptText="Pilot Name" GridPane.columnIndex="1" />
+            <TextField fx:id="pilotNameTextField" prefHeight="65.0" prefWidth="259.0" promptText="Pilot Name" GridPane.columnIndex="1" />
          </children>
       </GridPane>
       <Label layoutX="149.0" layoutY="46.0" text="Enter Pilots Menu">

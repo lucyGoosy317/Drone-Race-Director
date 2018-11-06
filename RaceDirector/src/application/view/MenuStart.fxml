@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="600.0" maxWidth="600.0" minHeight="600.0" minWidth="600.0" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.menuStartController">
+	<children>
+		<Rectangle arcHeight="5.0" arcWidth="5.0" fill="RED" height="43.0" stroke="BLACK" strokeType="INSIDE" width="601.0" />
+		<Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="159.0" layoutY="440.0" stroke="BLACK" strokeType="INSIDE" width="601.0" />
+		<Label layoutX="24.0" layoutY="43.0" text="Race Director">
+			<font>
+				<Font name="RacingNumbers" size="96.0" />
+			</font>
+		</Label>
+		<Rectangle arcHeight="5.0" arcWidth="5.0" height="43.0" layoutY="411.0" stroke="#515050" strokeType="INSIDE" width="601.0" />
+      <Button layoutX="201.0" layoutY="440.0" mnemonicParsing="false" onAction="#handle" prefHeight="109.0" prefWidth="175.0" text="Start" />
+	</children>
+</AnchorPane>

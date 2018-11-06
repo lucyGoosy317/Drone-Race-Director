@@ -14,6 +14,7 @@ import javax.swing.JOptionPane;
  */
 public class RaceModelOrganizer  {
 	static ArrayList<Round> rounds;
+	static ArrayList <Heat> heats;
 	// this will contain the pilots inside the heat
 	static ArrayList<Pilots> pilotGeneralPilotList;
 	static ArrayList<Channel> channelListBandA;
@@ -34,6 +35,7 @@ public class RaceModelOrganizer  {
 		channelListBandE = new ArrayList<Channel>();
 		channelListBandF = new ArrayList<Channel>();
 		channelListBandR = new ArrayList<Channel>();
+		heats= new ArrayList<Heat>();
 		numberOfPilotsPerHeat=1;
 		roundNumber=0;
 		heatNumber=0;
@@ -56,9 +58,25 @@ public class RaceModelOrganizer  {
 	 * 
 	 * @return will return pilotList
 	 */
-	public ArrayList<Pilots> getPilotHeatList() {
+	
+	
+	public static ArrayList<Pilots> getPilotHeatList() {
 		return pilotGeneralPilotList;
 	}
+
+	public static ArrayList<Heat> getHeats() {
+		return heats;
+	}
+
+
+
+
+	public static void setHeats(ArrayList<Heat> heats) {
+		RaceModelOrganizer.heats = heats;
+	}
+
+
+
 
 	public static ArrayList<Round> getRounds() {
 		return rounds;
@@ -146,7 +164,7 @@ public class RaceModelOrganizer  {
 	}
 
 	public void setRoundNumber(int roundNumber) {
-		this.roundNumber = roundNumber;
+		RaceModelOrganizer.roundNumber = roundNumber;
 	}
 
 	public int getHeatNumber() {
@@ -154,16 +172,16 @@ public class RaceModelOrganizer  {
 	}
 
 	public void setHeatNumber(int heatNumber) {
-		this.heatNumber = heatNumber;
+		RaceModelOrganizer.heatNumber = heatNumber;
 	}
 
 
 
 
 	//******************Methods*******************
-	/**
-	 * load channel?
-	 */
+	
+	
+	//Loading channels from the given .csv file, Which is being initialized in menuStartController>>MenuStartController
 	public void loadChannels(String channelFileName) {
 		String fileName = channelFileName;
 		File file = new File(fileName);
@@ -200,10 +218,8 @@ public class RaceModelOrganizer  {
 
 	}
 
-	/**
-	 * load from desktop?
-	 */
-	public void loadFileFromDesktop(File file) {
+	//Load pilots from .csv File in custom format, user must see read me to utilize this feature>>RaceStartController
+	public static void loadFileFromDesktop(File file) {
 
 		try {
 			Scanner scan = new Scanner(file);
@@ -215,8 +231,9 @@ public class RaceModelOrganizer  {
 				channel = new Channel(tokens[1], tokens[2]);
 				pilot = new Pilots(tokens[0], channel);
 				pilotGeneralPilotList.add(pilot);
-				JOptionPane.showMessageDialog(null,"Pilots have been loaded");
+				
 			}
+			JOptionPane.showMessageDialog(null,"Pilots have been loaded");
 			scan.close();
 		} catch (FileNotFoundException e) {
 			
@@ -225,13 +242,19 @@ public class RaceModelOrganizer  {
 		}
 	}
 	
+	//add more rounds
 	public void addRounds(Round newRound) {
 		rounds.add(newRound);
 		
 	}
 	
+	
+	//Creating Rounds inside the Race Configure wizard>>RaceConfigureController
 	public static boolean createRounds(String numberOfRounds) {
 		boolean check=false;
+		//remove all rounds if configured is accessed again
+		rounds.removeAll(rounds);
+		//create the Round
 		try {
 		int numOfRounds=Integer.parseInt(numberOfRounds);
 		int roundCount=1;
@@ -249,22 +272,21 @@ public class RaceModelOrganizer  {
 	
 	return check;
 	}
-	//****left off here
+	
+	//Creating Heats inside the Race Configure wizard>>RaceConfigureController
 	public static boolean createHeats(String numberOfHeats) {
 		boolean check=false;
-		
+		//Remove all heats if accessed again by the user
+		heats.removeAll(heats);
 		try {
-			heatNumber=Integer.parseInt(numberOfHeats);
+			int heatNumber=Integer.parseInt(numberOfHeats);
+			int heatCount=1;
 		//insert Heats into all rounds
-		for(int i=0;i<rounds.size();i++) {
-			//go into rounds and insert heats
-			for(int l=0;l<heatNumber;l++) {
-				Heat newHeat=null;
-				//remove and old heats
-				newHeat=new Heat("Heat:"+heatNumber);
-				rounds.get(i).heat.add(newHeat);
-				heatNumber++;
-			}
+		for(int i=0;i<heatNumber;i++) {
+				Heat newHeat=new Heat("Heat:"+heatCount);
+				heats.add(newHeat);
+				heatCount++;
+			
 			check=true;
 		}
 	}catch(NumberFormatException e) {
@@ -278,21 +300,11 @@ public class RaceModelOrganizer  {
 	
 	}
 
-	//Restrict number of pilots to heat
-	public static boolean  restrictPilotsPerHeat(String restrictNumber) {
-		boolean check= false;
-		try {
-		numberOfPilotsPerHeat=Integer.parseInt(restrictNumber);
-		check=true;
-		}catch(NumberFormatException e) {
-			
-			JOptionPane.showMessageDialog(null, restrictNumber+":"+"Is not a numerical value \n Please enter a numerical value");
-			check=false;
-		}
-		
-		return check;
-		
-	}
+	
+	
+	
+	
+	
 	
 	//change back to the previous round
 	public static String previousRound() {
@@ -306,6 +318,8 @@ public class RaceModelOrganizer  {
 		
 	}
 	
+	//Pilots will be select and the heat, then user will enter button. Will accept a pilot object and heat object and load
+	//into all rounds
 	public static void loadPilotsIntoHeats() {
 		//go through the rounds
 		for(int i=0;i<rounds.size();i++) {
@@ -327,13 +341,17 @@ public class RaceModelOrganizer  {
 	 * 
 	 * @param pilotName will take in a String value and enter a new pilot
 	 * @param pilotChannel will take in a channel value to create a new Pilot object
+	 * 
 	 * This method is a general method that will allow a new pilot to be created from 
 	 * the enter pilot controller which then will add the pilot to the general pilot array list
 	 */
 	public static void createNewPilot(String pilotName, Channel pilotChannel) {
-		Pilots newPilot=new Pilots(pilotName,pilotChannel);
+		Pilots newPilot=null;
+		newPilot=new Pilots(pilotName,pilotChannel);
+		
 		pilotGeneralPilotList.add(newPilot);
-		JOptionPane.showMessageDialog(null,"New Pilot has been added");
+		
+		//JOptionPane.showMessageDialog(null,"New Pilot has been added");
 	}
 	
 	//******************toString*******************
