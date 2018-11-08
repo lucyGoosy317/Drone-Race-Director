@@ -12,7 +12,7 @@ public class Pilots {
 	public String pilotName;
 	public Channel pilotChannel;
 	//will change once score class is created
-	public static ArrayList<String> pilotsScore;
+	public ArrayList<Integer> pilotsScore;
 	public int Total; 
 	
 	
@@ -28,7 +28,7 @@ public class Pilots {
 		this.pilotName=pilotName;
 		this.pilotChannel=pilotChannel;
 		//place holder for each round of scores
-		pilotsScore=new ArrayList<String>();
+		pilotsScore=new ArrayList<Integer>();
 		//can be used to add all scores of pilot and stored
 		Total=0;
 		
@@ -85,14 +85,14 @@ public class Pilots {
 		this.pilotChannel = pilotChannel;
 	}
 
- //TODO change String to Score once Score is create
-	public ArrayList<String> getPilotsScore() {
+
+	public ArrayList<Integer> getPilotsScore() {
 		return pilotsScore;
 	}
 
-//TODO change String to Score once Score is create
-	public void setPilotsScore(ArrayList<String> pilotsScore) {
-		Pilots.pilotsScore = pilotsScore;
+
+	public void setPilotsScore(ArrayList<Integer> pilotsScore) {
+		this.pilotsScore = pilotsScore;
 	}
 
 
@@ -101,10 +101,10 @@ public class Pilots {
 	 * toString only to view if pilots are loading correctly
 	 */
 	public String toString() {
-		String ret="";
+		String ret=pilotName+" "+pilotChannel.toString();;
 		
-	//pilot Score is toString here, loop through them to get each value
-		ret=pilotName+" "+pilotChannel.toString();
+	
+		
 		return ret;
 	}
 	

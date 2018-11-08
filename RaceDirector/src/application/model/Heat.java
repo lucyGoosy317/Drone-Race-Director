@@ -80,8 +80,15 @@ public class Heat  {
 		
 	}
 	
-	
-	
+	//
+	public String returnPilotsOfHeat() {
+		String ret=heatName+":"+"\n";
+		for(int i=0;i<PilotsInHeat.size();i++) {
+			ret+=PilotsInHeat.get(i)+" Round Score:"+ PilotsInHeat.get(i).getPilotsScore() +"\n";
+		}
+		
+		return ret;
+	}
 	
 		
 		

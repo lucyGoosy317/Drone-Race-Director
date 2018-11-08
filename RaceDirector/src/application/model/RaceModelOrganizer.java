@@ -37,8 +37,8 @@ public class RaceModelOrganizer {
 		channelListBandR = new ArrayList<Channel>();
 		heats = new ArrayList<Heat>();
 		numberOfPilotsPerHeat = 1;
-		roundNumber = 1;
-		heatNumber = 1;
+		roundNumber = 0;
+		heatNumber = 0;
 
 	}
 
@@ -164,19 +164,19 @@ public class RaceModelOrganizer {
 				// place band/channels into their own arraylist
 				Channel channel = null;
 				if (tokens[0].contains("A")) {
-					channel = new Channel(tokens[0], tokens[1]);
+					channel = new Channel(tokens[0], tokens[1],tokens[2]);
 					channelListBandA.add(channel);
 				} else if (tokens[0].contains("B")) {
-					channel = new Channel(tokens[0], tokens[1]);
+					channel = new Channel(tokens[0], tokens[1],tokens[2]);
 					channelListBandB.add(channel);
 				} else if (tokens[0].contains("E")) {
-					channel = new Channel(tokens[0], tokens[1]);
+					channel = new Channel(tokens[0], tokens[1],tokens[2]);
 					channelListBandE.add(channel);
 				} else if (tokens[0].contains("F")) {
-					channel = new Channel(tokens[0], tokens[1]);
+					channel = new Channel(tokens[0], tokens[1],tokens[2]);
 					channelListBandF.add(channel);
 				} else if (tokens[0].contains("R")) {
-					channel = new Channel(tokens[0], tokens[1]);
+					channel = new Channel(tokens[0], tokens[1],tokens[2]);
 					channelListBandR.add(channel);
 				}
 
@@ -200,9 +200,9 @@ public class RaceModelOrganizer {
 				String[] tokens = line.split(",");
 				Pilots pilot = null;
 				Channel channel = null;
-				channel = new Channel(tokens[1], tokens[2]);
-				pilot = new Pilots(tokens[0], channel);
-				pilotGeneralPilotList.add(pilot);
+				channel = new Channel(tokens[1], tokens[2],tokens[3]);
+				//run the createNewPilot to ensure there are not duplicate pilots being loaded
+				createNewPilot(tokens[0],channel);
 
 			}
 			JOptionPane.showMessageDialog(null, "Pilots have been loaded");
@@ -277,7 +277,27 @@ public class RaceModelOrganizer {
 	// into all rounds>>RaceStartConfigureLoadHeats
 	public static void loadPilotsIntoHeats(Pilots selectedPilot, Heat selectedHeat) {
 		// add the pilot with the selected heat given from the ComboBox
-		selectedHeat.addPilotsToHeat(selectedPilot);
+		boolean check=false;
+		//check to see if pilot already exist in another heat
+		for(int i=0;i<heats.size();i++) {
+			if(heats.get(i).PilotsInHeat.contains(selectedPilot)) {
+				
+				check=false;
+					break;
+			}else {
+				check=true;
+				
+			}
+		}
+		//conduct check to either allow a pilot to be added or to alert the user that the pilot has already been entered 
+		//into another heat
+		if(check==true) {
+			selectedHeat.addPilotsToHeat(selectedPilot);
+				
+		}else {
+			JOptionPane.showMessageDialog(null,selectedPilot.getPilotName()+" is already in another Heat");
+		}
+		
 		
 	}
 	
@@ -298,11 +318,32 @@ public class RaceModelOrganizer {
 	public static void createNewPilot(String pilotName, Channel pilotChannel) {
 		Pilots newPilot = null;
 		newPilot = new Pilots(pilotName, pilotChannel);
+		//load Pilot scores to ensure the pilot only has 3 spaces for 3 scores to be added
+		for(int i=0;i<rounds.size();i++) {
+			newPilot.pilotsScore.add(0);
+		}
+		boolean check=false;
+		//check to see if pilot already exist from being loaded into the pilot G list
+		for(int i=0;i<pilotGeneralPilotList.size();i++) {
+			if(pilotGeneralPilotList.get(i).getPilotName().equals(newPilot.pilotName)) {
+				check=true;
+				break;
+			}else {
+				check=false;
 
-		pilotGeneralPilotList.add(newPilot);
+				
+			}
+		}
+		//if So alert the user, if not add the pilot to the list
+		if(check==true) {
+			JOptionPane.showMessageDialog(null,pilotName+" already is already entered on the roster");
+		}else {
+			pilotGeneralPilotList.add(newPilot);
 
-		JOptionPane.showMessageDialog(null,"New Pilot has been added");
-	}
+			JOptionPane.showMessageDialog(null,pilotName+" has been added on the roster");
+	
+		}
+			}
 
 	
 	public static String displayCurrentHeat(Heat selectedHeat) {
@@ -314,27 +355,135 @@ public class RaceModelOrganizer {
 		return ret;
 	}
 	
+	//********Methods to be used in round controller*************
+	public static String currentRound() {
+		String currentRound="";
+		//Round tempRound=rounds.get(roundNumber);
+		for(int i=0;i<=roundNumber;i++) {
+			currentRound+=rounds.get(i).roundName+"\n";
+			for(int l=0;l<rounds.get(i).heat.size();l++) {
+				Heat tempHeat=rounds.get(i).heat.get(l);
+				currentRound+=tempHeat.returnPilotsOfHeat()+"\n";
+				
+			}
+			System.out.println(currentRound);
+		}
 	
-	
+		
+		return currentRound;
+	}
 	
 	
 	// change back to the previous round
 	public static String previousRound() {
-		roundNumber--;
-
-		return rounds.get(roundNumber).toString();
+		String previousRound="";
+		//roundNumber--;
+		//Round tempArray=rounds.get(roundNumber);
+		//test to see what should be displayed
+		//System.out.println(tempArray.heat.toString());
+		int tempint=rounds.size();
+		System.out.println(roundNumber);
+		if(roundNumber<0) {
+			JOptionPane.showMessageDialog(null,"This is the first round");
+			
+		}else {
+			for(int i=0;i<=roundNumber;i++) {
+				previousRound+=rounds.get(i).roundName+"\n";
+				for(int l=0;l<rounds.get(i).heat.size();l++) {
+					Heat tempHeat=rounds.get(i).heat.get(l);
+					previousRound+=tempHeat.returnPilotsOfHeat()+"\n";
+					
+				}
+				System.out.println(previousRound);
+				
+			}
+			roundNumber--;
+		}
+		
+		return previousRound;
 	}
 
 	// change back to the next round
-	public static void nextRound() {
-
+	public static String nextRound() {
+		String nextRound="";
+		System.out.println(roundNumber);
+		//Round tempArray=rounds.get(roundNumber);
+		//test to see what should be displayed
+		//System.out.println(tempArray.heat.toString());
+		if(roundNumber>rounds.size()) {
+			JOptionPane.showMessageDialog(null,"This is the last Round");
+			
+		}else {
+			for(int i=0;i<=roundNumber;i++) {
+				nextRound+=rounds.get(i).roundName+"\n";
+				for(int l=0;l<rounds.get(i).heat.size();l++) {
+					Heat tempHeat=rounds.get(i).heat.get(l);
+					nextRound+=tempHeat.returnPilotsOfHeat()+"\n";
+					
+				}
+				System.out.println(nextRound);
+			}
+			roundNumber++;
+		}
+	
+		return nextRound;
+		
+		
 	}
 
+	public static String roundLabelUpdater() {
+		int tempRoundNumber=roundNumber+1;
+		String tempRoundLabelUpdate="Round: "+tempRoundNumber;
+		
+		return tempRoundLabelUpdate;
+	}
+	
+	
+	//************************************************
+	
+	
+	
+	
+	//TODO left off here incorrect output to string is messed up
+	//Loaded the pilot heats into each round
+	public static void loadHeatsIntoRounds() {
+		
+		for(int i=0;i<rounds.size();i++) { //go through the round get round
+			//System.out.println(rounds.get(i).roundName+" is being loaded "+"\n");
+			for(int l=0;l<heats.size();l++) {
+				rounds.get(i).removeHeat(heats.get(l));
+				rounds.get(i).addHeats(heats.get(l));
+				//System.out.println(heats.get(l).heatName+" Was added to "+rounds.get(i).roundName+"\n");
+				
+			}
+			//look at the pilots inside each round, inside each heat
+			for(int k=0;k<rounds.get(i).heat.size();k++){
+				for(int j=0;j<rounds.get(i).heat.get(k).PilotsInHeat.size();j++) {
+
+					//System.out.println(rounds.get(i).roundName+"\n" //get the round name
+				//+rounds.get(i).heat.get(k).heatName+"\n" //get the heat name
+				//+rounds.get(i).heat.get(k).PilotsInHeat.get(j).pilotName+"\n"); //get the pilots inside that heat
+					
+				}
+				
+				
+				
+				
+			}
+			
+		
+		}
+		
+		
+	}
+	
 	// ******************toString*******************
 	public String toString() {
+		
 		String ret = "";
 		for (int i = 0; i < rounds.size(); i++) {
-			ret += rounds.get(i).toString();
+		
+			ret += rounds.get(i).heat.iterator().toString();
 		}
 
 		return ret;

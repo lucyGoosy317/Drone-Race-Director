@@ -9,8 +9,9 @@ import java.util.ArrayList;
 public class Round {
 	
 	
-	public static ArrayList<Heat>heat;
+	public  ArrayList<Heat>heat;
 	public String roundName;
+	
 	
 	//************Constructor*******************
 	public Round(String roundName) {
@@ -26,8 +27,8 @@ public class Round {
 		return heat;
 	}
 
-	public static void setHeat(ArrayList<Heat> heat) {
-		Round.heat = heat;
+	public  void setHeat(ArrayList<Heat> heat) {
+		this.heat = heat;
 	}
 
 	public String getRoundName() {
@@ -43,6 +44,10 @@ public class Round {
 	public void addHeats(Heat newHeat) {
 		heat.add(newHeat);
 	}
+	public void removeHeat(Heat oldHeat) {
+		heat.remove(oldHeat);
+	}
+	
 	public void createNewHeat(String numberOfHeats) {
 		int numOfHeats=Integer.parseInt(numberOfHeats);
 		int heatCount=1;
@@ -60,7 +65,7 @@ public class Round {
 	public String toString() {
 		String ret="";
 		for(int i=0;i<heat.size();i++) {
-			ret+=roundName+"\n"+heat.toString()+"\n"+"************************************";
+			ret+=roundName+"\n"+heat.toString()+"\n"+"************************************"+"\n";
 		}
 		return ret;
 	}

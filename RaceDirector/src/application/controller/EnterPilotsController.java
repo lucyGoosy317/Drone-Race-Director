@@ -77,7 +77,6 @@ public class EnterPilotsController  implements Initializable, EventHandler<Event
 			Main.stage.show();
 
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
     }
@@ -137,7 +136,9 @@ public class EnterPilotsController  implements Initializable, EventHandler<Event
 	public void handle(Event event) {
 		String pilotName=pilotNameTextField.getText();
 		Channel selectedChannel=ChannelsComboBox.getValue();
-		RaceModelOrganizer.createNewPilot(pilotName, selectedChannel);
+		
+			RaceModelOrganizer.createNewPilot(pilotName, selectedChannel);
+		
 		
 	}
 

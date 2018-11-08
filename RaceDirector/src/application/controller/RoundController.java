@@ -29,7 +29,7 @@ public class RoundController implements Initializable  {
     private Button startRoundButton;
 
     @FXML
-    private TextArea heatDisplayAreaTextArea;
+    private Label heatDisplayLabel;
 
     @FXML
     private Label roundUpdaterLabel;
@@ -44,7 +44,9 @@ public class RoundController implements Initializable  {
     @FXML
     void previousRoundScene(ActionEvent event) {
 
-    	//TODO set heat display area to the last scene
+    	heatDisplayLabel.setText("");
+    	roundUpdaterLabel.setText(RaceModelOrganizer.roundLabelUpdater());
+    	heatDisplayLabel.setText(RaceModelOrganizer.previousRound());
     }
 //This is a scene change and will go into the Heats 1 by 1
     @FXML
@@ -69,7 +71,10 @@ public class RoundController implements Initializable  {
     //This is not a scene change, more of an updated for the next round
     @FXML
     void nextRoundUpdateScene(ActionEvent event) {
-
+    	heatDisplayLabel.setText("");
+    	roundUpdaterLabel.setText(RaceModelOrganizer.roundLabelUpdater());
+    	heatDisplayLabel.setText(RaceModelOrganizer.nextRound());
+    	
     }
 
     //Load home Scene
@@ -85,22 +90,18 @@ public class RoundController implements Initializable  {
 			Main.stage.show();
 
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
     	
     	
     }
 
-    //Display heat info
-    @FXML
-    void heatDisplayTextArea(ActionEvent event) {
-    	
-
-    }
+   
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		// TODO Auto-generated method stub
+		roundUpdaterLabel.setText(RaceModelOrganizer.roundLabelUpdater());
+		heatDisplayLabel.setText(RaceModelOrganizer.currentRound());
 		
 	}
 

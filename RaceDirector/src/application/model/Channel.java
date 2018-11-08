@@ -11,18 +11,40 @@ public class Channel {
 	
 	public String channelBand;
 	public String channelFreq;
+	public String channelNumber;
 	
 	
 	/**
 	 * 
 	 * @param channelName will accept a String object and set to channelName
 	 */
-	public Channel(String channelBand, String channelFreq) {
+	public Channel(String channelBand,String channelNumber, String channelFreq) {
 		this.channelBand=channelBand;
 		this.channelFreq=channelFreq;
+		this.channelNumber=channelNumber;
 		
 		
 	}
+
+	
+	
+	
+	
+	public String getChannelNumber() {
+		return channelNumber;
+	}
+
+
+
+
+
+	public void setChannelNumber(String channelNumber) {
+		this.channelNumber = channelNumber;
+	}
+
+
+
+
 
 	/**
 	 * 
@@ -63,9 +85,9 @@ public class Channel {
 	 * @return will return channelName
 	 */
 	public String toString() {
-		String ret="";
+		String ret=channelBand+channelNumber+" "+channelFreq;
 		
-		ret=channelBand+" "+channelFreq+"\n";
+		
 		return ret;
 	}
 

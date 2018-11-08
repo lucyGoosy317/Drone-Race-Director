@@ -64,6 +64,10 @@ public class RaceStartConfigureLoadHeatsController implements Initializable {
     @FXML
     void loadHome(ActionEvent event) {
 
+    	//load pilots into rounds
+    	RaceModelOrganizer.loadHeatsIntoRounds();
+    	
+    	//load home
     	Parent root;
 		try {
 
@@ -73,7 +77,6 @@ public class RaceStartConfigureLoadHeatsController implements Initializable {
 			Main.stage.show();
 
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
