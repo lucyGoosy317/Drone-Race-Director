@@ -44,9 +44,9 @@ public class RoundController implements Initializable  {
     @FXML
     void previousRoundScene(ActionEvent event) {
 
-    	heatDisplayLabel.setText("");
-    	roundUpdaterLabel.setText(RaceModelOrganizer.roundLabelUpdater());
+    	heatDisplayLabel.requestFocus();
     	heatDisplayLabel.setText(RaceModelOrganizer.previousRound());
+    	roundUpdaterLabel.setText(RaceModelOrganizer.roundLabelUpdater());
     }
 //This is a scene change and will go into the Heats 1 by 1
     @FXML
@@ -71,9 +71,10 @@ public class RoundController implements Initializable  {
     //This is not a scene change, more of an updated for the next round
     @FXML
     void nextRoundUpdateScene(ActionEvent event) {
-    	heatDisplayLabel.setText("");
-    	roundUpdaterLabel.setText(RaceModelOrganizer.roundLabelUpdater());
+
+    	heatDisplayLabel.requestFocus();
     	heatDisplayLabel.setText(RaceModelOrganizer.nextRound());
+    	roundUpdaterLabel.setText(RaceModelOrganizer.roundLabelUpdater());
     	
     }
 

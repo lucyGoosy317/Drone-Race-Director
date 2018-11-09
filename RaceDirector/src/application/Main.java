@@ -10,13 +10,9 @@ package application;
  * anything via chat)
  * 
  * RoundController:
- * TODO Write previousRound inside RaceOrganizer, that will return String value of The 
- * previous round info given from rounds arrayList. if the user tries to go below
- * the given number of rounds inside RaceOrganizer, produce an alert 
- * TODO Write updateRoundLabel, which will return the 
- * integer value of the last round and update the label
- * TODO Write nextRound inside RaceOrganizer, that will return String value of the next round info given from the rounds arrayList
- * if the user tries to go further than highest value of rounds, produce an alert
+ * TODO:Add an end race button which will allow the user to end the race at the round they are at
+ * and change to the RaceOffScore if there are any ties in pilot's total score. if no ties exist, go to the
+ * end scoreScore scene.
  * 
  * HeatController:
  * TODO Write heatInfoUpdate inside RaceOrganizer, that get the first heat from the heats arrayList, populate the grid with the heat's pilot data

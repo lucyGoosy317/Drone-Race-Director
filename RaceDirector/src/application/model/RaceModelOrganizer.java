@@ -150,9 +150,9 @@ public class RaceModelOrganizer {
 
 	// ******************Methods*******************
 
-	
 	// Loading channels from the given .csv file, Which is being initialized in
-	// menuStartController>>MenuStartController
+	// menuStartController
+	//MenuStartController
 	public void loadChannels(String channelFileName) {
 		String fileName = channelFileName;
 		File file = new File(fileName);
@@ -189,8 +189,10 @@ public class RaceModelOrganizer {
 
 	}
 
+	
 	// Load pilots from .csv File in custom format, user must see read me to utilize
-	// this feature>>RaceStartController
+	// this feature
+	//RaceStartController
 	public static void loadFileFromDesktop(File file) {
 
 		try {
@@ -220,7 +222,8 @@ public class RaceModelOrganizer {
 
 	}
 
-	// Creating Rounds inside the Race Configure wizard>>RaceConfigureController
+	// Creating Rounds inside the Race Configure wizard
+	//RaceConfigureController
 	public static boolean createRounds(String numberOfRounds) {
 		boolean check = false;
 		// remove all rounds if configured is accessed again
@@ -245,7 +248,8 @@ public class RaceModelOrganizer {
 		return check;
 	}
 
-	// Creating Heats inside the Race Configure wizard>>RaceConfigureController
+	// Creating Heats inside the Race Configure wizard
+	//RaceConfigureController
 	public static boolean createHeats(String numberOfHeats) {
 		boolean check = false;
 		// Remove all heats if accessed again by the user
@@ -274,7 +278,8 @@ public class RaceModelOrganizer {
 
 	// Pilots will be select and the heat, then user will enter button. Will accept
 	// a pilot object and heat object and load
-	// into all rounds>>RaceStartConfigureLoadHeats
+	// into all rounds
+	//RaceStartConfigureLoadHeats
 	public static void loadPilotsIntoHeats(Pilots selectedPilot, Heat selectedHeat) {
 		// add the pilot with the selected heat given from the ComboBox
 		boolean check=false;
@@ -303,7 +308,8 @@ public class RaceModelOrganizer {
 	
 	// Pilots will be select and the heat, then user will enter button. Will accept
 	// a pilot object and heat object and remove
-	// from all rounds>>RaceStartConfigureLoadHeats
+	// from all rounds
+	//RaceStartConfigureLoadHeats
 	public static void removePilotsFromHeats(Pilots selectedPilot, Heat selectedHeat) {
 		//remove the pilot with the select heat given from the ComboBox
 		selectedHeat.removePilotsFromHeat(selectedPilot);
@@ -346,84 +352,58 @@ public class RaceModelOrganizer {
 			}
 
 	
-	public static String displayCurrentHeat(Heat selectedHeat) {
-		String ret=selectedHeat.getHeatName()+":"+"\n";
-		for(int i=0;i<selectedHeat.PilotsInHeat.size();i++) {
-			ret+="\n"+selectedHeat.PilotsInHeat.get(i).toString()+"\n";
+	//This method will be called several times to show the current round's heat
+	//roundController
+	public static String displayRoundHeat(int roundNumber) {
+		String currentRound=rounds.get(roundNumber).roundName+"\n";
+		for(int i=0;i<rounds.get(roundNumber).heat.size();i++) {
+			Heat tempHeat=rounds.get(roundNumber).heat.get(i);
+			currentRound+=tempHeat.returnPilotsOfHeat()+"\n";
 		}
 		
-		return ret;
-	}
-	
-	//********Methods to be used in round controller*************
-	public static String currentRound() {
-		String currentRound="";
-		//Round tempRound=rounds.get(roundNumber);
-		for(int i=0;i<=roundNumber;i++) {
-			currentRound+=rounds.get(i).roundName+"\n";
-			for(int l=0;l<rounds.get(i).heat.size();l++) {
-				Heat tempHeat=rounds.get(i).heat.get(l);
-				currentRound+=tempHeat.returnPilotsOfHeat()+"\n";
-				
-			}
-			System.out.println(currentRound);
-		}
-	
 		
 		return currentRound;
 	}
 	
-	
 	// change back to the previous round
+	//roundController
 	public static String previousRound() {
 		String previousRound="";
-		//roundNumber--;
-		//Round tempArray=rounds.get(roundNumber);
-		//test to see what should be displayed
-		//System.out.println(tempArray.heat.toString());
-		int tempint=rounds.size();
-		System.out.println(roundNumber);
-		if(roundNumber<0) {
+		
+		
+		if(roundNumber<=0) {
 			JOptionPane.showMessageDialog(null,"This is the first round");
+			previousRound=displayRoundHeat(roundNumber);
 			
 		}else {
-			for(int i=0;i<=roundNumber;i++) {
-				previousRound+=rounds.get(i).roundName+"\n";
-				for(int l=0;l<rounds.get(i).heat.size();l++) {
-					Heat tempHeat=rounds.get(i).heat.get(l);
-					previousRound+=tempHeat.returnPilotsOfHeat()+"\n";
-					
-				}
-				System.out.println(previousRound);
-				
-			}
+			System.out.println("**********"+roundNumber+"*********");
 			roundNumber--;
+			previousRound=displayRoundHeat(roundNumber);
+			
+			System.out.println(displayRoundHeat(roundNumber));
+			System.out.println("********"+roundNumber+"*****");
+			
 		}
 		
 		return previousRound;
 	}
 
 	// change back to the next round
+	//roundController
 	public static String nextRound() {
 		String nextRound="";
-		System.out.println(roundNumber);
-		//Round tempArray=rounds.get(roundNumber);
-		//test to see what should be displayed
-		//System.out.println(tempArray.heat.toString());
-		if(roundNumber>rounds.size()) {
+		
+		if(roundNumber==rounds.size()-1) {
 			JOptionPane.showMessageDialog(null,"This is the last Round");
-			
+			nextRound=displayRoundHeat(roundNumber);
 		}else {
-			for(int i=0;i<=roundNumber;i++) {
-				nextRound+=rounds.get(i).roundName+"\n";
-				for(int l=0;l<rounds.get(i).heat.size();l++) {
-					Heat tempHeat=rounds.get(i).heat.get(l);
-					nextRound+=tempHeat.returnPilotsOfHeat()+"\n";
-					
-				}
-				System.out.println(nextRound);
-			}
+			System.out.println("**********"+roundNumber+"*********");
 			roundNumber++;
+			nextRound=displayRoundHeat(roundNumber);
+			
+			System.out.println(displayRoundHeat(roundNumber));
+			System.out.println("********"+roundNumber+"*****");
+			
 		}
 	
 		return nextRound;
@@ -431,6 +411,10 @@ public class RaceModelOrganizer {
 		
 	}
 
+	
+	//Updates the label of RoundController to show the user which 
+	//round they are on
+	////roundController
 	public static String roundLabelUpdater() {
 		int tempRoundNumber=roundNumber+1;
 		String tempRoundLabelUpdate="Round: "+tempRoundNumber;
@@ -439,30 +423,32 @@ public class RaceModelOrganizer {
 	}
 	
 	
-	//************************************************
+	//Will be used to initalize the first round inside the round Controller
+	//which will show the most current round, even if the user goes home
+	////roundController
+	public static String currentRound() {
+		String currentRound=displayRoundHeat(roundNumber);
+		
+		return currentRound;
+	}
 	
 	
-	
-	
-	//TODO left off here incorrect output to string is messed up
-	//Loaded the pilot heats into each round
+	//Loads heats into the rounds after the user has assigned their pilots to the heats
+	//RaceStartConfigureLoadHeatsController
 	public static void loadHeatsIntoRounds() {
 		
 		for(int i=0;i<rounds.size();i++) { //go through the round get round
-			//System.out.println(rounds.get(i).roundName+" is being loaded "+"\n");
+			
 			for(int l=0;l<heats.size();l++) {
 				rounds.get(i).removeHeat(heats.get(l));
 				rounds.get(i).addHeats(heats.get(l));
-				//System.out.println(heats.get(l).heatName+" Was added to "+rounds.get(i).roundName+"\n");
+				
 				
 			}
 			//look at the pilots inside each round, inside each heat
 			for(int k=0;k<rounds.get(i).heat.size();k++){
 				for(int j=0;j<rounds.get(i).heat.get(k).PilotsInHeat.size();j++) {
 
-					//System.out.println(rounds.get(i).roundName+"\n" //get the round name
-				//+rounds.get(i).heat.get(k).heatName+"\n" //get the heat name
-				//+rounds.get(i).heat.get(k).PilotsInHeat.get(j).pilotName+"\n"); //get the pilots inside that heat
 					
 				}
 				
@@ -476,6 +462,22 @@ public class RaceModelOrganizer {
 		
 		
 	}
+	
+	//This Method will be used during enter pilots to update the label to show the
+	//current heat
+	//RaceStartConfigureLoadHeatsController
+	public static String displayCurrentHeat(Heat selectedHeat) {
+			String ret=selectedHeat.getHeatName()+":"+"\n";
+			for(int i=0;i<selectedHeat.PilotsInHeat.size();i++) {
+				ret+="\n"+selectedHeat.PilotsInHeat.get(i).toString()+"\n";
+			}
+			
+			return ret;
+		}
+	//will be use to initlize the first round and display the first heats
+		
+	
+	//**********************************************************************
 	
 	// ******************toString*******************
 	public String toString() {
