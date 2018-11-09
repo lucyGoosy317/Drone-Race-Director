@@ -6,39 +6,34 @@ package application.controller;
 
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import application.Main;
+import application.model.Pilots;
+import application.model.RaceModelOrganizer;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 
-public class HeatController {
+public class HeatController implements Initializable  {
 
 
-    @FXML
-    private Label channel8Label;
-
-    @FXML
-    private Label name2Label;
-
-    @FXML
-    private Label channel6Label;
-
+ 
     @FXML
     private Button startTimerButton;
 
     @FXML
     private Label secondsLabel;
-
-    @FXML
-    private Label channel3Label;
-
-    @FXML
-    private Label name3Label;
 
     @FXML
     private Label minuteLabel;
@@ -47,64 +42,35 @@ public class HeatController {
     private Label heatDisplayLabel;
 
     @FXML
-    private Label score6Label;
-
-    @FXML
-    private Label name6Label;
-
-    @FXML
-    private Label score3Label;
-
-    @FXML
-    private Label name4Label;
-
-    @FXML
-    private Label name7Label;
-
-    @FXML
-    private Label name1Label;
-
-    @FXML
-    private Label channel7Label;
-
-    @FXML
-    private Label score5Label;
-
-    @FXML
-    private Label channel4Label;
-
-    @FXML
     private Button saveScoresButton;
-
-    @FXML
-    private Label score2Label;
 
     @FXML
     private Button nextHeatButton;
 
     @FXML
-    private Label score7Label;
+    private ComboBox<Pilots> pilotSelectionComboBox;
 
     @FXML
-    private Label channell1Label;
-
+    private Label pilotHeat;
     @FXML
-    private Label score1Label;
-
-    @FXML
-    private Label score4Label;
+    private TextField pilotScoreEntry;
     
     @FXML
     private Button roundMenuButton;
+    ObservableList<Pilots> PilotList;
     
     @FXML
     void saveScores(ActionEvent event) {
-
+    	//TODO create a saveCurrentScores, that will set the selected pilot in this
+    	//heat, currentScore to what value is entered and then add the score to the gen
+    	//array list
     }
 
+    //Change to the next head inside the current round
     @FXML
     void nextHeatUpdatedScene(ActionEvent event) {
-
+    	pilotHeat.setText(RaceModelOrganizer.nextHeat());
+    	pilotSelectionComboBox.setItems(FXCollections.observableArrayList(RaceModelOrganizer.heatComboBoxDisplay()));
     }
 
     @FXML
@@ -129,5 +95,13 @@ public class HeatController {
 		}
     	
     }
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		heatDisplayLabel.setText("");// change the display label to the current heat number
+		pilotHeat.setText(RaceModelOrganizer.displayFirstHeat());//change the pilot head display label to the current heat
+		pilotSelectionComboBox.setItems(FXCollections.observableArrayList(RaceModelOrganizer.heatComboBoxDisplay()));
+		
+	}
     
 }

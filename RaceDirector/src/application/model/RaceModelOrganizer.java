@@ -26,6 +26,10 @@ public class RaceModelOrganizer {
 	static int numberOfPilotsPerHeat;
 	private static int roundNumber;
 	private static int heatNumber;
+	private static int heatNum;
+	private static int helperHeatNum;
+	
+	
 
 	public RaceModelOrganizer() {
 		rounds = new ArrayList<Round>();
@@ -39,6 +43,8 @@ public class RaceModelOrganizer {
 		numberOfPilotsPerHeat = 1;
 		roundNumber = 0;
 		heatNumber = 0;
+		heatNum=0;
+		helperHeatNum=0;
 
 	}
 
@@ -254,15 +260,16 @@ public class RaceModelOrganizer {
 		boolean check = false;
 		// Remove all heats if accessed again by the user
 		heats.removeAll(heats);
+		heatNumber=0;
 		try {
-			int heatNumber = Integer.parseInt(numberOfHeats);
+			int heatNum = Integer.parseInt(numberOfHeats);
 			int heatCount = 1;
 			// insert Heats into all rounds
-			for (int i = 0; i < heatNumber; i++) {
+			for (int i = 0; i < heatNum; i++) {
 				Heat newHeat = new Heat("Heat:" + heatCount);
 				heats.add(newHeat);
 				heatCount++;
-
+				heatNumber++;
 				check = true;
 			}
 		} catch (NumberFormatException e) {
@@ -351,6 +358,72 @@ public class RaceModelOrganizer {
 		}
 			}
 
+	//will display the first heat of the current round
+	//HeatController
+	public static String displayFirstHeat() {
+		String currentHeat="";
+		int tempHeatNum=heatNumber;
+		
+		tempHeatNum=(tempHeatNum-tempHeatNum);
+		heatNum=tempHeatNum;
+		for(int i=0;i<rounds.get(roundNumber).heat.get(tempHeatNum).PilotsInHeat.size();i++) {
+			currentHeat+=rounds.get(roundNumber).heat.get(tempHeatNum).PilotsInHeat.get(i).pilotChannel.toString()+" "+
+					rounds.get(roundNumber).heat.get(tempHeatNum).PilotsInHeat.get(i).pilotName+"\n"+"\n";
+		}
+		
+		heatNum++;
+		return currentHeat;
+		
+	}
+	
+	//wild display the next heat and stop if the value is higher than
+	//heat size
+	//HeatController
+	public static String nextHeat() {
+		String nextHeat="";
+		
+		if(heatNum==heatNumber) {
+			heatNum--;
+			
+			JOptionPane.showMessageDialog(null,"This is the last Heat of"+rounds.get(roundNumber).roundName);
+			for(int i=0;i<rounds.get(roundNumber).heat.get(heatNum).PilotsInHeat.size();i++) {
+				nextHeat+=rounds.get(roundNumber).heat.get(heatNum).PilotsInHeat.get(i).pilotChannel.toString()+" "+
+						rounds.get(roundNumber).heat.get(heatNum).PilotsInHeat.get(i).pilotName+"\n"+"\n";
+			}
+			//heatComboBoxDisplay();
+
+		}else {
+			for(int i=0;i<rounds.get(roundNumber).heat.get(heatNum).PilotsInHeat.size();i++) {
+				nextHeat+=rounds.get(roundNumber).heat.get(heatNum).PilotsInHeat.get(i).pilotChannel.toString()+" "+
+						rounds.get(roundNumber).heat.get(heatNum).PilotsInHeat.get(i).pilotName+"\n"+"\n";
+			}
+			//heatComboBoxDisplay();
+			heatNum++;
+			System.out.println(heatNum);
+		}
+		
+		return nextHeat;
+		
+	}
+	
+	//HeatController 
+	public static ArrayList<Pilots> heatComboBoxDisplay() {
+		ArrayList <Pilots> tempArrayListHeat = new ArrayList<Pilots>();
+		System.out.println("Heat num is: "+heatNum);
+		int tempHeat=heatNum-1;
+		if(heatNum==heatNumber) {
+			tempArrayListHeat=rounds.get(roundNumber).heat.get(tempHeat).PilotsInHeat;
+		
+			
+		}else {
+			tempArrayListHeat=rounds.get(roundNumber).heat.get(tempHeat).PilotsInHeat;
+			
+		}
+		
+		return tempArrayListHeat;
+	}
+	
+	
 	
 	//This method will be called several times to show the current round's heat
 	//roundController
@@ -359,6 +432,8 @@ public class RaceModelOrganizer {
 		for(int i=0;i<rounds.get(roundNumber).heat.size();i++) {
 			Heat tempHeat=rounds.get(roundNumber).heat.get(i);
 			currentRound+=tempHeat.returnPilotsOfHeat()+"\n";
+			
+			
 		}
 		
 		
@@ -475,7 +550,8 @@ public class RaceModelOrganizer {
 			return ret;
 		}
 	//will be use to initlize the first round and display the first heats
-		
+	
+	
 	
 	//**********************************************************************
 	
