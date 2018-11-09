@@ -69,21 +69,25 @@ public class HeatController implements Initializable  {
     //Change to the next head inside the current round
     @FXML
     void nextHeatUpdatedScene(ActionEvent event) {
+    	
+    	heatDisplayLabel.setText(RaceModelOrganizer.heatLabelDisplayChanger());	
     	pilotHeat.setText(RaceModelOrganizer.nextHeat());
     	pilotSelectionComboBox.setItems(FXCollections.observableArrayList(RaceModelOrganizer.heatComboBoxDisplay()));
+    	
     }
 
     @FXML
     void startTimer(ActionEvent event) {
 
     }
-    
+    //Return to the round Menu
     @FXML
     void returnToRoundMenu(ActionEvent event) {
 
+    	RaceModelOrganizer.zeroOutNum();
     	Parent root;
 		try {
-
+			
 			root = FXMLLoader.load(getClass().getResource("../view/RoundView.fxml"));
 			Main.stage.setScene(new Scene(root, 600, 600));
 			Main.stage.setTitle("Round Menu");
@@ -96,9 +100,11 @@ public class HeatController implements Initializable  {
     	
     }
 
+    //show the current heat, pilots inside heat, pilots in current heat to be selected
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		heatDisplayLabel.setText("");// change the display label to the current heat number
+		heatDisplayLabel.setText(RaceModelOrganizer.heatLabelDisplayChanger());// change the display label to the current heat number
+				
 		pilotHeat.setText(RaceModelOrganizer.displayFirstHeat());//change the pilot head display label to the current heat
 		pilotSelectionComboBox.setItems(FXCollections.observableArrayList(RaceModelOrganizer.heatComboBoxDisplay()));
 		

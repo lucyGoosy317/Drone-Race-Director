@@ -27,7 +27,7 @@ public class RaceModelOrganizer {
 	private static int roundNumber;
 	private static int heatNumber;
 	private static int heatNum;
-	private static int helperHeatNum;
+	
 	
 	
 
@@ -44,7 +44,7 @@ public class RaceModelOrganizer {
 		roundNumber = 0;
 		heatNumber = 0;
 		heatNum=0;
-		helperHeatNum=0;
+		
 
 	}
 
@@ -376,7 +376,7 @@ public class RaceModelOrganizer {
 		
 	}
 	
-	//wild display the next heat and stop if the value is higher than
+	//will display the next heat and stop if the value is higher than
 	//heat size
 	//HeatController
 	public static String nextHeat() {
@@ -406,6 +406,7 @@ public class RaceModelOrganizer {
 		
 	}
 	
+	//Will display the current pilots inside the comboBox to allow user to select a pilot from the heat
 	//HeatController 
 	public static ArrayList<Pilots> heatComboBoxDisplay() {
 		ArrayList <Pilots> tempArrayListHeat = new ArrayList<Pilots>();
@@ -423,6 +424,26 @@ public class RaceModelOrganizer {
 		return tempArrayListHeat;
 	}
 	
+	//Will display the current heat inside the heat display label
+	//Heat Controller
+	public static String heatLabelDisplayChanger() {
+		String labelChanger="";
+		System.out.println("Heat num is: "+heatNum);
+	
+		if(heatNum==heatNumber) {
+			labelChanger=rounds.get(roundNumber).heat.get(heatNum-1).heatName;
+			
+		}else {
+			labelChanger=rounds.get(roundNumber).heat.get(heatNum).heatName;
+		}
+		return labelChanger;
+	}
+	
+	//Will zero out heatNum 
+	//HeatController
+	public static void zeroOutNum() {
+		heatNum=0;
+	}
 	
 	
 	//This method will be called several times to show the current round's heat
