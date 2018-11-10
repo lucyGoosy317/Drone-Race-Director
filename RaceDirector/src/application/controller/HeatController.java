@@ -43,6 +43,9 @@ public class HeatController implements Initializable  {
 
     @FXML
     private Button saveScoresButton;
+    
+    @FXML
+    private Button removeScore;
 
     @FXML
     private Button nextHeatButton;
@@ -64,6 +67,12 @@ public class HeatController implements Initializable  {
     	//TODO create a saveCurrentScores, that will set the selected pilot in this
     	//heat, currentScore to what value is entered and then add the score to the gen
     	//array list
+    	RaceModelOrganizer.saveCurrentScore(pilotSelectionComboBox.getValue(), pilotScoreEntry.getText());
+    }
+    
+    @FXML
+    void removeScore(ActionEvent event) {
+    	RaceModelOrganizer.removeScore(pilotSelectionComboBox.getValue(), pilotScoreEntry.getText());
     }
 
     //Change to the next head inside the current round
@@ -73,6 +82,7 @@ public class HeatController implements Initializable  {
     	heatDisplayLabel.setText(RaceModelOrganizer.heatLabelDisplayChanger());	
     	pilotHeat.setText(RaceModelOrganizer.nextHeat());
     	pilotSelectionComboBox.setItems(FXCollections.observableArrayList(RaceModelOrganizer.heatComboBoxDisplay()));
+    	
     	
     }
 
@@ -84,6 +94,7 @@ public class HeatController implements Initializable  {
     @FXML
     void returnToRoundMenu(ActionEvent event) {
 
+    	RaceModelOrganizer.currentRound();
     	RaceModelOrganizer.zeroOutNum();
     	Parent root;
 		try {

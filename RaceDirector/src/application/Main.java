@@ -15,16 +15,9 @@ package application;
  * end scoreScore scene.
  * 
  * HeatController:
- * TODO Write heatInfoUpdate inside RaceOrganizer, that get the first heat from the heats arrayList, populate the grid with the heat's pilot data
- * TODO Write addScores inside RaceOrganizer, which will take given scores that were entered inside the text values, go through the heat list, and
  * add the current score to the pilot's score array list.
  * TODO Write timerStarter inside RaceOrganizer, which will update the value of the label timer inside HeatController.
- *  
- * TODO Create addUpScore, which will return the String value of pilots inside the pilots generally arraylist, first add the pilot
- * score inside the pilots score array list and give the sum to the pilot's value of total. Once that is completed sort the general
- * array list by score.
- *
- *
+ 
  *  RaceOffScoreController
  * TODO Create RaceOff FXML which will display the pilot general list and their scores
  * TODO Create RaceOff FXML which will call addUpScore, 

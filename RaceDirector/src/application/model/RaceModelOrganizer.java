@@ -27,7 +27,8 @@ public class RaceModelOrganizer {
 	private static int roundNumber;
 	private static int heatNumber;
 	private static int heatNum;
-	
+	private static int helperNum;
+	private static int helperNum2;
 	
 	
 
@@ -44,7 +45,8 @@ public class RaceModelOrganizer {
 		roundNumber = 0;
 		heatNumber = 0;
 		heatNum=0;
-		
+		helperNum=0;
+		helperNum2=0;
 
 	}
 
@@ -304,6 +306,17 @@ public class RaceModelOrganizer {
 		//conduct check to either allow a pilot to be added or to alert the user that the pilot has already been entered 
 		//into another heat
 		if(check==true) {
+			//assign the size of pilots in heat score arraylist
+			for(int l=0;l<roundNumber;l++) {
+				selectedPilot.pilotsScore.add(0);
+			}
+			//assign the size of every the pilots array list
+			for(int i=0;i<pilotGeneralPilotList.size();i++) {
+				for(int j=0;j<roundNumber;j++) {
+					pilotGeneralPilotList.get(i).pilotsScore.add(0);	
+				}
+				
+			}
 			selectedHeat.addPilotsToHeat(selectedPilot);
 				
 		}else {
@@ -398,7 +411,9 @@ public class RaceModelOrganizer {
 						rounds.get(roundNumber).heat.get(heatNum).PilotsInHeat.get(i).pilotName+"\n"+"\n";
 			}
 			//heatComboBoxDisplay();
+			helperNum=heatNum;
 			heatNum++;
+			helperNum2++;
 			System.out.println(heatNum);
 		}
 		
@@ -406,18 +421,24 @@ public class RaceModelOrganizer {
 		
 	}
 	
+	
+	
 	//Will display the current pilots inside the comboBox to allow user to select a pilot from the heat
 	//HeatController 
 	public static ArrayList<Pilots> heatComboBoxDisplay() {
 		ArrayList <Pilots> tempArrayListHeat = new ArrayList<Pilots>();
 		System.out.println("Heat num is: "+heatNum);
-		int tempHeat=heatNum-1;
-		if(heatNum==heatNumber) {
-			tempArrayListHeat=rounds.get(roundNumber).heat.get(tempHeat).PilotsInHeat;
+		int tempNum=heatNum-1;
 		
+		
+		if(heatNum==heatNumber-1) {
+			
+			tempArrayListHeat=rounds.get(roundNumber).heat.get(helperNum).PilotsInHeat;
+			
 			
 		}else {
-			tempArrayListHeat=rounds.get(roundNumber).heat.get(tempHeat).PilotsInHeat;
+			tempArrayListHeat=rounds.get(roundNumber).heat.get(tempNum).PilotsInHeat;
+			
 			
 		}
 		
@@ -439,16 +460,55 @@ public class RaceModelOrganizer {
 		return labelChanger;
 	}
 	
-	//Will zero out heatNum 
+	public static void saveCurrentScore(Pilots selectedPilot,String score) {
+		int pilotScore=Integer.parseInt(score);
+		//first assign score to currentScore to this pilot
+		System.out.println("Round Number is: "+roundNumber + "The current selected pilot score size is: "+selectedPilot.pilotsScore.size());
+		//save the score in the correct spot for the round
+		System.out.println();
+				selectedPilot.pilotsScore.add(roundNumber, pilotScore);
+				selectedPilot.Total=selectedPilot.Total+pilotScore;
+				System.out.println(selectedPilot.pilotName+"Total Score: "+selectedPilot.Total);
+				
+		//selectedPilot.pilotsScore.add(pilotScore);
+		//System.out.println(selectedPilot.pilotsScore.toString());
+		
+		
+	}
+	public static void removeScore(Pilots selectedPilot, String score) {
+		int pilotScore=Integer.parseInt(score);
+		//show the current score
+		
+		System.out.println(pilotScore);
+		for(int i=0;i<selectedPilot.pilotsScore.size();i++) {
+			//show the score to be compared
+		
+			int tempNum=selectedPilot.pilotsScore.get(i);
+			System.out.println("current score in index: "+tempNum +"Score given from user to be removed: "+pilotScore);
+			if(pilotScore==selectedPilot.pilotsScore.get(i)) {
+				System.out.println("Selected pilot score removed was: "+selectedPilot.pilotsScore.get(i));
+				selectedPilot.Total=selectedPilot.Total-selectedPilot.pilotsScore.get(i);
+				selectedPilot.pilotsScore.remove(i);
+				System.out.println(selectedPilot.pilotName+"Total Score: "+selectedPilot.Total);
+				
+				
+			}
+		}
+	}
+	
+	//Will zero out heatNum and helperNum 
 	//HeatController
 	public static void zeroOutNum() {
 		heatNum=0;
+		helperNum=0;
+		helperNum2=0;
 	}
 	
 	
 	//This method will be called several times to show the current round's heat
 	//roundController
 	public static String displayRoundHeat(int roundNumber) {
+		
 		String currentRound=rounds.get(roundNumber).roundName+"\n";
 		for(int i=0;i<rounds.get(roundNumber).heat.size();i++) {
 			Heat tempHeat=rounds.get(roundNumber).heat.get(i);
@@ -472,12 +532,9 @@ public class RaceModelOrganizer {
 			previousRound=displayRoundHeat(roundNumber);
 			
 		}else {
-			System.out.println("**********"+roundNumber+"*********");
 			roundNumber--;
 			previousRound=displayRoundHeat(roundNumber);
 			
-			System.out.println(displayRoundHeat(roundNumber));
-			System.out.println("********"+roundNumber+"*****");
 			
 		}
 		
@@ -493,12 +550,8 @@ public class RaceModelOrganizer {
 			JOptionPane.showMessageDialog(null,"This is the last Round");
 			nextRound=displayRoundHeat(roundNumber);
 		}else {
-			System.out.println("**********"+roundNumber+"*********");
 			roundNumber++;
 			nextRound=displayRoundHeat(roundNumber);
-			
-			System.out.println(displayRoundHeat(roundNumber));
-			System.out.println("********"+roundNumber+"*****");
 			
 		}
 	
@@ -544,7 +597,7 @@ public class RaceModelOrganizer {
 			//look at the pilots inside each round, inside each heat
 			for(int k=0;k<rounds.get(i).heat.size();k++){
 				for(int j=0;j<rounds.get(i).heat.get(k).PilotsInHeat.size();j++) {
-
+					
 					
 				}
 				

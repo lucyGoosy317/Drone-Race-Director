@@ -126,7 +126,7 @@ public class Pilots {
 	 * toString only to view if pilots are loading correctly
 	 */
 	public String toString() {
-		String ret=pilotName+" "+pilotChannel.toString();;
+		String ret=pilotName+" "+pilotChannel.toString()+"\n";
 		
 	
 		

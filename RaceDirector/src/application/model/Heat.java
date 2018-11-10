@@ -84,7 +84,12 @@ public class Heat  {
 	public String returnPilotsOfHeat() {
 		String ret=heatName+":"+"\n";
 		for(int i=0;i<PilotsInHeat.size();i++) {
-			ret+=PilotsInHeat.get(i)+" Round Score: "+ PilotsInHeat.get(i).getCurrentScore() +"\n";
+			ret+=PilotsInHeat.get(i)+ " Scores :";
+			for(int l=0;l<PilotsInHeat.get(i).pilotsScore.size();l++) {
+				ret+=PilotsInHeat.get(i).pilotsScore.get(l)+",";
+			}
+			ret+="\n";
+			
 		}
 		
 		return ret;
