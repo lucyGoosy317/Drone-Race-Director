@@ -18,7 +18,7 @@ package application;
  * add the current score to the pilot's score array list.
  * TODO Write timerStarter inside RaceOrganizer, which will update the value of the label timer inside HeatController.
  
- *  RaceOffScoreController
+ * RaceOffScoreController
  * TODO Create RaceOff FXML which will display the pilot general list and their scores
  * TODO Create RaceOff FXML which will call addUpScore, 
  * 
