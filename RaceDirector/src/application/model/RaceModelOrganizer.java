@@ -3,6 +3,8 @@ package application.model;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
 
 import javax.swing.JOptionPane;
@@ -468,8 +470,8 @@ public class RaceModelOrganizer {
 		System.out.println();
 				selectedPilot.pilotsScore.add(roundNumber, pilotScore);
 				selectedPilot.Total=selectedPilot.Total+pilotScore;
-				System.out.println(selectedPilot.pilotName+"Total Score: "+selectedPilot.Total);
-				
+				//System.out.println(selectedPilot.pilotName+"Total Score: "+selectedPilot.Total);
+				sortPilots();
 		//selectedPilot.pilotsScore.add(pilotScore);
 		//System.out.println(selectedPilot.pilotsScore.toString());
 		
@@ -623,9 +625,90 @@ public class RaceModelOrganizer {
 			
 			return ret;
 		}
-	//will be use to initlize the first round and display the first heats
 	
 	
+	//swap Pilot Places
+	public static void swapPilots(Pilots selectedPilot1, Pilots selectedPilot2) {
+		int indexForSelectedPilot1=0;
+		int indexForSelectedPilot2=0;
+		//get the index positions
+		for(int i=0;i<pilotGeneralPilotList.size();i++) {
+			if(pilotGeneralPilotList.get(i).equals(selectedPilot1)) {
+				indexForSelectedPilot1=i;
+			}else if(pilotGeneralPilotList.get(i).equals(selectedPilot2)) {
+				indexForSelectedPilot2=i;
+			}
+		}
+		Collections.swap(pilotGeneralPilotList, indexForSelectedPilot1, indexForSelectedPilot2);
+		
+		
+	}
+	
+	public static String displayAllPilots() {
+		String Pilots="";
+		for(int i=0;i<pilotGeneralPilotList.size();i++) {
+			Pilots+=(i+1)+" "+ pilotGeneralPilotList.get(i).getPilotName()+ " Total Score: "+pilotGeneralPilotList.get(i).getTotal() +"\n";
+		}
+		
+		
+		return Pilots;
+	}
+	
+	//check for raceOff
+	public static boolean checkRaceOffs() {
+		boolean check=false;
+		//boolean flag=true;
+		//while(flag)
+		//{
+			//flag=true;
+			for(int i=0;i<pilotGeneralPilotList.size()-1;i++) {
+				if(pilotGeneralPilotList.get(i).getTotal()==pilotGeneralPilotList.get(i+1).getTotal()){
+					Pilots tempPilot1=pilotGeneralPilotList.get(i);
+					Pilots tempPilot2=pilotGeneralPilotList.get(i+1);
+					
+					System.out.println(tempPilot1.pilotName+ " is racing of with "+ tempPilot2.pilotName+"\n");
+					//flag=false;
+					check=true;
+				}else {
+					
+			}
+			
+		}
+		
+		return check;
+	}
+	
+	
+	//This Method will be called to Sort the pilots in Round Controller, when the user wants to end the race
+	public static void sortPilots() {
+		int i;
+		
+		boolean flag=true;
+		
+		while(flag)
+		{
+			flag=false;
+			for(i=0;i<pilotGeneralPilotList.size()-1;i++) {
+				if(pilotGeneralPilotList.get(i).getTotal()<pilotGeneralPilotList.get(i+1).getTotal()){
+					Pilots tempPilot1=pilotGeneralPilotList.get(i);
+					Pilots tempPilot2=pilotGeneralPilotList.get(i+1);
+					//the swap
+					pilotGeneralPilotList.remove(tempPilot1);
+					pilotGeneralPilotList.remove(tempPilot2);
+					pilotGeneralPilotList.add(i,tempPilot2);
+					pilotGeneralPilotList.add(i+1,tempPilot1);
+					flag=true;
+					
+				}
+			}
+		}
+		for(int k=0;k<pilotGeneralPilotList.size();k++) {
+			System.out.println((k+1)+" "+pilotGeneralPilotList.get(k).getPilotName()+" Total score "+pilotGeneralPilotList.get(k).getTotal());
+		}
+		System.out.println();
+		
+		
+	}
 	
 	//**********************************************************************
 	

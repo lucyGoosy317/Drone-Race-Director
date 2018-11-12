@@ -9,25 +9,9 @@ package application;
  * (task will be removed once completed, ill be working top-down till finished, please alert me if you are working on 
  * anything via chat)
  * 
- * RoundController:
- * TODO:Add an end race button which will allow the user to end the race at the round they are at
- * and change to the RaceOffScore if there are any ties in pilot's total score. if no ties exist, go to the
- * end scoreScore scene.
+ * TODO: Java Doc, video, grade rubric stuff
  * 
- * HeatController:
- * add the current score to the pilot's score array list.
- * TODO Write timerStarter inside RaceOrganizer, which will update the value of the label timer inside HeatController.
- 
- * RaceOffScoreController
- * TODO Create RaceOff FXML which will display the pilot general list and their scores
- * TODO Create RaceOff FXML which will call addUpScore, 
  * 
- * EndScoreController
- * TODO Create endScoreController, Will be used for EndScore FXML, Will have TextView type a that will display the pilots
- * and their score. Use save method to save the general list to a .csv file// Create Score fxml, no skin needed, just link
- * (Name:   Edgard Borrego  )
- * TODO Create endScore FXML which will show the general list of pilots with pilots total Score to be displayed, sort the
- * pilots according to score.
  */
 	
 import javafx.application.Application;

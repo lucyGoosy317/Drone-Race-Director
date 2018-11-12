@@ -24,6 +24,9 @@ public class RoundController implements Initializable  {
 
     @FXML
     private Button nextRoundButton;
+    
+    @FXML
+    private Button endRaceButton;
 
     @FXML
     private Button startRoundButton;
@@ -77,6 +80,47 @@ public class RoundController implements Initializable  {
     	roundUpdaterLabel.setText(RaceModelOrganizer.roundLabelUpdater());
     	
     }
+    
+
+    @FXML
+    void endRace(ActionEvent event) {
+    	RaceModelOrganizer.sortPilots();
+    	if(RaceModelOrganizer.checkRaceOffs()==true) {
+    		//there is a race off go to the race off scene
+    		Parent root;
+    		try {
+
+    			root = FXMLLoader.load(getClass().getResource("../view/RaceOff.fxml"));
+    			Main.stage.setScene(new Scene(root, 600, 600));
+    			Main.stage.setTitle("End Of Race");
+    			Main.stage.show();
+
+    		} catch (IOException e) {
+    			
+    			e.printStackTrace();
+    		}
+    	}else {
+    		//if not go straight to the end scene
+    	
+    	Parent root;
+		try {
+
+			root = FXMLLoader.load(getClass().getResource("../view/endRaceView.fxml"));
+			Main.stage.setScene(new Scene(root, 600, 600));
+			Main.stage.setTitle("End Of Race");
+			Main.stage.show();
+
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+		}
+    	}
+    	
+    }
+    	
+    	
+    
+    
 
     //Load home Scene
     @FXML
@@ -97,6 +141,7 @@ public class RoundController implements Initializable  {
     	
     	
     }
+    
 
    
 	@Override
