@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
@@ -8,6 +10,18 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.endRaceController">
    <children>
+      <AnchorPane prefHeight="618.0" prefWidth="660.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="RED" height="43.0" opacity="0.61" stroke="BLACK" strokeType="INSIDE" width="601.0" />
+            <ImageView fitHeight="702.0" fitWidth="869.0" opacity="0.38" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../data/whoop.jpg" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="120.0" opacity="0.65" stroke="BLACK" strokeType="INSIDE" width="660.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="43.0" stroke="#515050" strokeType="INSIDE" width="660.0" />
+         </children>
+      </AnchorPane>
       <ScrollPane layoutX="36.0" layoutY="64.0" prefHeight="500.0" prefViewportHeight="338.0" prefViewportWidth="158.0" prefWidth="238.0">
          <content>
             <Label fx:id="pilotFinalResult" alignment="TOP_LEFT" layoutX="32.0" layoutY="135.0" prefHeight="688.0" prefWidth="312.0" wrapText="true" />
@@ -21,6 +35,10 @@
       <Button fx:id="saveResults" layoutX="379.0" layoutY="208.0" mnemonicParsing="false" onAction="#save" text="Save" />
       <Hyperlink layoutX="388.0" layoutY="317.0" prefHeight="117.0" prefWidth="117.0" />
       <Label alignment="CENTER" layoutX="36.0" layoutY="14.0" prefHeight="45.0" prefWidth="238.0" text="Results" />
-      <Label layoutX="296.0" layoutY="64.0" prefHeight="111.0" prefWidth="300.0" text="Save and Share your Results on FaceBook!" wrapText="true" />
+      <Label layoutX="296.0" layoutY="64.0" prefHeight="111.0" prefWidth="300.0" text="Save and Share your Results on FaceBook!" wrapText="true">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
