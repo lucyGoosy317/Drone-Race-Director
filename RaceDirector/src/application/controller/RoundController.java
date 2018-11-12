@@ -59,7 +59,8 @@ public class RoundController implements Initializable  {
 		try {
 
 			root = FXMLLoader.load(getClass().getResource("../view/HeatView.fxml"));
-			Main.stage.setScene(new Scene(root, 600, 800));
+			Main.stage.setScene(new Scene(root, 600, 600));
+			Main.stage.setResizable(false);
 			Main.stage.setTitle("Heat");
 			Main.stage.show();
 
@@ -107,6 +108,7 @@ public class RoundController implements Initializable  {
 
 			root = FXMLLoader.load(getClass().getResource("../view/endRaceView.fxml"));
 			Main.stage.setScene(new Scene(root, 600, 600));
+			Main.stage.setResizable(false);
 			Main.stage.setTitle("End Of Race");
 			Main.stage.show();
 

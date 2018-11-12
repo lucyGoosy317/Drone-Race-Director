@@ -1,5 +1,34 @@
 package application.controller;
 
-public class endRaceController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import application.model.RaceModelOrganizer;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+
+public class endRaceController implements Initializable {
+
+    @FXML
+    private Button saveResults;
+
+    @FXML
+    private Label pilotFinalResult;
+    
+    @FXML
+    void save(ActionEvent event) {
+
+    }
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		// TODO Auto-generated method stub
+		pilotFinalResult.setText(RaceModelOrganizer.displayAllPilots());
+		
+	}
 
 }
+

@@ -26,6 +26,7 @@ public class menuStartController implements Initializable {
 
 			root = FXMLLoader.load(getClass().getResource("../view/RaceStart.fxml"));
 			Main.stage.setScene(new Scene(root, 600, 600));
+			Main.stage.setResizable(false);
 			Main.stage.setTitle("Configure Race");
 			Main.stage.show();
 

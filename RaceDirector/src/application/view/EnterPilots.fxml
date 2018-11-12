@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
@@ -8,7 +12,24 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.EnterPilotsController">
    <children>
-      <Button fx:id="homeButton" layoutX="143.0" layoutY="499.0" mnemonicParsing="false" onAction="#loadHome" prefHeight="25.0" prefWidth="71.0" text="Home" />
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="RED" height="43.0" opacity="0.61" stroke="BLACK" strokeType="INSIDE" width="601.0" />
+            <ImageView fitHeight="600.0" fitWidth="776.0" opacity="0.38" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../data/whoop.jpg" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="120.0" layoutX="1.0" layoutY="-1.0" opacity="0.65" stroke="BLACK" strokeType="INSIDE" width="600.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="43.0" stroke="#515050" strokeType="INSIDE" width="601.0" />
+            <Label layoutX="69.0" layoutY="43.0" text="Enter Pilots Menu">
+               <font>
+                  <Font name="RacingNumbers" size="64.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <Button fx:id="homeButton" layoutX="143.0" layoutY="499.0" mnemonicParsing="false" onAction="#loadHome" prefHeight="25.0" prefWidth="71.0" text="Home" wrapText="true" />
       <GridPane layoutX="61.0" layoutY="130.0" prefHeight="54.0" prefWidth="497.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -18,15 +39,13 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label prefHeight="17.0" prefWidth="251.0" text="Pilot Name" />
             <TextField fx:id="pilotNameTextField" prefHeight="65.0" prefWidth="259.0" promptText="Pilot Name" GridPane.columnIndex="1" />
+            <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="251.0" text="Pilot Name" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font></Label>
          </children>
       </GridPane>
-      <Label layoutX="149.0" layoutY="46.0" text="Enter Pilots Menu">
-         <font>
-            <Font name="RacingNumbers" size="37.0" />
-         </font>
-      </Label>
       <Button fx:id="enterPilotButton" layoutX="344.0" layoutY="499.0" mnemonicParsing="false" onAction="#handle" text="Enter Pilot" />
       <GridPane layoutX="43.0" layoutY="230.0">
         <columnConstraints>
@@ -40,11 +59,11 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <RadioButton fx:id="bandARadioButton" mnemonicParsing="false" onAction="#bandAFillComboBox" text="Band A" />
-            <RadioButton fx:id="bandBRadioButton" mnemonicParsing="false" onAction="#bandBFillComboBox" text="Band B" GridPane.columnIndex="1" />
+            <RadioButton fx:id="bandARadioButton" mnemonicParsing="false" onAction="#bandAFillComboBox" text="Band A" wrapText="true" />
+            <RadioButton fx:id="bandBRadioButton" mnemonicParsing="false" onAction="#bandBFillComboBox" text="Band B" wrapText="true" GridPane.columnIndex="1" />
             <RadioButton fx:id="bandERadioButton" mnemonicParsing="false" onAction="#bandEFillComboBox" text="Band E" GridPane.columnIndex="2" />
-            <RadioButton fx:id="bandFRadioButton" mnemonicParsing="false" onAction="#bandFFillComboBox" text="Band F" GridPane.columnIndex="3" />
-            <RadioButton fx:id="bandRRadioButton" mnemonicParsing="false" onAction="#bandRFillComboBox" text="Band R" GridPane.columnIndex="4" />
+            <RadioButton fx:id="bandFRadioButton" mnemonicParsing="false" onAction="#bandFFillComboBox" text="Band F" wrapText="true" GridPane.columnIndex="3" />
+            <RadioButton fx:id="bandRRadioButton" mnemonicParsing="false" onAction="#bandRFillComboBox" text="Band R" wrapText="true" GridPane.columnIndex="4" />
          </children>
       </GridPane>
       <ComboBox fx:id="ChannelsComboBox" layoutX="214.0" layoutY="300.0" prefWidth="150.0" />

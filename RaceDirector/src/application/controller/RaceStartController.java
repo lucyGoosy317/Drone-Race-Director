@@ -68,6 +68,7 @@ public class RaceStartController  {
 
 			root = FXMLLoader.load(getClass().getResource("../view/EnterPilots.fxml"));
 			Main.stage.setScene(new Scene(root, 600, 600));
+			Main.stage.setResizable(false);
 			Main.stage.setTitle("Enter Pilots");
 			Main.stage.show();
 
@@ -89,6 +90,7 @@ public class RaceStartController  {
 
 			root = FXMLLoader.load(getClass().getResource("../view/RaceStartConfigureRounds.fxml"));
 			Main.stage.setScene(new Scene(root, 600, 600));
+			Main.stage.setResizable(false);
 			Main.stage.setTitle("Configure Race");
 			Main.stage.show();
 
