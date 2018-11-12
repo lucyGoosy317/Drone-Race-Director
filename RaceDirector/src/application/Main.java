@@ -16,26 +16,7 @@ package application;
 	
 import javafx.application.Application;
 
-/*
-Eaze Drone Director
-Rounds>pilots>heats>Channel assignment>Race timer>Score
-Overview Of Program:
-1.This program will allow race directors the ease
-2.To Create the number of rounds first.
-3.Input the number of pilots and then their names
-4.The heats will then be generated randomly equally to 4 pilots or less depending on the number
-5.Race begins,Round 1, Heat 1 will go first and a timer of 2 minutes will be implaced.
-Once the 2 minutes is up the score will be enter for each pilot of that heat and will update the
-score board. This process repeat until all heats are completed with in the round, and all rounds are
-completed.
-6.Once all Rounds are completed, the Score board will be up to date and raceoff will be take place
-7.Once all raceoff are completed the final score will be set
 
-Screen Display:
-Start Screen
-
-
- */
 
 
 
