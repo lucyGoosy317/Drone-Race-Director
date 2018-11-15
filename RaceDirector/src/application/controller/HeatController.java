@@ -8,13 +8,20 @@ package application.controller;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Timer;
+
+import javax.swing.JOptionPane;
 
 import application.Main;
 import application.model.Pilots;
 import application.model.RaceModelOrganizer;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -24,20 +31,24 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.util.Duration;
 
 public class HeatController implements Initializable  {
 
+	
+	private final int TIME_LIMIT = 120;
+	
+	private int seconds = TIME_LIMIT;
+	
+	private Timeline timeline;
 
  
     @FXML
     private Button startTimerButton;
-
+    
     @FXML
-    private Label secondsLabel;
-
-    @FXML
-    private Label minuteLabel;
-
+    private Label timerLabel;
+    
     @FXML
     private Label heatDisplayLabel;
 
@@ -88,8 +99,61 @@ public class HeatController implements Initializable  {
 
     @FXML
     void startTimer(ActionEvent event) {
+    	
+    	
+    	if( timeline != null)
+    		timeline.stop();
+    	
+    	seconds = TIME_LIMIT;
+    	
+    	
+    	String timeStr; 
+    	
+		int min = seconds / 60;
+		int scnds = seconds % 60;
+		
+		timeStr = min + ":" + scnds;
+    	
+    	timerLabel.setText( timeStr );
+    	
+    	timeline = new Timeline();
+    	
+    	timeline.setCycleCount(Timeline.INDEFINITE);
+    	
+    	timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(1), new EventHandler() 
+    	{
+
+			@Override
+			public void handle(Event event) {
+				
+				String timeStr;
+				
+				seconds--;
+				
+				int min = seconds / 60;
+				int scnds = seconds % 60;
+				
+				if( scnds < 10)
+					timeStr = min + ":0" + scnds;
+					timeStr = min + ":" + scnds;
+				
+				timerLabel.setText( timeStr );
+				
+				if(seconds <= 0)
+				{
+					timeline.stop();
+					JOptionPane.showMessageDialog(null, "Times up!!");
+				}
+			};
+    		
+    	}));
+    	
+    	
+    	timeline.playFromStart();
 
     }
+    
+    
     //Return to the round Menu
     @FXML
     void returnToRoundMenu(ActionEvent event) {
