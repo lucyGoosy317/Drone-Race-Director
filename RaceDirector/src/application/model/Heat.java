@@ -55,12 +55,12 @@ public class Heat  {
 		//check to see if the pilot is already inside a heat
 		if(PilotsInHeat.contains(heatPilot)) {
 			//alert the user if the pilot is in the heat
-			JOptionPane.showMessageDialog(null,heatPilot.getPilotName()+"Is already in"+heatName);
+			JOptionPane.showMessageDialog(null,heatPilot.getPilotName()+" Is already in "+heatName);
 		}else {
 			//if the pilot is not in the heat then add pilot to heat
 			PilotsInHeat.add(heatPilot);
 			//alert the user that the pilot was loaded into the heat
-			JOptionPane.showMessageDialog(null,heatPilot.getPilotName()+" Has been added to"+heatName);
+			JOptionPane.showMessageDialog(null,heatPilot.getPilotName()+" Has been added to "+heatName);
 		}
 	}
 
