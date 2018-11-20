@@ -120,11 +120,6 @@ public class RaceConfigureController  {
 		}
 	}
 
-	@FXML
-	public void addPilot(ActionEvent event) {
-
-	}
-
 	
 
 	

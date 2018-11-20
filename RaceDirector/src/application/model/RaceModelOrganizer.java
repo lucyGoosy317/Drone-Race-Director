@@ -238,8 +238,11 @@ public class RaceModelOrganizer {
 		boolean check = false;
 		// remove all rounds if configured is accessed again
 		rounds.removeAll(rounds);
+		
 		// create the Round
 		try {
+			//check to see if number entered was a negative number
+			if(Integer.parseInt(numberOfRounds)>0) {
 			int numOfRounds = Integer.parseInt(numberOfRounds);
 			int roundCount = 1;
 			for (int i = 0; i < numOfRounds; i++) {
@@ -248,6 +251,12 @@ public class RaceModelOrganizer {
 				rounds.add(newRound);
 				check = true;
 			}
+				
+			}else {
+				JOptionPane.showMessageDialog(null,"Please enter a round Number greater than 0");
+
+			}
+			
 		} catch (NumberFormatException e) {
 
 			JOptionPane.showMessageDialog(null,
@@ -266,6 +275,7 @@ public class RaceModelOrganizer {
 		heats.removeAll(heats);
 		heatNumber=0;
 		try {
+			if(Integer.parseInt(numberOfHeats)>0) {
 			int heatNum = Integer.parseInt(numberOfHeats);
 			int heatCount = 1;
 			// insert Heats into all rounds
@@ -275,6 +285,10 @@ public class RaceModelOrganizer {
 				heatCount++;
 				heatNumber++;
 				check = true;
+			}
+			}else {
+				JOptionPane.showMessageDialog(null,"Please enter a number greater than 0");
+
 			}
 		} catch (NumberFormatException e) {
 
@@ -336,8 +350,27 @@ public class RaceModelOrganizer {
 		//remove the pilot with the select heat given from the ComboBox
 		selectedHeat.removePilotsFromHeat(selectedPilot);
 		
+		
 	}
 	
+	//check to enterPilots
+	public static boolean checkPilotsAndHeats(Pilots selectedPilot, Heat selectedHeat) {
+		boolean check=false;
+		if(selectedPilot==null && selectedHeat==null) {
+			JOptionPane.showMessageDialog(null,"Select a pilot and heat");
+			check=false;
+		}else if(selectedPilot==null) {
+			JOptionPane.showMessageDialog(null,"Select a Pilot");
+			check=false;
+		}else if(selectedHeat==null) {
+			JOptionPane.showMessageDialog(null,"Please selected a Heat");
+			check=false;
+		}else {
+			check=true;
+		}
+		return check;
+
+	}
 	
 	
 	//This method is a general method that will allow a new
@@ -345,6 +378,7 @@ public class RaceModelOrganizer {
 	//then will add the pilot to the general pilot array list
 	public static void createNewPilot(String pilotName, Channel pilotChannel) {
 		Pilots newPilot = null;
+		
 		newPilot = new Pilots(pilotName, pilotChannel);
 		//load Pilot scores to ensure the pilot only has 3 spaces for 3 scores to be added
 		for(int i=0;i<rounds.size();i++) {
@@ -465,11 +499,12 @@ public class RaceModelOrganizer {
 	public static void saveCurrentScore(Pilots selectedPilot,String score) {
 		int pilotScore=Integer.parseInt(score);
 		//first assign score to currentScore to this pilot
-		System.out.println("Round Number is: "+roundNumber + "The current selected pilot score size is: "+selectedPilot.pilotsScore.size());
+		//System.out.println("Round Number is: "+roundNumber + "The current selected pilot score size is: "+selectedPilot.pilotsScore.size());
 		//save the score in the correct spot for the round
-		System.out.println();
+		
 				selectedPilot.pilotsScore.add(roundNumber, pilotScore);
 				selectedPilot.Total=selectedPilot.Total+pilotScore;
+				JOptionPane.showMessageDialog(null, "Score: "+pilotScore+ " added for "+selectedPilot.pilotName);
 				//System.out.println(selectedPilot.pilotName+"Total Score: "+selectedPilot.Total);
 				sortPilots();
 		//selectedPilot.pilotsScore.add(pilotScore);
@@ -477,6 +512,8 @@ public class RaceModelOrganizer {
 		
 		
 	}
+	
+	
 	public static void removeScore(Pilots selectedPilot, String score) {
 		int pilotScore=Integer.parseInt(score);
 		//show the current score
@@ -486,17 +523,40 @@ public class RaceModelOrganizer {
 			//show the score to be compared
 		
 			int tempNum=selectedPilot.pilotsScore.get(i);
-			System.out.println("current score in index: "+tempNum +"Score given from user to be removed: "+pilotScore);
+			//System.out.println("current score in index: "+tempNum +"Score given from user to be removed: "+pilotScore);
 			if(pilotScore==selectedPilot.pilotsScore.get(i)) {
-				System.out.println("Selected pilot score removed was: "+selectedPilot.pilotsScore.get(i));
+				
+				JOptionPane.showMessageDialog(null, selectedPilot.pilotsScore.get(i)+" was removed from "+selectedPilot.pilotName);
+				//System.out.println("Selected pilot score removed was: "+selectedPilot.pilotsScore.get(i));
 				selectedPilot.Total=selectedPilot.Total-selectedPilot.pilotsScore.get(i);
 				selectedPilot.pilotsScore.remove(i);
-				System.out.println(selectedPilot.pilotName+"Total Score: "+selectedPilot.Total);
+				//System.out.println(selectedPilot.pilotName+"Total Score: "+selectedPilot.Total);
 				
 				
 			}
 		}
 	}
+	//check pilot score
+	public static boolean checkPilotAndScore(Pilots selectedPilot, String score) {
+		boolean check=false;
+		
+		if(selectedPilot==null && score.isEmpty()) {
+			JOptionPane.showMessageDialog(null,"Select a pilot and score");
+			check=false;
+		}else if(selectedPilot==null) {
+			JOptionPane.showMessageDialog(null,"Select a Pilot");
+			check=false;
+		}else if(score.isEmpty()) {
+			JOptionPane.showMessageDialog(null,"Please enter a score");
+			check=false;
+		}else {
+			check=true;
+		}
+		
+		return check;
+	}
+	
+	
 	
 	//Will zero out heatNum and helperNum 
 	//HeatController
@@ -709,6 +769,25 @@ public class RaceModelOrganizer {
 		
 		
 	}
+	
+	
+	//Check to see if rounds are empty
+	public static boolean checkRounds() {
+		boolean check=false;
+		if(rounds.isEmpty()) {
+			JOptionPane.showMessageDialog(null,"You must use the add some round before starting the race");
+			check=false;
+		}else {
+			check=true;
+		}
+		
+		
+		
+		
+		return check;
+	}
+	
+	
 	
 	//**********************************************************************
 	

@@ -78,12 +78,21 @@ public class HeatController implements Initializable  {
     	//TODO create a saveCurrentScores, that will set the selected pilot in this
     	//heat, currentScore to what value is entered and then add the score to the gen
     	//array list
+    	if(RaceModelOrganizer.checkPilotAndScore(pilotSelectionComboBox.getValue(), pilotScoreEntry.getText())==true) {
     	RaceModelOrganizer.saveCurrentScore(pilotSelectionComboBox.getValue(), pilotScoreEntry.getText());
+    	}else {
+    		
+    	}
     }
     
     @FXML
     void removeScore(ActionEvent event) {
+    	if(RaceModelOrganizer.checkPilotAndScore(pilotSelectionComboBox.getValue(), pilotScoreEntry.getText())==true) {
+
     	RaceModelOrganizer.removeScore(pilotSelectionComboBox.getValue(), pilotScoreEntry.getText());
+    	}else {
+    		
+    	}
     }
 
     //Change to the next head inside the current round

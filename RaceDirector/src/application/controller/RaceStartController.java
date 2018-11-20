@@ -106,6 +106,7 @@ public class RaceStartController  {
     void startRaceScene(ActionEvent event) {
     	
     	//RaceModelOrganizer.currentRound();
+    	if(RaceModelOrganizer.checkRounds()==true) {
     	
     	Parent root;
 		try {
@@ -119,6 +120,9 @@ public class RaceStartController  {
 			
 			e.printStackTrace();
 		}
+    	}else {
+    		
+    	}
     	
     	
     }

@@ -40,8 +40,12 @@ public class RaceStartConfigureLoadHeatsController implements Initializable {
     //updateds the label of the current heat after pilot is entered>>RaceModelOrganizer
     @FXML
     void addPilot(ActionEvent event) {
+    	if(RaceModelOrganizer.checkPilotsAndHeats(pilotComboBox.getValue(), heatComboBox.getValue())==true) {
     	RaceModelOrganizer.loadPilotsIntoHeats(pilotComboBox.getValue(), heatComboBox.getValue());
+    	
+    	
     	currentHeatDisplay.setText(RaceModelOrganizer.displayCurrentHeat(heatComboBox.getValue()));
+    	}
     }
     
     
@@ -49,8 +53,12 @@ public class RaceStartConfigureLoadHeatsController implements Initializable {
     //updates the label of the current heat after a pilot is removed>>RaceModelOrganizer
     @FXML
     void removePilot(ActionEvent event) {
+    	if(RaceModelOrganizer.checkPilotsAndHeats(pilotComboBox.getValue(), heatComboBox.getValue())==true) {
     	RaceModelOrganizer.removePilotsFromHeats(pilotComboBox.getValue(), heatComboBox.getValue());
     	currentHeatDisplay.setText(RaceModelOrganizer.displayCurrentHeat(heatComboBox.getValue()));
+    	}else {
+    		
+    	}
     }
     
     //will show the change the current heat list as the user selects the heat comboBox

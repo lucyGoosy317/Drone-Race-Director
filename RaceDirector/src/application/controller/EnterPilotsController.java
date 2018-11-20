@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javax.swing.JOptionPane;
+
 import application.Main;
 import application.model.Channel;
 import application.model.RaceModelOrganizer;
@@ -137,9 +139,19 @@ public class EnterPilotsController  implements Initializable, EventHandler<Event
 		String pilotName=pilotNameTextField.getText();
 		Channel selectedChannel=ChannelsComboBox.getValue();
 		
+		if(pilotName.isEmpty() && selectedChannel==null) {
+			JOptionPane.showMessageDialog(null,"Please enter a pilot and chanel");
+
+		}else if(pilotName.isEmpty()) {
+			JOptionPane.showMessageDialog(null,"Please enter a Pilot");
+
+		}else if(selectedChannel==null) {
+			JOptionPane.showMessageDialog(null,"Please selected a Channel");
+
+		}else {
 			RaceModelOrganizer.createNewPilot(pilotName, selectedChannel);
 		
-		
+		}
 	}
 
 	
