@@ -46,15 +46,17 @@ public class RaceStartController  {
     @FXML
     void loadPilotsScene(ActionEvent event) {
     
-    	
-		FileChooser fileChooser=new FileChooser();
+    	FileChooser fileChooser=new FileChooser();
 		    fileChooser.setTitle("Open Resource File");
 		    //fileChooser.showOpenDialog(Main.stage);
 		    File file= fileChooser.showOpenDialog(Main.stage);
+		    if(file==null) {
+				JOptionPane.showMessageDialog(null, "No Pilots Have been loaded");
+
+		    }else {
 		    RaceModelOrganizer.loadFileFromDesktop(file);
 		   // JOptionPane.showMessageDialog(null, "Your Pilots have been Loaded");
-    	
-    	
+		    }
     }
 
    
