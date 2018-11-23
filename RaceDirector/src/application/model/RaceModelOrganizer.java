@@ -1,7 +1,11 @@
 package application.model;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -786,7 +790,38 @@ public class RaceModelOrganizer {
 		
 		return check;
 	}
+
 	
+	//************************************Save method used in end ********************************************************
+	public static void save(String pilotResults) {
+		String userFile="data/results.csv";
+		
+			
+			try {
+				FileWriter fileWriter= new FileWriter(userFile,false);
+				BufferedWriter bufferWriter= new BufferedWriter(fileWriter);
+				PrintWriter printWriter= new PrintWriter(bufferWriter);
+				Scanner scan= new Scanner(pilotResults);
+				while(scan.hasNext()) {
+					String line=scan.nextLine();
+					String[] tokens=line.split(" ");
+					printWriter.println(tokens[0]+","+tokens[1]+","+tokens[4]);
+					
+				}
+				printWriter.close();
+				scan.close();
+				
+				
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		
+		
+		
+		
+	}
 	
 	
 	//**********************************************************************

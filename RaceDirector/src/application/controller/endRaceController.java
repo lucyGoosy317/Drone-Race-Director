@@ -20,6 +20,11 @@ public class endRaceController implements Initializable {
     
     @FXML
     void save(ActionEvent event) {
+    	//TODO utilize the the showsavedialog to save to any location
+    	
+    	//**************save Method***********
+    	RaceModelOrganizer.save(pilotFinalResult.getText());
+    	
 
     }
 

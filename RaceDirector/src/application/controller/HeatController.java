@@ -98,7 +98,8 @@ public class HeatController implements Initializable  {
     //Change to the next head inside the current round
     @FXML
     void nextHeatUpdatedScene(ActionEvent event) {
-    	
+    	timeline.stop();
+    	timerLabel.setText("");
     	heatDisplayLabel.setText(RaceModelOrganizer.heatLabelDisplayChanger());	
     	pilotHeat.setText(RaceModelOrganizer.nextHeat());
     	pilotSelectionComboBox.setItems(FXCollections.observableArrayList(RaceModelOrganizer.heatComboBoxDisplay()));
@@ -169,6 +170,7 @@ public class HeatController implements Initializable  {
 
     	RaceModelOrganizer.currentRound();
     	RaceModelOrganizer.zeroOutNum();
+    	timeline.stop();
     	Parent root;
 		try {
 			
