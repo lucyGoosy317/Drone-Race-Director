@@ -13,6 +13,9 @@ import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
+import application.Main;
+import javafx.stage.FileChooser;
+
 /**
  * 
  * @author Luziano Reyna vtk064
@@ -801,6 +804,7 @@ public class RaceModelOrganizer {
 				FileWriter fileWriter= new FileWriter(userFile,false);
 				BufferedWriter bufferWriter= new BufferedWriter(fileWriter);
 				PrintWriter printWriter= new PrintWriter(bufferWriter);
+				
 				Scanner scan= new Scanner(pilotResults);
 				while(scan.hasNext()) {
 					String line=scan.nextLine();
@@ -808,6 +812,8 @@ public class RaceModelOrganizer {
 					printWriter.println(tokens[0]+","+tokens[1]+","+tokens[4]);
 					
 				}
+				
+				//fileWriter.write(userFile);
 				printWriter.close();
 				scan.close();
 				
