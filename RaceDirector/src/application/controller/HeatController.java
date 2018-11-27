@@ -8,8 +8,6 @@ package application.controller;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.Timer;
-
 import javax.swing.JOptionPane;
 
 import application.Main;
