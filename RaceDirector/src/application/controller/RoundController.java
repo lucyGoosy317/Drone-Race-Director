@@ -1,6 +1,8 @@
 package application.controller;
 
 /**
+ * 
+ * 
  * @author Luziano Reyna vtk064
  * 
  */
@@ -42,7 +44,11 @@ public class RoundController implements Initializable  {
     @FXML
     private Button homeButton;
 
- 	//This is not really a scene change, more of an update with the previous data on it
+ 	/**
+ 	 * This is not really a scene change, more of an update with the previous data on it
+ 	 * 
+ 	 * @param event
+ 	 */
     @FXML
     void previousRoundScene(ActionEvent event) {
 
@@ -50,7 +56,11 @@ public class RoundController implements Initializable  {
     	heatDisplayLabel.setText(RaceModelOrganizer.previousRound());
     	roundUpdaterLabel.setText(RaceModelOrganizer.roundLabelUpdater());
     }
-//This is a scene change and will go into the Heats 1 by 1
+/**
+ * This is a scene change and will go into the Heats 1 by 1
+ * 
+ * @param event
+ */
     @FXML
     void startRoundScene(ActionEvent event) {
 
@@ -71,7 +81,11 @@ public class RoundController implements Initializable  {
     	
     }
 
-    //This is not a scene change, more of an updated for the next round
+    /**
+     * This is not a scene change, more of an updated for the next round
+     * 
+     * @param event
+     */
     @FXML
     void nextRoundUpdateScene(ActionEvent event) {
 
@@ -81,7 +95,11 @@ public class RoundController implements Initializable  {
     	
     }
     
-
+    /**
+     * Ends race and takes user to RaceOff.fxml (view) if two racers have tied to decide rank
+     * 
+     * @param event
+     */
     @FXML
     void endRace(ActionEvent event) {
     	RaceModelOrganizer.sortPilots();
@@ -123,7 +141,11 @@ public class RoundController implements Initializable  {
     
     
 
-    //Load home Scene
+    /**
+     * Load home Scene
+     * 
+     * @param event
+     */
     @FXML
     void loadHome(ActionEvent event) {
 

@@ -1,5 +1,8 @@
 package application.controller;
 /**
+ * RaceConfigureController allows user pilot entry, heat entry and round entry which all will be displayed; 
+ * and retur to home view
+ * 
  * @author Luziano Reyna vtk064
  */
 
@@ -40,7 +43,11 @@ public class RaceConfigureController  {
 	
 	
 	// **************************Methods********************************
-
+/**
+ * Loads RaceStartConfigure view
+ * 
+ * @param event
+ */
 	@FXML
 	void loadHome(ActionEvent event) {
 
@@ -59,7 +66,11 @@ public class RaceConfigureController  {
 
 	}
 
-	// this allows rounds to be entered
+	/**
+	 * Allows rounds to be entered
+	 * 
+	 * @param event
+	 */
 	public void enterRounds(ActionEvent event) {
 
 		// This will create the rounds, heats, and restrict pilots while
@@ -82,7 +93,11 @@ public class RaceConfigureController  {
 		}
 	}
 
-	// this allows heats to be entered
+	/**
+	 * Allows heats to be entered
+	 * 
+	 * @param event
+	 */
 	public void enterHeats(ActionEvent event) {
 
 		// This will create the rounds, heats, and restrict pilots while

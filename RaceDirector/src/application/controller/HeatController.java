@@ -1,5 +1,8 @@
 package application.controller;
 /**
+ * Control current Heat, allows user to start timer for race, save score, remove score, and continue to 
+ * next Heat
+ * 
  * @author Luziano Reyna vtk064
  * 
  */
@@ -71,6 +74,12 @@ public class HeatController implements Initializable  {
     private Button roundMenuButton;
     ObservableList<Pilots> PilotList;
     
+    
+    /**
+     * Saves score of pilots in heat
+     * 
+     * @param event
+     */
     @FXML
     void saveScores(ActionEvent event) {
     	//TODO create a saveCurrentScores, that will set the selected pilot in this
@@ -83,6 +92,11 @@ public class HeatController implements Initializable  {
     	}
     }
     
+    /**
+     * Removes score from selected pilot
+     * 
+     * @param event
+     */
     @FXML
     void removeScore(ActionEvent event) {
     	if(RaceModelOrganizer.checkPilotAndScore(pilotSelectionComboBox.getValue(), pilotScoreEntry.getText())==true) {
@@ -93,7 +107,11 @@ public class HeatController implements Initializable  {
     	}
     }
 
-    //Change to the next head inside the current round
+    /**
+     * Change to the next head inside the current round
+     * 
+     * @param event
+     */
     @FXML
     void nextHeatUpdatedScene(ActionEvent event) {
     	
@@ -105,7 +123,11 @@ public class HeatController implements Initializable  {
     	
     	
     }
-
+/**
+ * Starts timer for race, so user can keep track of pilots laps within time span
+ * 
+ * @param event
+ */
     @FXML
     void startTimer(ActionEvent event) {
     	
@@ -163,7 +185,11 @@ public class HeatController implements Initializable  {
     }
     
     
-    //Return to the round Menu
+    /**
+     * Return to the round Menu
+     * 
+     * @param event
+     */
     @FXML
     void returnToRoundMenu(ActionEvent event) {
 
@@ -185,7 +211,9 @@ public class HeatController implements Initializable  {
     	
     }
 
-    //show the current heat, pilots inside heat, pilots in current heat to be selected
+    /**
+     * show the current heat, pilots inside heat, pilots in current heat to be selected
+     */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		heatDisplayLabel.setText(RaceModelOrganizer.heatLabelDisplayChanger());// change the display label to the current heat number

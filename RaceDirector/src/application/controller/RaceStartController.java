@@ -1,5 +1,8 @@
 package application.controller;
 /**
+ * RaceStart class shows main menu to user and allows him four options; load pilots (from data file, 
+ * enter pilots (directly), configure race (set up channels, heat, rounds), start race (begins race)
+ * 
  * @author Luziano Reyna vtk064
  */
 
@@ -38,7 +41,11 @@ public class RaceStartController  {
    
   
     
-
+/**
+ * Opens local file so user can upload data file
+ * 
+ * @param event
+ */
     @FXML
     void loadPilotsScene(ActionEvent event) {
     
@@ -56,7 +63,11 @@ public class RaceStartController  {
     }
 
    
-
+/**
+ * Registers event adding pilots entered into race
+ * 
+ * @param event
+ */
     @FXML
     void enterPilotsScene(ActionEvent event) {
     	
@@ -78,7 +89,11 @@ public class RaceStartController  {
     }
 
     
-
+/**
+ * Registers event that takes user to Configure Race in RaceStartConfigureRounds.fxml (view)
+ * 
+ * @param event
+ */
     @FXML
     void configureRaceScene(ActionEvent event) {
     	
@@ -99,7 +114,11 @@ public class RaceStartController  {
 
     }
 
-
+/**
+ * Registers event that takes user to Round Menu in RoundView.fxml (view)
+ * 
+ * @param event
+ */
     @FXML
     void startRaceScene(ActionEvent event) {
     	

@@ -18,7 +18,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-
+/**
+ * RaceStartConfigureLoadHeatsController allows user to add/remove pilot to/from heat and updates display
+ * 
+ * @author Luziano Reyna vtk064
+ *
+ */
 public class RaceStartConfigureLoadHeatsController implements Initializable {
 
 
@@ -34,8 +39,12 @@ public class RaceStartConfigureLoadHeatsController implements Initializable {
 	ObservableList<Pilots> PilotList=FXCollections.observableArrayList(RaceModelOrganizer.getPilotGeneralPilotList());
     ObservableList<Heat> HeatList=FXCollections.observableArrayList(RaceModelOrganizer.getHeats());
 
-    //add a pilot from heat>>RaceModelOrganizer>>Heat
-    //updateds the label of the current heat after pilot is entered>>RaceModelOrganizer
+    /**
+     * Adds a pilot from heat>>RaceModelOrganizer>>Heat
+     * updates the label of the current heat after pilot is entered>>RaceModelOrganizer
+     * 
+     * @param event
+     */
     @FXML
     void addPilot(ActionEvent event) {
     	if(RaceModelOrganizer.checkPilotsAndHeats(pilotComboBox.getValue(), heatComboBox.getValue())==true) {
@@ -47,8 +56,11 @@ public class RaceStartConfigureLoadHeatsController implements Initializable {
     }
     
     
-    //remove a pilot from heat>>RaceModelOrganizer>>Heat
-    //updates the label of the current heat after a pilot is removed>>RaceModelOrganizer
+    /**
+     * Remove a pilot from heat>>RaceModelOrganizer>>Heat
+     * updates the label of the current heat after a pilot is removed>>RaceModelOrganizer
+     * @param event
+     */
     @FXML
     void removePilot(ActionEvent event) {
     	if(RaceModelOrganizer.checkPilotsAndHeats(pilotComboBox.getValue(), heatComboBox.getValue())==true) {
@@ -59,14 +71,22 @@ public class RaceStartConfigureLoadHeatsController implements Initializable {
     	}
     }
     
-    //will show the change the current heat list as the user selects the heat comboBox
+    /**
+     * will show the change the current heat list as the user selects the heat comboBox
+     * 
+     * @param event
+     */
     @FXML
     void changeDisplay(ActionEvent event) {
     	
     	currentHeatDisplay.setText(RaceModelOrganizer.displayCurrentHeat(heatComboBox.getValue()));
     }
     
-    //load to the race start menu
+    /**
+     * load to the race start menu
+     * 
+     * @param event
+     */
     @FXML
     void loadHome(ActionEvent event) {
 
