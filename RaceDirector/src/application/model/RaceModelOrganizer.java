@@ -38,7 +38,11 @@ public class RaceModelOrganizer {
 	private static int helperNum2;
 	
 	
-
+/**
+ * Constructor creates RaceModeOrganizer object with list of channle, list 
+ * of pilots and list of heat.
+ * 
+ */
 	public RaceModelOrganizer() {
 		rounds = new ArrayList<Round>();
 		pilotGeneralPilotList = new ArrayList<Pilots>();
@@ -58,107 +62,235 @@ public class RaceModelOrganizer {
 	}
 
 	// ************Getters & Setter**************
-
+/**
+ * Returns pilot list
+ * 
+ * @return
+ */
 	public static ArrayList<Pilots> getPilotHeatList() {
 		return pilotGeneralPilotList;
 	}
 
+	/**
+	 * Returns Heat
+	 * 
+	 * @return
+	 */
 	public static ArrayList<Heat> getHeats() {
 		return heats;
 	}
-
+	
+/**
+ * Sets Heat to List of Heat
+ * 
+ * @param heats
+ */
 	public static void setHeats(ArrayList<Heat> heats) {
 		RaceModelOrganizer.heats = heats;
 	}
 
+	/**
+	 * Returns rounds
+	 * 
+	 * @return
+	 */
 	public static ArrayList<Round> getRounds() {
 		return rounds;
 	}
 
+	/**
+	 * Sets rounds to List of Round
+	 * 
+	 * @param rounds
+	 */
 	public static void setRounds(ArrayList<Round> rounds) {
 		RaceModelOrganizer.rounds = rounds;
 	}
-
+/**
+ * Returns pilot list
+ * 
+ * @return
+ */
 	public static ArrayList<Pilots> getPilotGeneralPilotList() {
 		return pilotGeneralPilotList;
 	}
 
+	/**
+	 * Sets pilot to list of Pilot
+	 * 
+	 * @param pilotGeneralPilotList
+	 */
 	public static void setPilotGeneralPilotList(ArrayList<Pilots> pilotGeneralPilotList) {
 		RaceModelOrganizer.pilotGeneralPilotList = pilotGeneralPilotList;
 	}
 
+	/**
+	 * Returns channel List BandA
+	 * 
+	 * @return
+	 */
 	public static ArrayList<Channel> getChannelListBandA() {
 		return channelListBandA;
 	}
 
+	/**
+	 * Sets channel List BandA to list of Channel
+	 * 
+	 * @param channelListBandA
+	 */
 	public static void setChannelListBandA(ArrayList<Channel> channelListBandA) {
 		RaceModelOrganizer.channelListBandA = channelListBandA;
 	}
 
+	/**
+	 * Returns channel List BandB
+	 * 
+	 * @return
+	 */
 	public static ArrayList<Channel> getChannelListBandB() {
 		return channelListBandB;
 	}
-
+	
+	/**
+	 * Sets channel List BandB to list of Channel
+	 * 
+	 * @param channelListBandB
+	 */
 	public static void setChannelListBandB(ArrayList<Channel> channelListBandB) {
 		RaceModelOrganizer.channelListBandB = channelListBandB;
 	}
-
+	
+	/**
+	 * Returns channel List BandE
+	 * 
+	 * @return
+	 */
 	public static ArrayList<Channel> getChannelListBandE() {
 		return channelListBandE;
 	}
 
+	/**
+	 * Sets channel List BandE to list of Channel
+	 * 
+	 * @param channelListBandE
+	 */
 	public static void setChannelListBandE(ArrayList<Channel> channelListBandE) {
 		RaceModelOrganizer.channelListBandE = channelListBandE;
 	}
 
+	/**
+	 * Returns channel List BandF
+	 * 
+	 * @return
+	 */
 	public static ArrayList<Channel> getChannelListBandF() {
 		return channelListBandF;
 	}
 
+	/**
+	 * Sets channel List BandF to list of Channel
+	 * 
+	 * @param channelListBandF
+	 */
 	public static void setChannelListBandF(ArrayList<Channel> channelListBandF) {
 		RaceModelOrganizer.channelListBandF = channelListBandF;
 	}
 
+	/**
+	 * Returns channel List BandR
+	 * 
+	 * @return
+	 */
 	public static ArrayList<Channel> getChannelListBandR() {
 		return channelListBandR;
 	}
 
+	/**
+	 * Sets channel List BandR to list of Channel
+	 * 
+	 * @param channelListBandR
+	 */
 	public static void setChannelListBandR(ArrayList<Channel> channelListBandR) {
 		RaceModelOrganizer.channelListBandR = channelListBandR;
 	}
 
+	/**
+	 * Return new Heat
+	 * 
+	 * @return
+	 */
 	public Round getNewHeat() {
 		return newHeat;
 	}
 
+	/**
+	 * Set new Heat
+	 * 
+	 * @param newHeat
+	 */
 	public void setNewHeat(Round newHeat) {
 		this.newHeat = newHeat;
 	}
 
+	/**
+	 * Return number of Pilots per Heat 
+	 * 
+	 * @return
+	 */
 	public static int getNumberOfPilotsPerHeat() {
 		return numberOfPilotsPerHeat;
 	}
 
+	/**
+	 * Set number of Pilots per Heat
+	 * 
+	 * @param numberOfPilotsPerHeat
+	 */
 	public static void setNumberOfPilotsPerHeat(int numberOfPilotsPerHeat) {
 		RaceModelOrganizer.numberOfPilotsPerHeat = numberOfPilotsPerHeat;
 	}
 
+	/**
+	 * Set pilot heat list to List of Pilots
+	 * 
+	 * @param pilotHeatList
+	 */
 	public void setPilotHeatList(ArrayList<Pilots> pilotHeatList) {
 		RaceModelOrganizer.pilotGeneralPilotList = pilotHeatList;
 	}
 
+	/**
+	 * Return number of rounds
+	 * 
+	 * @return
+	 */
 	public int getRoundNumber() {
 		return roundNumber;
 	}
 
+	/**
+	 * Set number of rounds
+	 * 
+	 * @param roundNumber
+	 */
 	public void setRoundNumber(int roundNumber) {
 		RaceModelOrganizer.roundNumber = roundNumber;
 	}
 
+	/**
+	 * Return number of Heat
+	 * 
+	 * @return
+	 */
 	public int getHeatNumber() {
 		return heatNumber;
 	}
 
+	/**
+	 * Set number of Heat
+	 * 
+	 * @param heatNumber
+	 */
 	public void setHeatNumber(int heatNumber) {
 		RaceModelOrganizer.heatNumber = heatNumber;
 	}

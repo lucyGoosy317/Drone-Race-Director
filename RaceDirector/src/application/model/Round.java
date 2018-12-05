@@ -15,6 +15,11 @@ public class Round {
 	
 	
 	//************Constructor*******************
+	/**
+	 * Creates Round object with a name and list of Heat objects
+	 * 
+	 * @param roundName
+	 */
 	public Round(String roundName) {
 		this.roundName=roundName;
 		heat=new ArrayList<Heat>();
