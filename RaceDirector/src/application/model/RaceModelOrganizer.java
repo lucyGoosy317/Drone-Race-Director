@@ -375,10 +375,14 @@ public class RaceModelOrganizer {
 
 	}
 	
-	
-	//This method is a general method that will allow a new
-	//pilot to be created from the enter pilot controller which
-	//then will add the pilot to the general pilot array list
+	/**
+	 * method that will allow a new pilot to be created from 
+	 * This method is a general the enter pilot controller which 
+	 * then will add the pilot to the general pilot array list
+	 * 
+	 * @param pilotName
+	 * @param pilotChannel
+	 */
 	public static void createNewPilot(String pilotName, Channel pilotChannel) {
 		Pilots newPilot = null;
 		
