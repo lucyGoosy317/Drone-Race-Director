@@ -5,8 +5,10 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
+ * Represents a Heat populated with pilots entered manually or from data file
  * 
  * @author Luziano Reyna vtk064
+ * @author James K Williams (mft520)
  *
  */
 public class Heat  {
@@ -50,7 +52,11 @@ public class Heat  {
 	
 		
 	//**************Methods*********************
-	//will add a pilot into a heat
+	/**
+	 * Adds a pilot into a heat
+	 * 
+	 * @param heatPilot
+	 */
 	public void addPilotsToHeat(Pilots heatPilot) {
 		//check to see if the pilot is already inside a heat
 		if(PilotsInHeat.contains(heatPilot)) {
@@ -65,7 +71,11 @@ public class Heat  {
 	}
 
 	
-	//will remove a pilot from a heat
+	/**
+	 * Removes pilot from a heat
+	 * 
+	 * @param heatPilot
+	 */
 	public void removePilotsFromHeat(Pilots heatPilot) {
 		//check to see if pilot is in heat
 		if(PilotsInHeat.contains(heatPilot)) {
@@ -80,7 +90,11 @@ public class Heat  {
 		
 	}
 	
-	//
+	/**
+	 * Returns assigned pilots from heat
+	 * 
+	 * @return
+	 */
 	public String returnPilotsOfHeat() {
 		String ret=heatName+":"+"\n";
 		for(int i=0;i<PilotsInHeat.size();i++) {

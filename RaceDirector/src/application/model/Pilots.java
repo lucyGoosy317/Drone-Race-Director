@@ -3,6 +3,7 @@ package application.model;
 import java.util.ArrayList;
 
 /**
+ * Represents a Pilot that can be uploaded into heats
  * 
  * @author Luziano Reyna vtk064
  *
@@ -21,6 +22,7 @@ public class Pilots {
 	
 	//**************Constructor**************
 	/**
+	 * Constructor that creates pilot object
 	 * 
 	 * @param pilotName will accept an String value 
 	 * @param pilotChannel will accept an Channel object
@@ -51,32 +53,56 @@ public class Pilots {
 		return pilotName;
 	}
 
-
+/**
+ * Returns currentScore for pilot
+ * 
+ * @return
+ */
 	public int getCurrentScore() {
 		return currentScore;
 	}
 
-
+/**
+ * Sets currentScore for pilot
+ * 
+ * @param currentScore
+ */
 	public void setCurrentScore(int currentScore) {
 		this.currentScore = currentScore;
 	}
 
-
+/**
+ * Returns pilotPlace for pilot
+ * 
+ * @return
+ */
 	public int getPilotPlace() {
 		return pilotPlace;
 	}
 
-
+/**
+ * Sets pilotPlace for pilot
+ * 
+ * @param pilotPlace
+ */
 	public void setPilotPlace(int pilotPlace) {
 		this.pilotPlace = pilotPlace;
 	}
 
-
+/**
+ * Returns score total for pilot
+ * 
+ * @return
+ */
 	public int getTotal() {
 		return Total;
 	}
 
-
+/**
+ * Sets score total for pilot
+ * 
+ * @param total
+ */
 	public void setTotal(int total) {
 		Total = total;
 	}
@@ -110,12 +136,20 @@ public class Pilots {
 		this.pilotChannel = pilotChannel;
 	}
 
-
+/**
+ * Returns pilot's score from collection
+ * 
+ * @return
+ */
 	public ArrayList<Integer> getPilotsScore() {
 		return pilotsScore;
 	}
 
-
+/**
+ * Sets pilot's score to collection
+ * 
+ * @param pilotsScore
+ */
 	public void setPilotsScore(ArrayList<Integer> pilotsScore) {
 		this.pilotsScore = pilotsScore;
 	}

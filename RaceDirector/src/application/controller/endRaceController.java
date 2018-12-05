@@ -1,5 +1,12 @@
 package application.controller;
 
+/**
+ * The endRaceController Class saves final race results to data file
+ * 
+ * @author Luziano Reyna vtk064
+ * 
+ */
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -24,7 +31,11 @@ public class endRaceController implements Initializable {
     private Label pilotFinalResult;
     
     
-    
+    /**
+     * Save event to file 
+     * 
+     * @param event
+     */
     @FXML
     void save(ActionEvent event) {
     	FileChooser fileChooser= new FileChooser();
@@ -47,7 +58,12 @@ public class endRaceController implements Initializable {
     	
 
     
-    
+    /**
+     * Save content to file
+     * 
+     * @param content
+     * @param file
+     */
     private void saveFile(String content, File file) {
     	try {
     		FileWriter fileWriter;
@@ -61,6 +77,10 @@ public class endRaceController implements Initializable {
 		}
     }
 
+    /**
+     * Called to initialize a controller after its root element has been completely processed.
+     * 
+     */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub

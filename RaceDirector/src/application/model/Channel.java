@@ -1,8 +1,11 @@
 package application.model;
 
 /**
+ * Represents a Channel for pilots to be assigned during races. Channels
+ * have have a unique band, number, and frequency
  * 
  * @author Luziano Reyna vtk064
+ * @author James K Williams (mft520)
  *
  */
 
@@ -29,7 +32,11 @@ public class Channel {
 	
 	
 	
-	
+	/**
+	 * Returns channelNumber 
+	 * 
+	 * @return
+	 */
 	public String getChannelNumber() {
 		return channelNumber;
 	}
@@ -37,7 +44,11 @@ public class Channel {
 
 
 
-
+/**
+ * Sets channelNumber
+ * 
+ * @param channelNumber
+ */
 	public void setChannelNumber(String channelNumber) {
 		this.channelNumber = channelNumber;
 	}

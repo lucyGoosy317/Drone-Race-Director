@@ -1,5 +1,11 @@
 package application.controller;
 
+/**
+ * The RaceOffController class Represents a race-off between pilots who have tied to determine ranking
+ * 
+ * @author Luziano Reyna vtk064
+ *
+ */
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -40,13 +46,22 @@ public class raceOffController implements Initializable{
     private Button swapButton;
     
     ObservableList<Pilots> PilotList=FXCollections.observableArrayList(RaceModelOrganizer.getPilotGeneralPilotList());
-
+/**
+ * Registers event that allows you to swap pilots 
+ * 
+ * @param event
+ */
     @FXML
     void swapPilots(ActionEvent event) {
     	RaceModelOrganizer.swapPilots(pilotSelectionComboBox1.getValue(), pilotSelectionComboBox2.getValue());
     	pilotsDisplay.setText(RaceModelOrganizer.displayAllPilots());
     }
-
+/**
+ * Registers event that switches scenes to display end results
+ * in "endRaceView.fxml" view
+ * 
+ * @param event
+ */
     @FXML
     void goToEndResults(ActionEvent event) {
 
@@ -64,6 +79,10 @@ public class raceOffController implements Initializable{
 		}
     }
 
+    /**
+     * Called to initialize a controller after its root element has been completely processed.
+     * 
+     */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		pilotSelectionComboBox1.setPromptText("Swap Pilot");

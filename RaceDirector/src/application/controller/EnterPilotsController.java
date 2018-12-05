@@ -1,5 +1,14 @@
 package application.controller;
 
+/**
+ * Uploads pilot with designated band choose by user 
+ * into data list, entering pilot into the race.
+ * 
+ * @author Luziano Reyna vtk064
+ * @author james k williams (mft520)
+ * 
+ */
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -66,7 +75,11 @@ public class EnterPilotsController  implements Initializable, EventHandler<Event
     ObservableList<Channel> BandR=FXCollections.observableArrayList(RaceModelOrganizer.getChannelListBandR());
     
     
-
+/**
+ * Returns user back t main menu, "RaceStart.fxml" view
+ * 
+ * @param event
+ */
     @FXML
     void loadHome(ActionEvent event) {
 
@@ -84,7 +97,11 @@ public class EnterPilotsController  implements Initializable, EventHandler<Event
     }
 
    
-  
+  /**
+   * Uploads list of designated frequencies from selected BandA
+   * 
+   * @param event
+   */
     @FXML
     void bandAFillComboBox(ActionEvent event) {
     	bandARadioButton.setToggleGroup(group);
@@ -92,7 +109,12 @@ public class EnterPilotsController  implements Initializable, EventHandler<Event
     	bandARadioButton.requestFocus();
     	ChannelsComboBox.setItems(BandA);
     }
-
+    
+    /**
+     * Uploads list of designated frequencies from selected BandB
+     * 
+     * @param event
+     */
     @FXML
     void bandBFillComboBox(ActionEvent event) {
     	bandBRadioButton.setToggleGroup(group);
@@ -101,6 +123,11 @@ public class EnterPilotsController  implements Initializable, EventHandler<Event
     	ChannelsComboBox.setItems(BandB);
     }
 
+    /**
+     * Uploads list of designated frequencies from selected BandE
+     * 
+     * @param event
+     */
     @FXML
     void bandEFillComboBox(ActionEvent event) {
     	bandERadioButton.setToggleGroup(group);
@@ -109,6 +136,11 @@ public class EnterPilotsController  implements Initializable, EventHandler<Event
     	ChannelsComboBox.setItems(BandE);
     }
 
+    /**
+     * Uploads list of designated frequencies from selected BandF
+     * 
+     * @param event
+     */
     @FXML
     void bandFFillComboBox(ActionEvent event) {
     	bandFRadioButton.setToggleGroup(group);
@@ -117,6 +149,11 @@ public class EnterPilotsController  implements Initializable, EventHandler<Event
     	ChannelsComboBox.setItems(BandF);
     }
 
+    /**
+     * Uploads list of designated frequencies from selected BandR
+     * 
+     * @param event
+     */
     @FXML
     void bandRFillComboBox(ActionEvent event) {
     	bandRRadioButton.setToggleGroup(group);
@@ -126,14 +163,21 @@ public class EnterPilotsController  implements Initializable, EventHandler<Event
     }
 
 
-
+/**
+ * Initializes ChannelsComboBox in order to be populated with frequency 
+ * upon band selection
+ * 
+ */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		ChannelsComboBox.setPromptText("Select Frequency");
 		
 	}
 
-
+/**
+ * Registers event that prompt user for pilot name and channel selection
+ * displays error message to user if not completed
+ */
 	@Override
 	public void handle(Event event) {
 		String pilotName=pilotNameTextField.getText();
