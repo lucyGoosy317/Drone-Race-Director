@@ -13,7 +13,8 @@ import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 /**
- * 
+ * RaceModelOrganizer allows the user to organize the race, designating channels to pilots, entering
+ * pilots into heats and entering number of rounds in the race.
  * 
  * @author Luziano Reyna vtk064
  *
