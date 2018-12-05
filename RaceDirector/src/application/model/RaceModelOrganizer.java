@@ -14,6 +14,7 @@ import javax.swing.JOptionPane;
 
 /**
  * 
+ * 
  * @author Luziano Reyna vtk064
  *
  */
@@ -163,9 +164,13 @@ public class RaceModelOrganizer {
 
 	// ******************Methods*******************
 
-	// Loading channels from the given .csv file, Which is being initialized in
-	// menuStartController
-	//MenuStartController
+	/**
+	 * Loading channels from the given .csv file, Which is being initialized in
+	 * menuStartController
+	 * MenuStartController
+	 * 
+	 * @param channelFileName
+	 */
 	public void loadChannels(String channelFileName) {
 		String fileName = channelFileName;
 		File file = new File(fileName);
@@ -203,9 +208,12 @@ public class RaceModelOrganizer {
 	}
 
 	
-	// Load pilots from .csv File in custom format, user must see read me to utilize
-	// this feature
-	//RaceStartController
+	/**
+	 * Load pilots from .csv File in custom format, user must see read me to utilize
+	 * this feature RaceStartController
+	 * 
+	 * @param file
+	 */
 	public static void loadFileFromDesktop(File file) {
 
 		try {
@@ -229,14 +237,22 @@ public class RaceModelOrganizer {
 		}
 	}
 
-	// add more rounds
+	/**
+	 * Adds more rounds to race
+	 * 
+	 * @param newRound
+	 */
 	public void addRounds(Round newRound) {
 		rounds.add(newRound);
 
 	}
 
-	// Creating Rounds inside the Race Configure wizard
-	//RaceConfigureController
+	/**
+	 * Creates Rounds inside the Race Configure wizard RaceConfigureController
+	 * 
+	 * @param numberOfRounds
+	 * @return
+	 */
 	public static boolean createRounds(String numberOfRounds) {
 		boolean check = false;
 		// remove all rounds if configured is accessed again
@@ -270,8 +286,12 @@ public class RaceModelOrganizer {
 		return check;
 	}
 
-	// Creating Heats inside the Race Configure wizard
-	//RaceConfigureController
+	/**
+	 * Creates Heats inside the Race Configure wizard RaceConfigureController
+	 * 
+	 * @param numberOfHeats
+	 * @return
+	 */
 	public static boolean createHeats(String numberOfHeats) {
 		boolean check = false;
 		// Remove all heats if accessed again by the user
@@ -304,10 +324,13 @@ public class RaceModelOrganizer {
 
 	}
 
-	// Pilots will be select and the heat, then user will enter button. Will accept
-	// a pilot object and heat object and load
-	// into all rounds
-	//RaceStartConfigureLoadHeats
+	/**
+	 * Pilots will be select and the heat, then user will enter button. Will accept 
+	 * a pilot object and heat object and load into all round RaceStartConfigureLoadHeats
+	 *  
+	 * @param selectedPilot
+	 * @param selectedHeat
+	 */
 	public static void loadPilotsIntoHeats(Pilots selectedPilot, Heat selectedHeat) {
 		// add the pilot with the selected heat given from the ComboBox
 		boolean check=false;
@@ -345,10 +368,12 @@ public class RaceModelOrganizer {
 		
 	}
 	
-	// Pilots will be select and the heat, then user will enter button. Will accept
-	// a pilot object and heat object and remove
-	// from all rounds
-	//RaceStartConfigureLoadHeats
+	/** Pilots will be select and the heat, then user will enter button. Will accept
+	 * a pilot object and heat object and remove from all rounds RaceStartConfigureLoadHeats
+	 * 
+	 * @param selectedPilot
+	 * @param selectedHeat
+	 */
 	public static void removePilotsFromHeats(Pilots selectedPilot, Heat selectedHeat) {
 		//remove the pilot with the select heat given from the ComboBox
 		selectedHeat.removePilotsFromHeat(selectedPilot);
@@ -356,7 +381,13 @@ public class RaceModelOrganizer {
 		
 	}
 	
-	//check to enterPilots
+	/**
+	 * check to enterPilots
+	 * 
+	 * @param selectedPilot
+	 * @param selectedHeat
+	 * @return
+	 */
 	public static boolean checkPilotsAndHeats(Pilots selectedPilot, Heat selectedHeat) {
 		boolean check=false;
 		if(selectedPilot==null && selectedHeat==null) {
@@ -414,8 +445,11 @@ public class RaceModelOrganizer {
 		}
 			}
 
-	//will display the first heat of the current round
-	//HeatController
+	/**
+	 * Displays the first heat of the current round HeatController
+	 * 
+	 * @return
+	 */
 	public static String displayFirstHeat() {
 		String currentHeat="";
 		int tempHeatNum=heatNumber;
@@ -432,9 +466,10 @@ public class RaceModelOrganizer {
 		
 	}
 	
-	//will display the next heat and stop if the value is higher than
-	//heat size
-	//HeatController
+	/**
+	 * Display the next heat and stop if the value is higher than heat size HeatController
+	 * 
+	 */
 	public static String nextHeat() {
 		String nextHeat="";
 		
@@ -466,8 +501,12 @@ public class RaceModelOrganizer {
 	
 	
 	
-	//Will display the current pilots inside the comboBox to allow user to select a pilot from the heat
-	//HeatController 
+	/**
+	 * Displays the current pilots inside the comboBox to allow user to select a 
+	 * pilot from the heat HeatController 
+	 * 
+	 * @return
+	 */
 	public static ArrayList<Pilots> heatComboBoxDisplay() {
 		ArrayList <Pilots> tempArrayListHeat = new ArrayList<Pilots>();
 		System.out.println("Heat num is: "+heatNum);
@@ -488,8 +527,11 @@ public class RaceModelOrganizer {
 		return tempArrayListHeat;
 	}
 	
-	//Will display the current heat inside the heat display label
-	//Heat Controller
+	/**
+	 * Displays the current heat inside the heat display label Heat Controller
+	 * 
+	 * @return
+	 */
 	public static String heatLabelDisplayChanger() {
 		String labelChanger="";
 		System.out.println("Heat num is: "+heatNum);
@@ -503,6 +545,12 @@ public class RaceModelOrganizer {
 		return labelChanger;
 	}
 	
+	/**
+	 * Saves the current score for selected Pilots
+	 * 
+	 * @param selectedPilot
+	 * @param score
+	 */
 	public static void saveCurrentScore(Pilots selectedPilot,String score) {
 		int pilotScore=Integer.parseInt(score);
 		//first assign score to currentScore to this pilot
@@ -520,7 +568,12 @@ public class RaceModelOrganizer {
 		
 	}
 	
-	
+	/**
+	 * Removes score for selected pilots
+	 * 
+	 * @param selectedPilot
+	 * @param score
+	 */
 	public static void removeScore(Pilots selectedPilot, String score) {
 		int pilotScore=Integer.parseInt(score);
 		//show the current score
@@ -543,7 +596,13 @@ public class RaceModelOrganizer {
 			}
 		}
 	}
-	//check pilot score
+	/**
+	 * Checks pilot score
+	 * 
+	 * @param selectedPilot
+	 * @param score
+	 * @return
+	 */
 	public static boolean checkPilotAndScore(Pilots selectedPilot, String score) {
 		boolean check=false;
 		
@@ -565,8 +624,9 @@ public class RaceModelOrganizer {
 	
 	
 	
-	//Will zero out heatNum and helperNum 
-	//HeatController
+	/**
+	 * Will zero out heatNum and helperNum HeatController
+	 */
 	public static void zeroOutNum() {
 		heatNum=0;
 		helperNum=0;
@@ -574,8 +634,12 @@ public class RaceModelOrganizer {
 	}
 	
 	
-	//This method will be called several times to show the current round's heat
-	//roundController
+	/**
+	 * This method will be called several times to show the current round's heat roundController
+	 * 
+	 * @param roundNumber
+	 * @return
+	 */
 	public static String displayRoundHeat(int roundNumber) {
 		
 		String currentRound=rounds.get(roundNumber).roundName+"\n";
@@ -590,8 +654,11 @@ public class RaceModelOrganizer {
 		return currentRound;
 	}
 	
-	// change back to the previous round
-	//roundController
+	/**
+	 * Changes back to the previous round roundController
+	 * 
+	 * @return
+	 */
 	public static String previousRound() {
 		String previousRound="";
 		
@@ -610,8 +677,12 @@ public class RaceModelOrganizer {
 		return previousRound;
 	}
 
-	// change back to the next round
-	//roundController
+	/**
+	 * Changes back to the next round
+	 * roundController
+	 * 
+	 * @return
+	 */
 	public static String nextRound() {
 		String nextRound="";
 		
@@ -630,9 +701,10 @@ public class RaceModelOrganizer {
 	}
 
 	
-	//Updates the label of RoundController to show the user which 
-	//round they are on
-	////roundController
+	/**
+	 * Updates the label of RoundController to show the user which round they are on roundController
+	 * @return
+	 */
 	public static String roundLabelUpdater() {
 		int tempRoundNumber=roundNumber+1;
 		String tempRoundLabelUpdate="Round: "+tempRoundNumber;
@@ -641,9 +713,12 @@ public class RaceModelOrganizer {
 	}
 	
 	
-	//Will be used to initalize the first round inside the round Controller
-	//which will show the most current round, even if the user goes home
-	////roundController
+	/**
+	 * Will be used to initalize the first round inside the round Controller
+	 * which will show the most current round, even if the user goes home roundController
+	 * 
+	 * @return
+	 */
 	public static String currentRound() {
 		String currentRound=displayRoundHeat(roundNumber);
 		
@@ -651,8 +726,11 @@ public class RaceModelOrganizer {
 	}
 	
 	
-	//Loads heats into the rounds after the user has assigned their pilots to the heats
-	//RaceStartConfigureLoadHeatsController
+	/**
+	 * Loads heats into the rounds after the user has assigned their pilots to the heats
+	 * RaceStartConfigureLoadHeatsController
+	 * 
+	 */
 	public static void loadHeatsIntoRounds() {
 		
 		for(int i=0;i<rounds.size();i++) { //go through the round get round
@@ -681,9 +759,13 @@ public class RaceModelOrganizer {
 		
 	}
 	
-	//This Method will be used during enter pilots to update the label to show the
-	//current heat
-	//RaceStartConfigureLoadHeatsController
+	/**
+	 * This Method will be used during enter pilots to update the label to show the current heat
+	 * RaceStartConfigureLoadHeatsController
+	 * 
+	 * @param selectedHeat
+	 * @return
+	 */
 	public static String displayCurrentHeat(Heat selectedHeat) {
 			String ret=selectedHeat.getHeatName()+":"+"\n";
 			for(int i=0;i<selectedHeat.PilotsInHeat.size();i++) {
@@ -694,7 +776,12 @@ public class RaceModelOrganizer {
 		}
 	
 	
-	//swap Pilot Places
+	/**
+	 * Swap Pilot Places
+	 * 
+	 * @param selectedPilot1
+	 * @param selectedPilot2
+	 */
 	public static void swapPilots(Pilots selectedPilot1, Pilots selectedPilot2) {
 		int indexForSelectedPilot1=0;
 		int indexForSelectedPilot2=0;
@@ -711,6 +798,11 @@ public class RaceModelOrganizer {
 		
 	}
 	
+	/**
+	 * Displays all pilots and their score
+	 * 
+	 * @return
+	 */
 	public static String displayAllPilots() {
 		String Pilots="";
 		for(int i=0;i<pilotGeneralPilotList.size();i++) {
@@ -721,7 +813,12 @@ public class RaceModelOrganizer {
 		return Pilots;
 	}
 	
-	//check for raceOff
+	/**
+	 * Check to see if any pilots have same score which means a race off is necessary to determine
+	 * rank
+	 * 
+	 * @return
+	 */
 	public static boolean checkRaceOffs() {
 		boolean check=false;
 		//boolean flag=true;
@@ -746,7 +843,11 @@ public class RaceModelOrganizer {
 	}
 	
 	
-	//This Method will be called to Sort the pilots in Round Controller, when the user wants to end the race
+	/**
+	 * This Method will be called to Sort the pilots in Round Controller, 
+	 * when the user wants to end the race
+	 * 
+	 */
 	public static void sortPilots() {
 		int i;
 		
@@ -778,7 +879,11 @@ public class RaceModelOrganizer {
 	}
 	
 	
-	//Check to see if rounds are empty
+	/**
+	 * Checks to see if rounds are empty
+	 * 
+	 * @return
+	 */
 	public static boolean checkRounds() {
 		boolean check=false;
 		if(rounds.isEmpty()) {
@@ -796,6 +901,11 @@ public class RaceModelOrganizer {
 
 	
 	//************************************Save method used in end ********************************************************
+	/**
+	 * Saves the pilots score to data file
+	 * 
+	 * @param pilotResults
+	 */
 	public static void save(String pilotResults) {
 		String userFile="data/results.csv";
 		

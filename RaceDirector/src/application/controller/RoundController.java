@@ -1,7 +1,8 @@
 package application.controller;
 
 /**
- * 
+ * RoundController allows user to control the current round which they can start/end the race,
+ * access the previous or next round which update the view
  * 
  * @author Luziano Reyna vtk064
  * 
