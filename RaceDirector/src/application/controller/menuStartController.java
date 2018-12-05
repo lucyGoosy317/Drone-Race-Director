@@ -1,5 +1,13 @@
 package application.controller;
 
+/**
+ * The menuStartController is the first view of the DroneRaceDirector application
+ * and displays a Start button, an event when clicked displays more options.
+ * 
+ * @author Luziano Reyna vtk064
+ * 
+ */
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -17,6 +25,11 @@ public class menuStartController implements Initializable {
 
 	 public  RaceModelOrganizer raceOrganizer=new RaceModelOrganizer();
 
+	 /**
+	  * Registers an event that displays "RaceStart.fxml" view
+	  * 
+	  * @param event
+	  */
     @FXML
     void handle(ActionEvent event) {
 
@@ -37,6 +50,10 @@ public class menuStartController implements Initializable {
 
     }
 
+    /**
+     * Loads data "channelList.csv" for usage in the application
+     * 
+     */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		raceOrganizer.loadChannels("data/channelList.csv");
