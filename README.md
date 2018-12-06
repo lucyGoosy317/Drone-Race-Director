@@ -89,7 +89,7 @@ have selected your band, use the drop down menu to select your channel freq.
   save your file.
 - Note: If you have pilots enter the race but did not be selected into a heat, you will be taken to the
 raceOff view. These pilots will show up on the end results but will have a total score of zero
--Once your race is completed, you can now close the application by clicking the x at the top right of the 
+- Once your race is completed, you can now close the application by clicking the x at the top right of the 
  application and your all done.
 
 
