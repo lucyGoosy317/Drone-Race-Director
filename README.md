@@ -19,6 +19,10 @@ Any bugs and fixes can be sent to:
 
 luziano.reyna.jr@gmail.com
 
+# Demo Video
+Here you can find a demo of the Program
+https://youtu.be/P8zcO8hRvC8
+
 # Program Function
 - Serves as an organizer tool for drone race director to host a race from start to finish
 - Pilots can be preloaded or entered manually
@@ -31,6 +35,7 @@ luziano.reyna.jr@gmail.com
 - Mac OS will crash when pilots are loaded from the showDialog
 
 # Before you Start the Program
+### Creating a Race Roster
 - If you know who will be attending the race, create an excel spread sheet and save it as a .csv
   Format your spread sheet to this style: PilotName, Band, channel number, channel frequency
 ![pilotrosterexample2](https://user-images.githubusercontent.com/36064215/49550677-0960b500-f8b2-11e8-810c-9a0b2c3a5c5e.jpg)
@@ -40,8 +45,14 @@ luziano.reyna.jr@gmail.com
 ## Race Setup:
 - Once the Program has launched, click the start button which will bring you to the menu selection
 - Inside the Menu Selection, if you have created your spread sheet, click load pilots to load your known pilots
-- If you have any pilots that show up late to the race you can also enter them manually
 - Once you have all your pilots entered, click the configure tab
+### Enter Pilots manually:
+- If you have any pilots that show up late to the race you can also enter them manually
+- Enter the pilot name, then with the radio buttons select the band(A,B,....), After you 
+have selected your band, use the drop down menu to select your channel freq.
+- Once You have all your items entered, click enter pilot.
+- if you have another pilot to enter, repeat the process
+- Once you have enter all the pilots need, click home.
 ## Race Configuration:
 - Inside configure you will choose the amount rounds, heats, and place pilots into heats
 - Enter the amount of rounds in
@@ -62,7 +73,7 @@ luziano.reyna.jr@gmail.com
 - There is a timer, which the race director can choose to use or not. 
 - Scores can be placed or removed any time during the race.
 - Once all the heats have been completed, click back to round menu. 
-- If Scores are to be added or removed, be sure to go back to the round and heat needed
+- If Scores are to be added or removed. To add, ensure you are in correct round and enter the score. To remove a score, simply enter the number of the desired score and click remove. During this process be sure to select the pilot first.
 #### Next Round:
 - If you are completely done with the current round and the scores of this round appear correctly, click next round
 - Repeat following steps provided in Heat View, untill all rounds are complete
