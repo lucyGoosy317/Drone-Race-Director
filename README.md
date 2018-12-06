@@ -1,18 +1,5 @@
 # DroneRaceDirector
 Team Name: TRY-CATCH-US - Fall 2018
-
-
-
-# Project source can be downloaded from
-https://github.com/UTSA-CS-3443/DroneRaceDirector.git
-## Import Projects from Git to IDE
-- Copy link above link
--Inside your IDE(example from Eclipse) follow the steps below:
-- File>Import>Git>Projects from Git>Clone URI>Paste Link inside URI, select finish
-## Import Project by download
-- simply click on the link, on the far right you should see a green box with "Clone or download"
-- Click box and select Download Zip. From there import the project just any other zipped project.
-
 # Author & Contributor List
 Luziano Reyna
 
@@ -25,6 +12,32 @@ James Williams
 Any bugs and fixes can be sent to:
 
 luziano.reyna.jr@gmail.com
+
+# Project source can be downloaded from
+https://github.com/UTSA-CS-3443/DroneRaceDirector.git
+## Import Projects from Git to IDE
+- Copy link above link
+-Inside your IDE(example from Eclipse) follow the steps below:
+- File>Import>Git>Projects from Git>Clone URI>Paste Link inside URI, select finish
+## Import Project by download
+- simply click on the link, on the far right you should see a green box with "Clone or download"
+- Click box and select Download Zip. From there import the project just any other zipped project.
+
+## How to run:
+- Once you have the project imported, inside the IDE, select the project RaceDirector tab which will show the content of the program
+- Select src, then in application (package), select Main.
+- Once main is selected, right click on it, go to "Run As" and select Java Application
+
+## Find demo Files
+- There is only one demo file to be found, which is the pilot rosters csv file, use this file as a templet to create
+  your own race roster. 
+- Inside the IDE, Right click on the RaceDirector Project and go to show in, select System Explorer.
+- This will bring up the project content, scroll down till you see pilotRoster.csv.
+- Copy this to your desktop and edit as desired according to the format.
+- Note: Adding extra columns(E,F...ect) will result in the program crashing, due to improper format.
+  feel free to add as many pliots to the format as shown inside the pilotRoster.csv.
+  If the program crashes due to improper data format, simply click on the x on the top right and reformat data properly.
+  Then follow steps in how to run, to run application again
 
 # Demo Video
 Here you can find a demo of the Program
