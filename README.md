@@ -5,6 +5,13 @@ Team Name: TRY-CATCH-US - Fall 2018
 
 # Project source can be downloaded from
 https://github.com/UTSA-CS-3443/DroneRaceDirector.git
+## Import Projects from Git to IDE
+- Copy link above link
+-Inside your IDE(example from Eclipse) follow the steps below:
+- File>Import>Git>Projects from Git>Clone URI>Paste Link inside URI, select finish
+## Import Project by download
+- simply click on the link, on the far right you should see a green box with "Clone or download"
+- Click box and select Download Zip. From there import the project just any other zipped project.
 
 # Author & Contributor List
 Luziano Reyna
