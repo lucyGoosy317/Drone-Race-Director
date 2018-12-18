@@ -12,7 +12,11 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import application.Main;
+import application.model.Heat;
+import application.model.Pilots;
 import application.model.RaceModelOrganizer;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,6 +24,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 
 public class RoundController implements Initializable  {
@@ -44,6 +49,19 @@ public class RoundController implements Initializable  {
 
     @FXML
     private Button homeButton;
+    
+    @FXML
+    private ComboBox <Pilots> pilotCombox;
+    @FXML
+    private ComboBox <Heat> heatComboBox;
+    @FXML
+    private Button addPilot;
+    @FXML
+    private Button removePilot;
+    ObservableList<Pilots> PilotList=FXCollections.observableArrayList(RaceModelOrganizer.getPilotGeneralPilotList());
+    ObservableList<Heat> HeatList=FXCollections.observableArrayList(RaceModelOrganizer.getHeats());
+
+    
 
  	/**
  	 * This is not really a scene change, more of an update with the previous data on it
@@ -166,10 +184,37 @@ public class RoundController implements Initializable  {
     	
     }
     
-
+    @FXML
+    void removePilot(ActionEvent event) {
+    	if(RaceModelOrganizer.checkPilotsAndHeats(pilotCombox.getValue(), heatComboBox.getValue())==true) {
+    	RaceModelOrganizer.removePilotsFromHeats(pilotCombox.getValue(), heatComboBox.getValue());
+    	heatDisplayLabel.setText(RaceModelOrganizer.currentRound());
+		
+    	}else {
+    		
+    	}
+    }
+    @FXML
+    void addPilot(ActionEvent event) {
+    	if(RaceModelOrganizer.checkPilotsAndHeats(pilotCombox.getValue(), heatComboBox.getValue())==true) {
+    	RaceModelOrganizer.loadPilotsIntoHeats(pilotCombox.getValue(), heatComboBox.getValue());
+    	heatDisplayLabel.setText(RaceModelOrganizer.currentRound());
+		
+    	
+    	}
+    }
+    
+    
+    
+    
    
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		pilotCombox.setPromptText("Select Pilot");
+		pilotCombox.setItems(PilotList);
+		heatComboBox.setPromptText("Select Heat");
+		heatComboBox.setItems(HeatList);
+		
 		roundUpdaterLabel.setText(RaceModelOrganizer.roundLabelUpdater());
 		heatDisplayLabel.setText(RaceModelOrganizer.currentRound());
 		

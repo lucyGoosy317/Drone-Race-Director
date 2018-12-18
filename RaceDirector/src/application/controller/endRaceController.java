@@ -20,6 +20,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.stage.FileChooser;
 
 public class endRaceController implements Initializable {
@@ -29,6 +30,9 @@ public class endRaceController implements Initializable {
 
     @FXML
     private Label pilotFinalResult;
+    
+    @FXML
+    private TextArea resultsTextArea;
     
     
     /**
@@ -49,10 +53,15 @@ public class endRaceController implements Initializable {
     	File file= fileChooser.showSaveDialog(Main.stage);
     	
     	if(file !=null) {
-    		saveFile(pilotFinalResult.getText(),file);
+    		saveFile(resultsTextArea.getText(),file);
     		}
     	
     	}
+    
+    
+    
+    
+    
     	//**************save Method***********
     	//RaceModelOrganizer.save(pilotFinalResult.getText());
     	
@@ -84,7 +93,8 @@ public class endRaceController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-		pilotFinalResult.setText(RaceModelOrganizer.displayAllPilots());
+		//pilotFinalResult.setText(RaceModelOrganizer.displayAllPilots());
+		resultsTextArea.setText(RaceModelOrganizer.displayAllPilots());
 		
 	}
 

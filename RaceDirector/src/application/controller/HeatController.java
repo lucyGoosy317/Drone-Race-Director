@@ -204,6 +204,7 @@ public class HeatController implements Initializable  {
 			Main.stage.setTitle("Round Menu");
 			Main.stage.show();
 			timeline.stop();
+			
 		} catch (IOException e) {
 			
 			e.printStackTrace();
